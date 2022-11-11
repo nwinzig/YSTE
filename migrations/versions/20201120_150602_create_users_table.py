@@ -27,9 +27,16 @@ def upgrade():
     sa.Column('username', sa.String(length=40), nullable=False),
     sa.Column('email', sa.String(length=255), nullable=False),
     sa.Column('hashed_password', sa.String(length=255), nullable=False),
+    sa.Column('first_name', sa.String(length=50), nullable=False),
+    sa.Column('last_name', sa.String(length=50), nullable=False),
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email'),
-    sa.UniqueConstraint('username')
+    sa.UniqueConstraint('username'),
+    sa.Column('profile_img_url', sa.String),
+    sa.Column('gender', sa.String(length=20)),
+    sa.Column('city', sa.String(length=50)),
+    sa.Column('birthdate', sa.Date),
+    sa.Column('about', sa.String(length=255))
     )
 
     if environment == "production":
