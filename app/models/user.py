@@ -23,7 +23,7 @@ class User(db.Model, UserMixin):
 
     # relationship
     cart = db.relationship("Cart", back_populates="user", cascade="all, delete-orphan")
-    purchase = db.relationship("Purchase", back_populates="user", cascade="all, delete-orphan")
+    purchases = db.relationship("Purchase", back_populates="user", cascade="all, delete-orphan")
     shop = db.relationship("Shop", back_populates="user", cascade="all, delete-orphan")
     # user_shop_reviews = db.relationship("ShopReview", back_populates="user", cascade="all, delete-orphan")
 

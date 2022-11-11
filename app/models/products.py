@@ -6,7 +6,7 @@ class Product(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     shopId = db.Column(db.Integer, db.ForeignKey("shops.id"))
     description = db.Column(db.String(250), nullable=False)
-    price = db.Column(db.Decimal, nullable=False)
+    price = db.Column(db.Float, nullable=False)
     category = db.Column(db.String(100), nullable=False)
     stock = db.Column(db.Integer, nullable=False)
 
@@ -21,11 +21,11 @@ class ProductImage(db.Model):
     __tablename__ = "product_images"
 
     id = db.Column(db.Integer, primary_key=True)
-    productId = db.Column(db.Integer)
+    productId = db.Column(db.Integer, db.ForeignKey("products.id"))
     product_image = db.Column(db.String(50))
 
     # relationship
-    product = db.relationship("Product", back_populates="product_image")
+    products = db.relationship("Product", back_populates="product_image")
 
 
 
@@ -38,7 +38,7 @@ class ProductReview(db.Model):
     review = db.Column(db.String(100), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
     review_image = db.Column(db.String)
-    
+
 
     # relationship
     products = db.relationship("Product", back_populates="product_review")
