@@ -6,7 +6,7 @@ class Cart(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey("users.id"))
     productId = db.Column(db.Integer, db.ForeignKey("products.id"))
-    total_price = db.Column(db.Decimal)
+    total_price = db.Column(db.Float)
 
     # relationship
     user = db.relationship("User", back_populates="cart", cascade="all, delete-orphan")

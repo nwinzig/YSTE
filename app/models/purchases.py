@@ -7,8 +7,7 @@ class Purchase(db.Model):
     userId = db.Column(db.Integer, db.ForeignKey("users.id"))
     productsId = db.Column(db.Integer, db.ForeignKey("products.id"))
     purchase_date = db.Column(db.Date)
-    price = db.Column(db.Decimal)
+    price = db.Column(db.Float)
 
     # relationship
     user = db.relationship("User", back_populates="purchases")
-    
