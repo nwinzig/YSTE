@@ -9,6 +9,13 @@ class CreateProductForm(FlaskForm):
     category = SelectField('Category', choices=['Cars', 'Clothing', 'Electronics', 'Home Goods', 'miscellaneous'], validators=[DataRequired()])
     stock = IntegerField('Stock', validators=[DataRequired()])
 
+class EditProductForm(FlaskForm):
+    product_name = StringField('Name', validators=[DataRequired()])
+    description = StringField('Description', validators=[DataRequired()])
+    price = IntegerField('Price', validators=[DataRequired()])
+    category = SelectField('Category', choices=['Cars', 'Clothing', 'Electronics', 'Home Goods', 'miscellaneous'], validators=[DataRequired()])
+    stock = IntegerField('Stock', validators=[DataRequired()])
+
 
 
 class AddProductImageForm(FlaskForm):
