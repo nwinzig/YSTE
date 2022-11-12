@@ -5,6 +5,7 @@ class Product(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     shopId = db.Column(db.Integer, db.ForeignKey("shops.id"))
+    product_name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(250), nullable=False)
     price = db.Column(db.Float, nullable=False)
     category = db.Column(db.String(100), nullable=False)

@@ -6,8 +6,8 @@ class Shop(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey("users.id"))
     shop_name = db.Column(db.String(50))
-    products = db.Column(db.Integer, nullable=False)
     shop_image = db.Column(db.String)
+    # productId = db.Column(db.Integer, db.ForeignKey("products.id"))
 
     # relationship
     products = db.relationship("Product", back_populates="shop")
