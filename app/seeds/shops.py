@@ -4,13 +4,13 @@ from app.models import db, Shop, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_shops():
     demo_shop = Shop(
-        userId = 1, shop_name="Tesla",  shop_image=""
+        user_id = 1, shop_name="Tesla",  shop_image=""
     )
     marnie_shop = Shop(
-        userId = 2, shop_name="Amazon", shop_image=""
+        user_id = 2, shop_name="Amazon", shop_image=""
     )
     bobbie_shop = Shop(
-        userId = 3, shop_name="Microsoft", shop_image=""
+        user_id = 3, shop_name="Microsoft", shop_image=""
     )
     db.session.add(demo_shop)
     db.session.add(marnie_shop)

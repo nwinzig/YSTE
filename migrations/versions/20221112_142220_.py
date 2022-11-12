@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: f411d0932dd6
+Revision ID: 3fafa953b399
 Revises: 
-Create Date: 2022-11-12 13:48:55.067572
+Create Date: 2022-11-12 14:22:20.105644
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = 'f411d0932dd6'
+revision = '3fafa953b399'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -36,58 +36,58 @@ def upgrade():
     )
     op.create_table('shops',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('userId', sa.Integer(), nullable=True),
+    sa.Column('user_id', sa.Integer(), nullable=True),
     sa.Column('shop_name', sa.String(length=50), nullable=True),
     sa.Column('shop_image', sa.String(), nullable=True),
-    sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('products',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('shopId', sa.Integer(), nullable=True),
+    sa.Column('shop_id', sa.Integer(), nullable=True),
     sa.Column('product_name', sa.String(length=100), nullable=False),
     sa.Column('description', sa.String(length=250), nullable=False),
     sa.Column('price', sa.Float(), nullable=False),
     sa.Column('category', sa.String(length=100), nullable=False),
     sa.Column('stock', sa.Integer(), nullable=False),
-    sa.ForeignKeyConstraint(['shopId'], ['shops.id'], ),
+    sa.ForeignKeyConstraint(['shop_id'], ['shops.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('carts',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('userId', sa.Integer(), nullable=True),
-    sa.Column('productId', sa.Integer(), nullable=True),
+    sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('product_id', sa.Integer(), nullable=True),
     sa.Column('total_price', sa.Float(), nullable=True),
-    sa.ForeignKeyConstraint(['productId'], ['products.id'], ),
-    sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('product_images',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('productId', sa.Integer(), nullable=True),
+    sa.Column('product_id', sa.Integer(), nullable=True),
     sa.Column('product_image', sa.String(length=50), nullable=True),
-    sa.ForeignKeyConstraint(['productId'], ['products.id'], ),
+    sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('product_reviews',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('userId', sa.Integer(), nullable=True),
-    sa.Column('productId', sa.Integer(), nullable=True),
+    sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('product_id', sa.Integer(), nullable=True),
     sa.Column('review', sa.String(length=100), nullable=False),
     sa.Column('stars', sa.Integer(), nullable=False),
     sa.Column('review_image', sa.String(), nullable=True),
-    sa.ForeignKeyConstraint(['productId'], ['products.id'], ),
-    sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('purchases',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('userId', sa.Integer(), nullable=True),
-    sa.Column('productsId', sa.Integer(), nullable=True),
+    sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('product_id', sa.Integer(), nullable=True),
     sa.Column('purchase_date', sa.Date(), nullable=True),
     sa.Column('price', sa.Float(), nullable=True),
-    sa.ForeignKeyConstraint(['productsId'], ['products.id'], ),
-    sa.ForeignKeyConstraint(['userId'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     # ### end Alembic commands ###
