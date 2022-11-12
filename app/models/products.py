@@ -2,11 +2,9 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class Product(db.Model):
     __tablename__ = "products"
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    shopId = db.Column(db.Integer, db.ForeignKey("shops.id"))
+    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"))
     product_name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(250), nullable=False)
     price = db.Column(db.Float, nullable=False)
@@ -23,11 +21,9 @@ class Product(db.Model):
 class ProductImage(db.Model):
     __tablename__ = "product_images"
 
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    productId = db.Column(db.Integer, db.ForeignKey("products.id"))
+    product_id = db.Column(db.Integer, db.ForeignKey("products.id"))
     product_image = db.Column(db.String(50))
 
     # relationship
@@ -37,12 +33,10 @@ class ProductImage(db.Model):
 
 class ProductReview(db.Model):
     __tablename__ = "product_reviews"
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-    productId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    product_id = db.Column(db.Integer, db.ForeignKey("products.id"))
     review = db.Column(db.String(100), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
     review_image = db.Column(db.String)
