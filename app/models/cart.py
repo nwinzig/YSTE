@@ -9,5 +9,5 @@ class Cart(db.Model):
     total_price = db.Column(db.Float)
 
     # relationship
-    user = db.relationship("User", back_populates="cart")
+    # user = db.relationship("User", back_populates="cart")
     products = db.relationship("Product", back_populates="cart")
