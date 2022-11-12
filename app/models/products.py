@@ -41,8 +41,8 @@ class ProductReview(db.Model):
         __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    userId = db.Column(db.Integer, db.ForeignKey("users.id"))
-    productId = db.Column(db.Integer, db.ForeignKey("products.id"))
+    userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+    productId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")))
     review = db.Column(db.String(100), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
     review_image = db.Column(db.String)
