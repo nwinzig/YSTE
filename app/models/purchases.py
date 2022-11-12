@@ -1,4 +1,4 @@
-from .db import db, environment, SCHEMA, add_prefix_for_prod
+from .db import db, environment,SCHEMA, add_prefix_for_prod
 
 
 class Purchase(db.Model):
@@ -10,4 +10,4 @@ class Purchase(db.Model):
     price = db.Column(db.Float)
 
     # relationship
-    user = db.relationship("User", back_populates="purchases")
+    # user = db.relationship("User", back_populates="purchases")
