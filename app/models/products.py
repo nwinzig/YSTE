@@ -2,11 +2,9 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class Product(db.Model):
     __tablename__ = "products"
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    shopId = db.Column(db.Integer, db.ForeignKey("shops.id"))
+    shop_id = db.Column(db.Integer, db.ForeignKey("shops.id"))
     product_name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(250), nullable=False)
     price = db.Column(db.Float, nullable=False)
@@ -22,7 +20,7 @@ class Product(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'shopId': self.shopId,
+            'shop_id': self.shop_id,
             'product_name': self.product_name,
             'description': self.description,
             'price': self.price,
@@ -34,11 +32,9 @@ class Product(db.Model):
 class ProductImage(db.Model):
     __tablename__ = "product_images"
 
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    productId = db.Column(db.Integer, db.ForeignKey("products.id"))
+    product_id = db.Column(db.Integer, db.ForeignKey("products.id"))
     product_image = db.Column(db.String(50))
 
     # relationship
@@ -47,7 +43,7 @@ class ProductImage(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'productId': self.productId,
+            'product_id': self.product_id,
             'product_image': self.product_image
         }
 
@@ -55,12 +51,10 @@ class ProductImage(db.Model):
 
 class ProductReview(db.Model):
     __tablename__ = "product_reviews"
-    if environment == "production":
-        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
-    userId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
-    productId = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")))
+    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    product_id = db.Column(db.Integer, db.ForeignKey("products.id"))
     review = db.Column(db.String(100), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
     review_image = db.Column(db.String)
@@ -72,8 +66,8 @@ class ProductReview(db.Model):
     def to_dict(self):
         return {
             'id': self.id,
-            'userId': self.userId,
-            'productId': self.productId,
+            'user_id': self.user_id,
+            'product_id': self.product_id,
             'review': self.review,
             'stars': self.stars,
             'review_image': self.review_image
