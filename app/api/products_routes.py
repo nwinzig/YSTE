@@ -19,7 +19,7 @@ def index():
 
 
 #get one product
-@products_routes.route('/<int:id>')
+@products_routes.route('/<int:id>', methods=['GET'])
 def singular_Product(id):
     """get one product, to be used for product detail page """
 
@@ -38,6 +38,9 @@ def singular_Product(id):
 @products_routes.route('/createProduct', methods=['POST'])
 @login_required
 def create_Product():
+
+    """ creates and adds a new product to the database """
+
     shop_id = current_user.id
 
     form = CreateProductForm()
@@ -59,4 +62,34 @@ def create_Product():
         db.session.add(newProduct)
         db.session.commit()
         return redirect('/api/products/')
+    return {'Error': 'bad request'}
+
+
+#edit a product
+@products_routes.route('/<int:id>', methods=['PUT'])
+# @login_required
+def updateProduct(id):
+    # product = Product.query.get(id)
+    form = EditProductForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        product = Product.query.get(id)
+
+        product.product_name = form.data['product_name']
+        product.description = form.data['description']
+        product.price = form.data['price']
+        product.category = form.data['category']
+        product.stock = form.data['stock']
+
+        # product = {
+        #     'product_name': form.data['product_name'],
+        #     'description': form.data['description'],
+        #     'price': form.data['price'],
+        #     'category': form.data['category'],
+        #     'stock': form.data['stock'],
+        # }
+
+        db.session.commit()
+        return redirect(f'/api/products/{id}')
     return {'Error': 'bad request'}
