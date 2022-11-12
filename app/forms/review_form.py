@@ -10,5 +10,5 @@ class CreateReviewForm(FlaskForm):
 
 class EditReviewForm(FlaskForm):
     review = StringField('Review', validators=[DataRequired()])
-    stars = IntegerField('Stars', validators=DataRequired())
+    stars = IntegerField('Stars', validators=[DataRequired()])
     review_image = StringField('Image Url')
