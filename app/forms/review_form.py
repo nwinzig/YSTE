@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import IntegerField, StringField, FloatField, SelectField
-from wtforms.validators import DataRequired()
+from wtforms.validators import DataRequired
 
 class CreateReviewForm(FlaskForm):
     review = StringField('Review', validators=[DataRequired()])
