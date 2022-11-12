@@ -2,6 +2,8 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 
 class Product(db.Model):
     __tablename__ = "products"
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     shopId = db.Column(db.Integer, db.ForeignKey("shops.id"))
@@ -21,6 +23,9 @@ class Product(db.Model):
 class ProductImage(db.Model):
     __tablename__ = "product_images"
 
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
+
     id = db.Column(db.Integer, primary_key=True)
     productId = db.Column(db.Integer, db.ForeignKey("products.id"))
     product_image = db.Column(db.String(50))
@@ -32,6 +37,8 @@ class ProductImage(db.Model):
 
 class ProductReview(db.Model):
     __tablename__ = "product_reviews"
+    if environment == "production":
+        __table_args__ = {'schema': SCHEMA}
 
     id = db.Column(db.Integer, primary_key=True)
     userId = db.Column(db.Integer, db.ForeignKey("users.id"))
