@@ -1,6 +1,6 @@
 from flask import Blueprint, jsonify, session, request, redirect
-from app.models import Product, db, Shop
-from app.forms import CreateProductForm, EditProductForm, AddProductImageForm
+from app.models import Product, ProductReview, db, Shop
+from app.forms import CreateProductForm, EditProductForm, AddProductImageForm, CreateReviewForm
 from flask_login import current_user, login_user, logout_user, login_required
 
 products_routes = Blueprint('product', __name__)
@@ -82,14 +82,53 @@ def updateProduct(id):
         product.category = form.data['category']
         product.stock = form.data['stock']
 
-        # product = {
-        #     'product_name': form.data['product_name'],
-        #     'description': form.data['description'],
-        #     'price': form.data['price'],
-        #     'category': form.data['category'],
-        #     'stock': form.data['stock'],
-        # }
-
+    
         db.session.commit()
         return redirect(f'/api/products/{id}')
     return {'Error': 'bad request'}
+
+
+#delete a product
+@products_routes.route('/<int:id>', methods=["DELETE"])
+# @login_required
+def delete_product(id):
+    product = Product.query.get(id)
+    if product is not None:
+        db.session.delete(product)
+        db.session.commit()
+        return "Successfully Deleted"
+    return "Product not found"
+
+
+
+#get reviews of product
+@products_routes.route('/<int:id>/reviews', methods=["GET"])
+def get_reviews(id):
+    reviews = ProductReview.query.filter(ProductReview.product_id==id).all()
+    print('reviews--------', reviews)
+    new_reviews = []
+    new_reviews.extend([i.to_dict() for i in reviews])
+    print("my reviews", new_reviews)
+    return {"Reviews": new_reviews}
+
+
+
+# create reviews for product
+@products_routes.route('/<int:id>/reviews', methods=["POST"])
+# @login_required
+def create_reviews(id):
+    form = CreateReviewForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        params = {
+            'review': form.data['review'],
+            'stars': form.data['stars'],
+            'review_image': form.data['review_image'],
+            'product_id': id,
+            # 'user_id': current_user.id,
+        }
+        new_review = ProductReview(**params)
+        db.session.add(new_review)
+        db.session.commit()
+        return redirect(f'/api/products/{id}')
+    return "Not working"
