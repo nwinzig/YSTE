@@ -19,6 +19,17 @@ class Product(db.Model):
     product_image = db.relationship("ProductImage", back_populates="products", cascade="all, delete-orphan")
     product_review = db.relationship("ProductReview", back_populates="products", cascade="all, delete-orphan")
 
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'shopId': self.shopId,
+            'product_name': self.product_name,
+            'description': self.description,
+            'price': self.price,
+            'category': self.category,
+            'stock': self.stock
+        }
+
 
 class ProductImage(db.Model):
     __tablename__ = "product_images"
@@ -32,6 +43,13 @@ class ProductImage(db.Model):
 
     # relationship
     products = db.relationship("Product", back_populates="product_image")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'productId': self.productId,
+            'product_image': self.product_image
+        }
 
 
 
@@ -50,3 +68,13 @@ class ProductReview(db.Model):
 
     # relationship
     products = db.relationship("Product", back_populates="product_review")
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'userId': self.userId,
+            'productId': self.productId,
+            'review': self.review,
+            'stars': self.stars,
+            'review_image': self.review_image
+        }
