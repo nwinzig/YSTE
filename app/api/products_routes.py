@@ -82,7 +82,7 @@ def updateProduct(id):
         product.category = form.data['category']
         product.stock = form.data['stock']
 
-    
+
         db.session.commit()
         return redirect(f'/api/products/{id}')
     return {'Error': 'bad request'}
@@ -132,3 +132,16 @@ def create_reviews(id):
         db.session.commit()
         return redirect(f'/api/products/{id}')
     return "Not working"
+
+
+
+# @login_required
+@products_routes.route('/<int:id>/cart', methods=['POST'])
+def add_cart(id):
+    product = Product.query.get(id)
+    if current_user.id == Cart.user_id:
+        new_cart_Product = Cart(product)
+        db.session.add(new_cart_Product)
+        db.session.commit()
+        return redirect(f'/api/cart')
+    return 'Cant add to Cart'
