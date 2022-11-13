@@ -5,13 +5,16 @@ class Cart(db.Model):
     __tablename__ = "carts"
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    product_id = db.Column(db.Enum, db.ForeignKey("products.id"))
     total_price = db.Column(db.Float)
+    # product_id = db.Column(db.Integer, db.ForeignKey("products.id"))
 
     # relationship
     user = db.relationship("User", back_populates="cart")
-    products = db.relationship("Product", back_populates="cart")
+    # products = db.relationship("Product", back_populates="cart")
 
+    # testing join table relationship
+    # products = db.relationship("Product", secondary=cart_product, back_populates='carts')
+    cart_product = db.relationship('CartProduct', back_populates='cart')
 
     def to_dict(self):
         return {

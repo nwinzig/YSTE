@@ -4,19 +4,18 @@ from app.models import db, Cart, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_carts():
     demo_carts = Cart(
-        user_id = 1, product_id={'2'}
+        user_id = 1,
     )
     marnie_carts = Cart(
-        user_id = 2,  product_id={'3'}
+        user_id = 2,
     )
     bobbie_carts = Cart(
-        user_id = 3,  product_id={'1'},
+        user_id = 3,
     )
 
     db.session.add(demo_carts)
     db.session.add(marnie_carts)
     db.session.add(bobbie_carts)
-    bobbie_carts.product_id.add({'2'})
     db.session.commit()
 
 

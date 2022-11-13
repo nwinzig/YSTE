@@ -1,5 +1,6 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
 
+
 class Product(db.Model):
     __tablename__ = "products"
 
@@ -12,10 +13,15 @@ class Product(db.Model):
     stock = db.Column(db.Integer, nullable=False)
 
     # relationship
-    cart = db.relationship("Cart", back_populates="products", cascade="all, delete-orphan")
+    # cart = db.relationship("Cart", back_populates="products", cascade="all, delete-orphan")
     shop = db.relationship("Shop", back_populates="products")
     product_image = db.relationship("ProductImage", back_populates="products", cascade="all, delete-orphan")
     product_review = db.relationship("ProductReview", back_populates="products", cascade="all, delete-orphan")
+
+    # testing join table relationship
+    # carts = db.relationship("Cart", secondary=cart_product, back_populates='products')
+
+    cart_product = db.relationship('CartProduct', back_populates='product')
 
     def to_dict(self):
         return {

@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 2ce91d1de4a7
+Revision ID: 1d8cb9143d82
 Revises: 
-Create Date: 2022-11-13 12:39:56.331977
+Create Date: 2022-11-13 15:49:52.626668
 
 """
 from alembic import op
@@ -10,7 +10,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '2ce91d1de4a7'
+revision = '1d8cb9143d82'
 down_revision = None
 branch_labels = None
 depends_on = None
@@ -34,6 +34,13 @@ def upgrade():
     sa.UniqueConstraint('email'),
     sa.UniqueConstraint('username')
     )
+    op.create_table('carts',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('user_id', sa.Integer(), nullable=True),
+    sa.Column('total_price', sa.Float(), nullable=True),
+    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.PrimaryKeyConstraint('id')
+    )
     op.create_table('shops',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=True),
@@ -53,13 +60,12 @@ def upgrade():
     sa.ForeignKeyConstraint(['shop_id'], ['shops.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
-    op.create_table('carts',
+    op.create_table('cart_products',
     sa.Column('id', sa.Integer(), nullable=False),
-    sa.Column('user_id', sa.Integer(), nullable=True),
-    sa.Column('product_id', sa.Enum(), nullable=True),
-    sa.Column('total_price', sa.Float(), nullable=True),
+    sa.Column('cart_id', sa.Integer(), nullable=True),
+    sa.Column('product_id', sa.Integer(), nullable=True),
+    sa.ForeignKeyConstraint(['cart_id'], ['carts.id'], ),
     sa.ForeignKeyConstraint(['product_id'], ['products.id'], ),
-    sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
     sa.PrimaryKeyConstraint('id')
     )
     op.create_table('product_images',
@@ -98,8 +104,9 @@ def downgrade():
     op.drop_table('purchases')
     op.drop_table('product_reviews')
     op.drop_table('product_images')
-    op.drop_table('carts')
+    op.drop_table('cart_products')
     op.drop_table('products')
     op.drop_table('shops')
+    op.drop_table('carts')
     op.drop_table('users')
     # ### end Alembic commands ###
