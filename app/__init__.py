@@ -15,11 +15,16 @@ from .api.cart_routes import cart_routes
 from .api.search_routes import search_routes
 
 
+
+
+
+
 app = Flask(__name__, static_folder='../react-app/build', static_url_path='/')
 
 # Setup login manager
 login = LoginManager(app)
 login.login_view = 'auth.unauthorized'
+
 
 
 @login.user_loader
@@ -35,8 +40,8 @@ app.config.from_object(Config)
 app.register_blueprint(user_routes, url_prefix='/api/users')
 app.register_blueprint(auth_routes, url_prefix='/api/auth')
 app.register_blueprint(products_routes, url_prefix='/api/products')
-app.register_blueprint(review_routes, url_prefix='/api/reviews')
 app.register_blueprint(cart_routes, url_prefix='/api/cart')
+app.register_blueprint(review_routes, url_prefix='/api/reviews')
 app.register_blueprint(search_routes, url_prefix='/api/search')
 
 
