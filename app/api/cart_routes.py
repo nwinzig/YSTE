@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, session, request
+from flask import Blueprint, jsonify, session, request, redirect
 from app.models import Cart, db, CartProduct
 from flask_login import current_user, login_user, logout_user, login_required
 
@@ -19,3 +19,19 @@ def index():
     newProducts = []
     newProducts.extend([i.to_dict() for i in products])
     return {'cart': newProducts}
+
+#/api/cartproduct/id
+#/api/cart/product/productid
+# delete from cart
+@cart_routes.route('/product/<int:id>', methods=['Delete'])
+# @login_required
+def delete_from_cart(id):
+    # userId = current_user.id
+
+
+
+    product_to_delete = CartProduct.query.get(4)
+    db.session.delete(product_to_delete)
+    db.session.commit()
+
+    return redirect('/api/cart')
