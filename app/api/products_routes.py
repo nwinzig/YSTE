@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify, session, request, redirect
-from app.models import Product, ProductReview, db, Shop
+from app.models import Product, ProductReview, db, Shop, Cart, CartProduct
 from app.forms import CreateProductForm, EditProductForm, AddProductImageForm, CreateReviewForm
 from flask_login import current_user, login_user, logout_user, login_required
 
@@ -135,13 +135,22 @@ def create_reviews(id):
 
 
 
-# @login_required
+
+
+
 @products_routes.route('/<int:id>/cart', methods=['POST'])
+# @login_required
 def add_cart(id):
-    product = Product.query.get(id)
-    if current_user.id == Cart.user_id:
-        new_cart_Product = Cart(product)
-        db.session.add(new_cart_Product)
-        db.session.commit()
-        return redirect(f'/api/cart')
-    return 'Cant add to Cart'
+    current_product = Product.query.get(id)
+    current_cart = Cart.query.filter(2 == Cart.user_id).one()
+    # if current_user.id == Cart.user_id:
+    new_cart_product = {
+        'cart_id': current_cart.id,
+        'product_id': current_product.id
+
+    }
+    cart_product = CartProduct(**new_cart_product)
+    db.session.add(cart_product)
+    db.session.commit()
+    return redirect(f'/api/cart')
+    # return 'Cant add to Cart'

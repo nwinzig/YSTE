@@ -12,10 +12,14 @@ def seed_cart_product():
     bobbie_cart_product = CartProduct(
         cart_id = 3,  product_id=1
     )
+    demo_cart_product2 = CartProduct(
+        cart_id = 1, product_id = 3
+    )
 
     db.session.add(demo_cart_product)
     db.session.add(marnie_cart_product)
     db.session.add(bobbie_cart_product)
+    db.session.add(demo_cart_product2)
     db.session.commit()
 
 

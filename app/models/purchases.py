@@ -5,8 +5,8 @@ class Purchase(db.Model):
     __tablename__ = "purchases"
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    product_id = db.Column(db.Integer, db.ForeignKey("products.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+    product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")))
     purchase_date = db.Column(db.Date)
     price = db.Column(db.Float)
 

@@ -4,7 +4,7 @@ from .db import db, environment, SCHEMA, add_prefix_for_prod
 class Cart(db.Model):
     __tablename__ = "carts"
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     total_price = db.Column(db.Float)
     # product_id = db.Column(db.Integer, db.ForeignKey("products.id"))
 

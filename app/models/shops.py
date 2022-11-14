@@ -4,7 +4,7 @@ class Shop(db.Model):
     __tablename__ = "shops"
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
     shop_name = db.Column(db.String(50))
     shop_image = db.Column(db.String)
     # productId = db.Column(db.Integer, db.ForeignKey("products.id"))
