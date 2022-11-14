@@ -36,12 +36,13 @@ def singular_Product(id):
 
 #create a product
 @products_routes.route('/createProduct', methods=['POST'])
-@login_required
+# @login_required
 def create_Product():
 
     """ creates and adds a new product to the database """
 
-    shop_id = current_user.id
+    shop_id = 1
+    # shop_id = current_user.id
 
     form = CreateProductForm()
     form['csrf_token'].data = request.cookies['csrf_token']

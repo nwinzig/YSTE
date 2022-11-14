@@ -24,9 +24,9 @@ function AllProducts() {
 
     return (
         <>
-            {/* {curruser && */}
+            
             <h1>Welcome back {user?.username}!</h1>
-            {/* } */}
+            
             <div>
                 {loaded && productList.map(product => {
                     return (
