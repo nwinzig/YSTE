@@ -45,8 +45,8 @@ function App() {
         <Route path='/' exact={true} >
           <AllProducts />
         </Route>
-        <Route path='/product/:productId' exact={true}>
-          < ProductDetail />
+        <Route path='/:productId' exact={true}>
+          <ProductDetail />
         </Route>
       </Switch>
     </BrowserRouter>
