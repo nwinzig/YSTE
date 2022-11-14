@@ -137,7 +137,7 @@ def create_reviews(id):
 
 
 
-
+# add to cart
 @products_routes.route('/<int:id>/cart', methods=['POST'])
 # @login_required
 def add_cart(id):
@@ -154,3 +154,15 @@ def add_cart(id):
     db.session.commit()
     return redirect(f'/api/cart')
     # return 'Cant add to Cart'
+
+
+#filter products by category
+
+@products_routes.route('/categories', methods=["GET"])
+def load_products_by_category(category):
+    if category:
+        products = Product.query.filter(Product.category == category).all()
+        cat_products = []
+        cat_products.extend([i.to_dict() for i in products])
+        return {"products_by_category": cat_products}
+    return "Base exceptions"
