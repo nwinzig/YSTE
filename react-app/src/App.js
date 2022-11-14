@@ -46,9 +46,9 @@ function App() {
         <Route path='/' exact={true} >
           <AllProducts />
         </Route>
-        <Route exact path='/newProduct'>
+        <ProtectedRoute exact path='/newProduct'>
           <ProductForm />
-        </Route>
+        </ProtectedRoute>
         <Route path='/:productId' exact={true}>
           <ProductDetail />
         </Route>
