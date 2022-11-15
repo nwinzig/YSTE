@@ -12,6 +12,7 @@ import AllProducts from './components/SplashPage';
 import ProductDetail from './components/ProductDetail';
 import ProductForm from './components/ProductForm';
 import OwnerProducts from './components/ProductByOwner';
+import OwnerItemCard from './components/OwnerItemCard';
 
 function App() {
   const [loaded, setLoaded] = useState(false);

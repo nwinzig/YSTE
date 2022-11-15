@@ -3,6 +3,7 @@ const LOAD_PRODUCTS = 'products/LOAD_PRODUCTS'
 const LOAD_SINGLE_PRODUCT = 'products/LOAD_SINGLE_PRODUCT'
 const CREATE_PRODUCT = 'products/CREATE_PRODUCT'
 const LOAD_USER_PRODUCTS = 'products/LOAD_USER_PRODUCTS'
+const DELETE_PRODUCT = 'products/DELETE_PRODUCT'
 
 
 // Action Creators
@@ -31,6 +32,13 @@ const loadByUser = (products) => {
     return {
         'type': LOAD_USER_PRODUCTS,
         products
+    }
+}
+
+const deleteProduct = (deleted) => {
+    return {
+        'type': DELETE_PRODUCT,
+        deleted
     }
 }
 
@@ -83,6 +91,22 @@ export const getUserProducts = (userId) => async dispatch => {
     }
 }
 
+export const deleteItem = (productId) => async dispatch => {
+    console.log('dis pi', productId)
+    const response = await fetch(`api/products/${productId}`, {
+        method: 'DELETE'
+    })
+    console.log('my delete thunk is called upon')
+
+    if (response.ok) {
+        console.log('im going to delete')
+        const deleted = await response.json()
+        console.log('blah blah', deleted)
+        dispatch(deleteProduct(deleted))
+        return deleted
+    }
+}
+
 
 // Initial State
 let initialState = {}
@@ -105,6 +129,12 @@ const productsReducer = (state = initialState, action) => {
         }
         case LOAD_USER_PRODUCTS: {
             newState = { ...action.products }
+            return newState
+        }
+        case DELETE_PRODUCT: {
+            newState = { ...state }
+            delete newState[action.deleted]
+            console.log('delete in me reducer')
             return newState
         }
         default:
