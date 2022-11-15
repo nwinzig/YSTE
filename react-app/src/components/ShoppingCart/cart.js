@@ -15,7 +15,7 @@ function CartComponent(){
     console.log('this is cart-------->', cart)
 
     useEffect(() => {
-        dispatch(getCurrentCart()).then(setLoaded(true))
+    dispatch(getCurrentCart())
     }, [dispatch])
 
 

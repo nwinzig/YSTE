@@ -27,7 +27,7 @@ const createProduct = (newProduct) => {
 }
 // Thunks
 export const getAllProducts = () => async dispatch => {
-    const response = await fetch(`api/products`)
+    const response = await fetch(`/api/products`)
 
     if (response.ok) {
         const products = await response.json()
@@ -38,7 +38,7 @@ export const getAllProducts = () => async dispatch => {
 }
 
 export const getSingleProduct = (productId) => async dispatch => {
-    const response = await fetch(`api/products/${productId}`)
+    const response = await fetch(`/api/products/${productId}`)
 
     if (response.ok) {
         const product = await response.json()
@@ -49,7 +49,7 @@ export const getSingleProduct = (productId) => async dispatch => {
 }
 
 export const CreateSingleProduct = (newProduct) => async dispatch => {
-    const response = await fetch(`api/products/createProduct`, {
+    const response = await fetch(`/api/products/createProduct`, {
         method: 'POST',
         headers: {'Content-Type':'application/json'},
         body: JSON.stringify(newProduct)
@@ -60,7 +60,7 @@ export const CreateSingleProduct = (newProduct) => async dispatch => {
         dispatch(createProduct(product))
     }
 
-} 
+}
 // Initial State
 let initialState = {}
 // Reducer
