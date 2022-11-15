@@ -68,7 +68,7 @@ def create_Product():
 
 #edit a product
 @products_routes.route('/<int:id>', methods=['PUT'])
-# @login_required
+@login_required
 def updateProduct(id):
     # product = Product.query.get(id)
     form = EditProductForm()

@@ -6,7 +6,7 @@ function ProductCard({ product }) {
     console.log('prop', product)
     return (
         <>
-            <Link key={product.id} to={`/${product.id}`}>
+            <Link key={product.id} to={`/product/${product.id}`}>
                 {product.product_name}
             </Link>
             <div>{product.description}</div>
