@@ -11,8 +11,12 @@ cart_routes = Blueprint('cart', __name__)
 # @login_required
 def index():
     """ get current users cart """
+
     # user_id = current_user.id
     user_id = 1
+    print('current user', current_user)
+    print('test')
+    # print('user id------',current_user)
     cart = Cart.query.filter(Cart.user_id == user_id).one()
     # new_cart = cart.to_dict()
     products = CartProduct.query.filter(cart.id == CartProduct.cart_id).all()
