@@ -11,7 +11,7 @@ function OwnerProducts() {
     const [loaded, isLoaded] = useState(false)
     const userId = useSelector(state => state.session.user.id)
     const products = useSelector((state) => state.products.products)
-    // console.log('owner productssss', products)
+    console.log('owner productssss', products)
 
     const addBtn = (e) => {
         e.preventDefault()
@@ -26,7 +26,7 @@ function OwnerProducts() {
     return (
         <>
             <h1>My Products!</h1>
-            {loaded && products.map(product => (
+            {loaded && products?.map(product => (
                 <OwnerItemCard key={product.id} product={product} />
             ))}
             <button onClick={addBtn}>+</button>

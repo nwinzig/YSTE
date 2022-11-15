@@ -96,15 +96,13 @@ export const deleteItem = (productId) => async dispatch => {
     const response = await fetch(`api/products/${productId}`, {
         method: 'DELETE'
     })
-    console.log('my delete thunk is called upon')
+    console.log('my delete thunk is called upon', response)
 
     if (response.ok) {
-        console.log('im going to delete')
-        const deleted = await response.json()
-        console.log('blah blah', deleted)
-        dispatch(deleteProduct(deleted))
-        return deleted
+        console.log('im going to delete', response)
+        dispatch(deleteProduct(productId))
     }
+    else return { 'message': 'Delete Failed' }
 }
 
 
@@ -115,6 +113,7 @@ const productsReducer = (state = initialState, action) => {
     let newState = {}
     switch (action.type) {
         case LOAD_PRODUCTS: {
+            console.log('thjis is d=store', action.products)
             newState = { ...action.products.Products }
             return newState
         }
@@ -128,15 +127,15 @@ const productsReducer = (state = initialState, action) => {
             return newState
         }
         case LOAD_USER_PRODUCTS: {
+            newState = { ...state }
             newState = { ...action.products }
             return newState
         }
-        case DELETE_PRODUCT: {
-            newState = { ...state }
-            delete newState[action.deleted]
-            console.log('delete in me reducer')
-            return newState
-        }
+        // case DELETE_PRODUCT: {
+        //     delete newState[action.deleted]
+        //     newState = { ...newState }
+        //     return newState
+        // }
         default:
             return state
     }

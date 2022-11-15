@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom'
 import { deleteItem } from '../../store/products'
+import { getAllProducts } from '../../store/products'
+import { getUserProducts } from '../../store/products'
 
 function OwnerItemCard({ product }) {
     // console.log('this is item prop', product)
@@ -9,11 +11,12 @@ function OwnerItemCard({ product }) {
     const history = useHistory()
 
 
-    const deleteBtn = (e, productId) => {
+    const deleteBtn = async (e, productId) => {
         e.preventDefault()
         // console.log('this is my deleted item id', productId)
-        dispatch(deleteItem(productId))
+        dispatch(deleteItem(productId)).then(() => dispatch(getUserProducts()))
     }
+
     return (
         <>
             <div>{product?.product_name}</div>
