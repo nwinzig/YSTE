@@ -10,9 +10,13 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import AllProducts from './components/SplashPage';
 import ProductDetail from './components/ProductDetail';
+
+import CartComponent from './components/ShoppingCart/cart';
+
 import ProductForm from './components/ProductForm';
 import OwnerProducts from './components/ProductByOwner';
 import OwnerItemCard from './components/OwnerItemCard';
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -54,9 +58,12 @@ function App() {
         <ProtectedRoute path='/your-products' exact={true}>
           <OwnerProducts />
         </ProtectedRoute>
-        <Route path='/:productId' exact={true}>
+        <Route path='product/:productId' exact={true}>
           <ProductDetail />
         </Route>
+        <ProtectedRoute exact path='/cart'>
+          <CartComponent />
+        </ProtectedRoute>
       </Switch>
     </BrowserRouter>
   );

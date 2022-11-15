@@ -40,7 +40,7 @@ class ProductImage(db.Model):
 
 
     id = db.Column(db.Integer, primary_key=True)
-    product_id = db.Column(db.Integer, db.ForeignKey("products.id"))
+    product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")))
     product_image = db.Column(db.String(50))
 
     # relationship
@@ -59,8 +59,8 @@ class ProductReview(db.Model):
     __tablename__ = "product_reviews"
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("users.id"))
-    product_id = db.Column(db.Integer, db.ForeignKey("products.id"))
+    user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")))
+    product_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("products.id")))
     review = db.Column(db.String(100), nullable=False)
     stars = db.Column(db.Integer, nullable=False)
     review_image = db.Column(db.String)
