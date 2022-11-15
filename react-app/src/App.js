@@ -17,6 +17,7 @@ import ProductForm from './components/ProductForm';
 import OwnerProducts from './components/ProductByOwner';
 import OwnerItemCard from './components/OwnerItemCard';
 import EditProductForm from './components/EditProductForm';
+import OwnerReviews from './components/ReviewsByOwner';
 
 
 function App() {
@@ -58,6 +59,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/your-products' exact={true}>
           <OwnerProducts />
+        </ProtectedRoute>
+        <ProtectedRoute path='/your-reviews' exact={true}>
+          <OwnerReviews />
         </ProtectedRoute>
         <Route path='/product/:productId' exact={true}>
           <ProductDetail />
