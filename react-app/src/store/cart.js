@@ -14,7 +14,7 @@ const getCart = (cart) => {
 
 //Thunks
 export const getCurrentCart = () => async dispatch => {
-    const response = await fetch(`/api/cart`)
+    const response = await fetch('/api/cart/')
     console.log('this is response', response)
     if(response.ok){
         const cart = await response.json()

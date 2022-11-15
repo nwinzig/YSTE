@@ -50,15 +50,13 @@ function App() {
         <Route path='/' exact={true} >
           <AllProducts />
         </Route>
-
         <ProtectedRoute exact path='/newProduct'>
           <ProductForm />
         </ProtectedRoute>
         <Route path='product/:productId' exact={true}>
-
           <ProductDetail />
         </Route>
-        <ProtectedRoute path='/cart'>
+        <ProtectedRoute exact path='/cart'>
           <CartComponent />
         </ProtectedRoute>
       </Switch>
