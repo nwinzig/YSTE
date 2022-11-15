@@ -1,5 +1,6 @@
 // Actions
 const LOAD_REVIEWS = 'reviews/LOAD_REVIEWS'
+const CREATE_REVIEW = 'reviews/CREATE_REVIEW'
 
 //Action Creators
 const loadAll = (reviews) => {
@@ -19,6 +20,16 @@ export const getAllReviews = (id) => async dispatch => {
         dispatch(loadAll(reviews))
         return reviews
     }
+}
+
+export const createReview = (id, obj) => async dispatch => {
+    const response = await fetch(`/api/products/${id}/reviews`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(obj)
+    })
+
+    return
 }
 
 // Initial State

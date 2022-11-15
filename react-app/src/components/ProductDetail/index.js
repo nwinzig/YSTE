@@ -3,6 +3,9 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getSingleProduct } from '../../store/products'
 import { useParams } from 'react-router-dom'
 import { getAllReviews } from '../../store/reviews'
+import ReviewFormModal from '../CreateReview'
+import ReviewForm from '../CreateReview/reviewForm'
+
 
 function ProductDetail() {
     const dispatch = useDispatch()
@@ -29,6 +32,9 @@ function ProductDetail() {
                     <div>{review.stars}</div>
                 </div>
             ))}
+            <div>
+                <ReviewFormModal />
+            </div>
         </>
     )
 }
