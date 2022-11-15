@@ -24,7 +24,7 @@ def edit_review(id):
 
 
 @review_routes.route('/<int:id>', methods=["DELETE"])
-# @login_required
+@login_required
 def delete_review(id):
     review = ProductReview.query.get(id)
     if review is not None:
@@ -32,3 +32,12 @@ def delete_review(id):
         db.session.commit()
         return "Successfully Deleted"
     return "Not working bruv"
+
+@review_routes.route('/user-reviews', methods=['GET'])
+@login_required
+def get_user_reviews():
+    user_id = current_user.id
+    reviews = ProductReview.query.filter(ProductReview.user_id == user_id).all()
+    my_reviews=[]
+    my_reviews.extend([i.to_dict() for i in reviews])
+    return {'reviews':my_reviews}
