@@ -4,6 +4,7 @@ const LOAD_SINGLE_PRODUCT = 'products/LOAD_SINGLE_PRODUCT'
 const CREATE_PRODUCT = 'products/CREATE_PRODUCT'
 const LOAD_USER_PRODUCTS = 'products/LOAD_USER_PRODUCTS'
 const DELETE_PRODUCT = 'products/DELETE_PRODUCT'
+// const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
 
 
 // Action Creators
@@ -41,6 +42,13 @@ const deleteProduct = (deleted) => {
         deleted
     }
 }
+
+// const editProduct = () => {
+//     return {
+//         'type': EDIT_PRODUCT,
+
+//     }
+// }
 
 
 // Thunks
@@ -81,7 +89,7 @@ export const CreateSingleProduct = (newProduct) => async dispatch => {
 }
 
 export const getUserProducts = (userId) => async dispatch => {
-    const response = await fetch('api/products/user-products')
+    const response = await fetch('/api/products/user-products')
 
     if (response.ok) {
         const products = await response.json()
@@ -93,7 +101,7 @@ export const getUserProducts = (userId) => async dispatch => {
 
 export const deleteItem = (productId) => async dispatch => {
     console.log('dis pi', productId)
-    const response = await fetch(`api/products/${productId}`, {
+    const response = await fetch(`/api/products/${productId}`, {
         method: 'DELETE'
     })
     console.log('my delete thunk is called upon', response)
@@ -103,6 +111,20 @@ export const deleteItem = (productId) => async dispatch => {
         dispatch(deleteProduct(productId))
     }
     else return { 'message': 'Delete Failed' }
+}
+
+export const editItem = (editProduct, productId) => async dispatch => {
+    const response = await fetch(`/api/products/${productId}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(editProduct)
+    })
+
+    if (response.ok) {
+        return
+    }
+
+    return
 }
 
 

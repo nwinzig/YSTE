@@ -1,20 +1,26 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory, useParams } from 'react-router-dom'
+import { Redirect, useHistory, useParams } from 'react-router-dom'
 import { deleteItem } from '../../store/products'
 import { getAllProducts } from '../../store/products'
 import { getUserProducts } from '../../store/products'
+import EditProductForm from '../EditProductForm'
 
 function OwnerItemCard({ product }) {
-    // console.log('this is item prop', product)
+    const [showEditForm, setShowEditForm] = useState(false)
     const dispatch = useDispatch()
     const history = useHistory()
 
 
     const deleteBtn = async (e, productId) => {
         e.preventDefault()
-        // console.log('this is my deleted item id', productId)
         dispatch(deleteItem(productId)).then(() => dispatch(getUserProducts()))
+    }
+
+    const editBtn = async (e, productId) => {
+        history.push(`/editProduct/${product.id}`)
+        
+
     }
 
     return (
@@ -23,7 +29,7 @@ function OwnerItemCard({ product }) {
             <div>{product?.description}</div>
             <div>${product?.price}</div>
             <div>{product?.category}</div>
-            <button>Edit</button>
+            <button onClick={editBtn} >Edit</button>
             <button onClick={(e) => deleteBtn(e, product.id)}>Delete</button>
             <div>-----------------------------</div>
         </>
