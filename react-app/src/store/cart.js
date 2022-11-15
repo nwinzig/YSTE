@@ -4,10 +4,10 @@ const GET_CART = 'cart/GET_CART';
 
 
 //Action Creators
-const getCart = (cart) => {
+const getCart = (data) => {
     return {
         'type': GET_CART,
-        cart
+        data
     }
 }
 
@@ -33,7 +33,7 @@ const cartReducer = (state = initialState, action) => {
     let newState = {}
     switch (action.type){
         case GET_CART: {
-            newState = {...state, ...action.cart.Carts}
+            newState = {...state, ...action.data}
             return newState
         }
         default:

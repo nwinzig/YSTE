@@ -57,7 +57,7 @@ export const getAllProducts = () => async dispatch => {
 
     if (response.ok) {
         const products = await response.json()
-        console.log(products)
+        // console.log(products)
         dispatch(loadAll(products))
         return products
     }
@@ -68,7 +68,7 @@ export const getSingleProduct = (productId) => async dispatch => {
 
     if (response.ok) {
         const product = await response.json()
-        console.log(product)
+        // console.log(product)
         dispatch(loadOne(product))
         return product
     }
@@ -93,21 +93,21 @@ export const getUserProducts = (userId) => async dispatch => {
 
     if (response.ok) {
         const products = await response.json()
-        console.log('thunk owner products', products)
+        // console.log('thunk owner products', products)
         dispatch(loadByUser(products))
         return products
     }
 }
 
 export const deleteItem = (productId) => async dispatch => {
-    console.log('dis pi', productId)
+    // console.log('dis pi', productId)
     const response = await fetch(`/api/products/${productId}`, {
         method: 'DELETE'
     })
-    console.log('my delete thunk is called upon', response)
+    // console.log('my delete thunk is called upon', response)
 
     if (response.ok) {
-        console.log('im going to delete', response)
+        // console.log('im going to delete', response)
         dispatch(deleteProduct(productId))
     }
     else return { 'message': 'Delete Failed' }
@@ -135,7 +135,7 @@ const productsReducer = (state = initialState, action) => {
     let newState = {}
     switch (action.type) {
         case LOAD_PRODUCTS: {
-            console.log('thjis is d=store', action.products)
+            // console.log('thjis is d=store', action.products)
             newState = { ...action.products.Products }
             return newState
         }
