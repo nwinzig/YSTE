@@ -14,6 +14,8 @@ import ProductDetail from './components/ProductDetail';
 import CartComponent from './components/ShoppingCart/cart';
 
 import ProductForm from './components/ProductForm';
+import OwnerProducts from './components/ProductByOwner';
+import OwnerItemCard from './components/OwnerItemCard';
 
 
 function App() {
@@ -52,6 +54,9 @@ function App() {
         </Route>
         <ProtectedRoute exact path='/newProduct'>
           <ProductForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/your-products' exact={true}>
+          <OwnerProducts />
         </ProtectedRoute>
         <Route path='product/:productId' exact={true}>
           <ProductDetail />
