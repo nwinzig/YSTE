@@ -17,7 +17,7 @@ function ProductDetail() {
 
     useEffect(() => {
         dispatch(getSingleProduct(productId)).then(() => dispatch(getAllReviews(productId)))
-    }, [dispatch, productId])
+    }, [dispatch])
     return (
         <>
             <h1>{product.product_name}</h1>

@@ -10,7 +10,10 @@ import User from './components/User';
 import { authenticate } from './store/session';
 import AllProducts from './components/SplashPage';
 import ProductDetail from './components/ProductDetail';
+
 import CartComponent from './components/ShoppingCart/cart';
+
+import ProductForm from './components/ProductForm';
 
 
 function App() {
@@ -47,7 +50,12 @@ function App() {
         <Route path='/' exact={true} >
           <AllProducts />
         </Route>
-        <Route path='/product/:productId' exact={true}>
+
+        <ProtectedRoute exact path='/newProduct'>
+          <ProductForm />
+        </ProtectedRoute>
+        <Route path='product/:productId' exact={true}>
+
           <ProductDetail />
         </Route>
         <ProtectedRoute path='/cart'>

@@ -41,6 +41,7 @@ def create_Product():
 
     """ creates and adds a new product to the database """
 
+    # shop_id = 1
     shop_id = current_user.id
 
     form = CreateProductForm()
