@@ -91,13 +91,14 @@ def updateProduct(id):
 
 #delete a product
 @products_routes.route('/<int:id>', methods=["DELETE"])
-# @login_required
+@login_required
 def delete_product(id):
     product = Product.query.get(id)
+    print('pyhton',product)
     if product is not None:
         db.session.delete(product)
         db.session.commit()
-        return "Successfully Deleted"
+        return {'message': "Successfully Deleted"}
     return "Product not found"
 
 
@@ -167,3 +168,15 @@ def load_products_by_category(category):
         cat_products.extend([i.to_dict() for i in products])
         return {"products_by_category": cat_products}
     return "Base exceptions"
+
+
+# get all products by User
+
+@products_routes.route('/user-products')
+# @login_required
+def user_products():
+    shop = Shop.query.filter(Shop.user_id == current_user.id).one()
+    products = Product.query.filter(Product.shop_id == shop.id).all()
+    owner_products = []
+    owner_products.extend([i.to_dict() for i in products])
+    return {'products': owner_products}

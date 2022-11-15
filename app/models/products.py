@@ -21,7 +21,7 @@ class Product(db.Model):
     # testing join table relationship
     # carts = db.relationship("Cart", secondary=cart_product, back_populates='products')
 
-    cart_product = db.relationship('CartProduct', back_populates='product')
+    cart_product = db.relationship('CartProduct', back_populates='product', cascade='all, delete-orphan')
 
     def to_dict(self):
         return {
