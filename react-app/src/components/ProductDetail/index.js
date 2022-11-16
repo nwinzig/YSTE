@@ -64,10 +64,12 @@ function ProductDetail() {
                 </div>
                 <div>
                     {product?.description}
-                 </div>
+                </div>
                 <div>
                     <AddToCart/>
                 </div>
+                <div className='product-reviews'>
+
             {filteredArr?.map(review => (
                 <div key={review?.id}>
                     {review?.review_image && <img src={review?.review_image} alt={review?.review} style={{ width: '100px', height: '100px' }} />}
@@ -75,9 +77,12 @@ function ProductDetail() {
                     <div>{review?.stars}</div>
                     <div>--------------------------------</div>
             </div>
+            ))}
+                    </div>
             <div>
                 {!isOwner && session && !userReview && <button onClick={review}>Leave a review?</button>}
             </div>
+        </div>
         </div>
 
     )
