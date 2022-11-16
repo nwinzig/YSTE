@@ -148,11 +148,13 @@ def create_reviews(id):
 
 
 # add to cart
-@products_routes.route('/<int:id>/cart', methods=['POST'])
-# @login_required
+@products_routes.route('/<int:id>/cart/cartProduct',  methods=['POST'])
+@login_required
 def add_cart(id):
-    current_product = Product.query.get(id)
-    current_cart = Cart.query.filter(2 == Cart.user_id).one()
+    print('this is backend cart id===================', id)
+    user_id = current_user.id
+    current_product = Product.query.get(int(id))
+    current_cart = Cart.query.filter(user_id == Cart.user_id).one()
     # if current_user.id == Cart.user_id:
     new_cart_product = {
         'cart_id': current_cart.id,
@@ -162,7 +164,7 @@ def add_cart(id):
     cart_product = CartProduct(**new_cart_product)
     db.session.add(cart_product)
     db.session.commit()
-    return redirect(f'/api/cart')
+    return redirect('/api/cart')
     # return 'Cant add to Cart'
 
 

@@ -30,15 +30,15 @@ function CartComponent() {
         });
     }
 
-    cartItems = productsArr.filter((product) => {
-        return productIds.includes(product.id);
+    cartItems = productsArr?.filter((product) => {
+        return productIds?.includes(product?.id);
     });
 
     const handleDelete = (e, productId) => {
         e.preventDefault()
         let productToDelete = cartArr?.find(({product_id}) => product_id === productId)
 
-        dispatch(deleteProdFromCart(productToDelete.id))
+        dispatch(deleteProdFromCart(productToDelete?.id))
         window.location.reload()
     }
 
@@ -50,24 +50,27 @@ function CartComponent() {
     return (
         <div className="ultimate-wrapper">
             <div className="item-count">
-            {cartItems.length} items in your cart
+            {cartItems?.length} items in your cart
             </div>
             <div className="cart-wrapper">
                 <div className="item-details">
                     <div className="cart-mapper">
                         {cartItems?.map((item) => (
                         <div className="item-wrapper">
+                            <div className="image-wrapper">
+                            <img className="item-image" src={item?.image1} alt="Item image"></img>
+                            </div>
                         <div className="item-name">
-                            {item.product_name}
+                            {item?.product_name}
                         </div>
                         <div className="item-description">
-                            {item.description}
+                            {item?.description}
                         </div>
                         <div className="item-price">
-                            ${item.price}
+                            ${item?.price}
                         </div>
                         <div className='delete-prod'>
-                            <button className="delete-button" onClick={(e) => handleDelete(e, item.id)} >
+                            <button className="delete-button" onClick={(e) => handleDelete(e, item?.id)} >
                                 Remove
                             </button>
                         </div>
