@@ -1,22 +1,22 @@
 import React, { useEffect, useState } from 'react'
-import {useHistory, useParams} from 'react-router-dom'
-import {editItem} from '../../store/products'
+import { useHistory, useParams } from 'react-router-dom'
+import { editItem } from '../../store/products'
 import { useDispatch, useSelector } from 'react-redux'
 
 let categories = [{ value: 'Cars' }, { value: 'Clothing' }, { value: 'Electronics' }, { value: 'Home Goods' }, { value: 'miscellaneous' }]
 
-function EditProductForm () {
+function EditProductForm() {
     const products = useSelector(state => state.products.products)
     const dispatch = useDispatch()
     const history = useHistory()
-    const {productId} = useParams()
-    
+    const { productId } = useParams()
+
     const product = products.filter(product => product.id == productId)[0]
     const [productName, setProductName] = useState(product.product_name)
     const [description, setDescription] = useState(product.description)
     const [price, setPrice] = useState(product.price)
     const [category, setCategory] = useState(product.category)
-    
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -36,16 +36,16 @@ function EditProductForm () {
     return (
         <form onSubmit={handleSubmit}>
             <div>
-            <label>Product Name:</label>
-            <input value={productName} onChange={e => setProductName(e.target.value)}/>
+                <label>Product Name:</label>
+                <input value={productName} onChange={e => setProductName(e.target.value)} />
             </div>
             <div>
-            <label>Description:</label>
-            <input value={description} onChange={e => setDescription(e.target.value)} />
+                <label>Description:</label>
+                <input value={description} onChange={e => setDescription(e.target.value)} />
             </div>
             <div>
-            <label>Price</label>
-            <input value={price} onChange={e => setPrice(e.target.value)} />
+                <label>Price</label>
+                <input value={price} onChange={e => setPrice(e.target.value)} />
             </div>
             <div>
                 <label>Category</label>

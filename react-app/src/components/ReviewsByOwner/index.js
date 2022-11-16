@@ -4,9 +4,9 @@ import { getSingleProduct } from '../../store/products'
 import { useHistory, useParams } from 'react-router-dom'
 import { getUserProducts } from '../../store/products'
 import OwnerReviewCard from '../OwnerReviewCard'
-import { getUserReviews} from '../../store/reviews'
+import { getUserReviews } from '../../store/reviews'
 
-function OwnerReviews () {
+function OwnerReviews() {
     const reviews = useSelector(state => state.reviews)
     const dispatch = useDispatch()
 
@@ -20,18 +20,20 @@ function OwnerReviews () {
     useEffect(() => {
         dispatch(getUserReviews())
     }, [dispatch])
-//     {myReviews?.map((review,index) => (
-//        <h1>review</h1>
-//        // <OwnerItemCard review={review} key={index} />
-//    ))}
+    //     {myReviews?.map((review,index) => (
+    //        <h1>review</h1>
+    //        // <OwnerItemCard review={review} key={index} />
+    //    ))}
     if (!myReviews) return null
     return (
-        <div>
-            {myReviews.map(review => (
-                <OwnerReviewCard key={review.id} review={review}/>
-            ))}
-        
-        </div>
+        <>
+            <div>
+                {myReviews.map(review => (
+                    <OwnerReviewCard key={review.id} review={review} />
+                ))}
+
+            </div>
+        </>
     )
 }
 

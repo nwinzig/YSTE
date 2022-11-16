@@ -35,6 +35,11 @@ const NavBar = () => {
             Product Manager
           </NavLink>
         </li>
+        <li>
+          <NavLink to='/your-reviews' exact={true} activeClassName='active'>
+            Your Reviews
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

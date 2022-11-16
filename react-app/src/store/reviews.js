@@ -57,9 +57,19 @@ export const deleteReview = (id) => async dispatch => {
         method: 'DELETE'
     })
 
-    if (response.ok){
+    if (response.ok) {
         return
     }
+    return
+}
+
+
+export const editReview = (id, obj) => async dispatch => {
+    const response = await fetch(`/api/reviews/${id}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(obj)
+    })
     return
 }
 
@@ -75,9 +85,9 @@ const reviewsReducer = (state = initialState, action) => {
             //newState[action.reviews.id] = action.review;
             return newState
         }
-        case LOAD_USER_REVIEWS:{
+        case LOAD_USER_REVIEWS: {
             console.log('%%%%%%%%%% LOAD USER REVIEWS REDUCER %%%%%%%', action.reviews)
-            newState={...state, ...action.reviews}
+            newState = { ...state, ...action.reviews }
             return newState
         }
         default:
