@@ -17,7 +17,9 @@ import ProductForm from './components/ProductForm';
 import OwnerProducts from './components/ProductByOwner';
 import OwnerItemCard from './components/OwnerItemCard';
 import EditProductForm from './components/EditProductForm';
+import SearchResult from './components/nav/SearchResult';
 import OwnerReviews from './components/ReviewsByOwner';
+
 
 
 function App() {
@@ -39,6 +41,9 @@ function App() {
     <BrowserRouter>
       <NavBar />
       <Switch>
+        <Route path='/searchProducts' exact={true}>
+          <SearchResult />
+        </Route>
         <Route path='/login' exact={true}>
           <LoginForm />
         </Route>
