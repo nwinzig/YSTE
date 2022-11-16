@@ -62,7 +62,7 @@ def create_Product():
         print('newproduct', newProduct)
         db.session.add(newProduct)
         db.session.commit()
-        return redirect('/api/products/')
+        return {'id': newProduct }
     return {'Error': 'bad request'}
 
 
@@ -180,3 +180,30 @@ def user_products():
     owner_products = []
     owner_products.extend([i.to_dict() for i in products])
     return {'products': owner_products}
+
+
+#get product images
+@products_routes.route('/product-images')
+@login_required
+def product_images(id):
+    product_image = ProductImage.query.filter(id == ProductImage.product_id).one()
+    newImage = product_image.to_dict()
+    return {'product_image': newImage}
+
+
+#add product images
+@products_routes.route('/product-images/<int:id>', methods=['POST'])
+@login_required
+def add_images(id):
+    newImages = AddProductImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        params = {
+            'product_image': form.data['product_image'],
+            'product_id': id
+        }
+        new_image = ProductImage(**params)
+        db.session.add(new_image)
+        db.session.commit()
+        return redirect(f'/api/products/{id}')
+    return "Not working"
