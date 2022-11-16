@@ -38,6 +38,11 @@ export const createReview = (id, obj) => async dispatch => {
         body: JSON.stringify(obj)
     })
 
+    if(response.ok){
+        const review = await response.json()
+        console.log('!!!!!!!!!! THUNK REVIEW !!!!!', review) 
+    }
+
     return
 }
 

@@ -7,6 +7,7 @@ function EditReviewForm() {
     const { reviewId } = useParams()
     console.log('edit review id', reviewId)
     const reviews = useSelector(state => state.reviews.reviews)
+    
     const prevReview = reviews.filter(review => review.id == reviewId)[0]
     const history = useHistory()
     const dispatch = useDispatch()

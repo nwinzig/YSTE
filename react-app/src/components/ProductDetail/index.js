@@ -12,16 +12,27 @@ function ProductDetail() {
     const dispatch = useDispatch()
     const product = useSelector((state) => state.products)
     const reviews = useSelector((state) => state.reviews)
-    // console.log('reviewwwwwwws', reviews)
+    const session = useSelector((state) => state.session.user)
+    console.log('reviewwwwwwws', reviews)
+    console.log('productsssssssss', product)
+    console.log('sessionnnnnnnnn', session)
     // console.log('???????? ProductDetail', product)
     const { productId } = useParams()
     const reviewsArr = Object.values(reviews)
     // console.log('reviews Array is here', reviewsArr)
     // console.log('params', params)
 
+    let filteredArr = reviewsArr.filter(reviewObj => reviewObj.product_id == product.id)
+    console.log('???????? FILTERED ARRAY', filteredArr)
+
+    let userReview
+    if(session){
+         userReview = filteredArr.some((obj) => obj.user_id == session.id)
+    }
+
     const review = (e) => {
         e.preventDefault()
-        history.push(`/create-review`)
+        history.push(`/create-review/${product.id}`)
     }
     useEffect(() => {
         dispatch(getSingleProduct(productId)).then(() => dispatch(getAllReviews(productId)))
@@ -29,20 +40,22 @@ function ProductDetail() {
     return (
         <>
             <h1>{product.product_name}</h1>
-            <img src={product?.image1} alt={product.product_name} style={{ width: '200px', height: '200px' }} />
-            <img src={product?.image2} alt={product.product_name} style={{ width: '200px', height: '200px' }} />
-            <img src={product?.image3} alt={product.product_name} style={{ width: '200px', height: '200px' }} />
-            <img src={product?.image4} alt={product.product_name} style={{ width: '200px', height: '200px' }} />
+            {product.image1 && <img src={product?.image1} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
+            {product.image2 && <img src={product?.image1} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
+            {product.image3 && <img src={product?.image1} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
+            {product.image4 && <img src={product?.image1} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
+            
 
-            {reviewsArr.map(review => (
+            {filteredArr.map(review => (
 
                 <div key={review.id}>
                     <div>{review.review}</div>
                     <div>{review.stars}</div>
+                    {review.review_image && <img src={review.review_image} alt={review.review} />}
                 </div>
             ))}
             <div>
-                <button onClick={review}>Leave a big review?</button>
+                {session && !userReview && <button onClick={review}>Leave a big review?</button>}
             </div>
         </>
     )
