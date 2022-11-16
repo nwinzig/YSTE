@@ -15,21 +15,11 @@ function CartComponent() {
     const cartObj = useSelector((state) => state.cart);
 
     let cartArr = cartObj.cart;
-    // console.log('cart arr',cartArr)
-    // console.log("testing", userObj);
     let productsArr = Object.values(productsObj);
-
 
     useEffect(() => {
         dispatch(getCurrentCart()).then(() => dispatch(getCurrentCart())).then(() => dispatch(getAllProducts()));
     }, [dispatch]);
-
-    // console.log('cart array',cartArr)
-    // console.log('products', productsObj)
-    // console.log('products array', productsArr)
-    // if(cartArr){
-    //     console.log('should be an id', cartArr[0].product_id)
-    // }
 
     let productIds = [];
     let cartItems = [];
@@ -38,48 +28,24 @@ function CartComponent() {
         productIds = cartArr.map((item) => {
         return item.product_id;
         });
-        // console.log("product ids", productIds);
     }
 
     cartItems = productsArr.filter((product) => {
         return productIds.includes(product.id);
     });
 
-    // tons of console logs
-    // console.log('user object -->', userObj)
-    // console.log('cart object -->', cartObj)
-    // console.log('cart array from join table-->', cartArr)
-    // console.log('products object -->', productsObj)
-    // console.log('All products products array -->', productsArr)
-    // console.log('array of product ids in cart -->', productIds)
-    // console.log('products in the current cart -->', cartItems)
-
     const handleDelete = (e, productId) => {
         e.preventDefault()
-
-        // console.log('the products id from on click -- ',productId)
         let productToDelete = cartArr?.find(({product_id}) => product_id === productId)
-
-        console.log('should be id of product from cartProduct', productToDelete.id)
-        console.log('product matched to join table -- ',productToDelete)
 
         dispatch(deleteProdFromCart(productToDelete.id))
         window.location.reload()
-        // console.log('testing under dispatch')
     }
-    // console.log("hopeful", cartItems.length);
-    // let matching = productsArr.filter(product => product.id === cartArr.product_id)
-    // console.log('plez', matching)
 
-
-    //finding cart total price
     let sum = 0;
     cartItems?.forEach(product => {
         sum+= product?.price
     })
-    // console.log('looking for sum of cart', sum)
-
-
 
     return (
         <div className="ultimate-wrapper">

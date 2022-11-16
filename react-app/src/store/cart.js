@@ -22,7 +22,7 @@ const deleteProduct = (data) => {
 //Thunks
 export const getCurrentCart = () => async dispatch => {
     const response = await fetch('/api/cart/')
-    // console.log('this is response', response)
+
     if(response.ok){
         const cart = await response.json()
         console.log('this is cart', cart)
@@ -32,24 +32,17 @@ export const getCurrentCart = () => async dispatch => {
     return response
 }
 
-//testing getting cart product from join table
-// export const getCartProduct
-
-
 export const deleteProdFromCart = (productId) => async dispatch => {
-    console.log('--------- before response in thunk', productId)
+
     const response = await fetch(`/api/cart/cartProduct/${productId}`, {
         method: "DELETE"
     })
-    console.log('response from thunk', response)
-    // console.log('response from delete thunk', response)
+
     if (response.ok){
-        console.log('id in thunk after ok', productId)
         dispatch(deleteProduct(productId))
-        console.log('after dispatch in thunk')
         return
     }
-    console.log("Delete Failed")
+    return
 }
 
 
