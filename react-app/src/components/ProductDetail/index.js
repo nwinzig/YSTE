@@ -12,16 +12,34 @@ function ProductDetail() {
     const dispatch = useDispatch()
     const product = useSelector((state) => state.products)
     const reviews = useSelector((state) => state.reviews)
-    // console.log('reviewwwwwwws', reviews)
+    const session = useSelector((state) => state.session.user)
+    console.log('reviewwwwwwws', reviews)
+    console.log('productsssssssss', product)
+    console.log('sessionnnnnnnnn', session)
     // console.log('???????? ProductDetail', product)
     const { productId } = useParams()
     const reviewsArr = Object.values(reviews)
     // console.log('reviews Array is here', reviewsArr)
     // console.log('params', params)
 
+    let filteredArr = reviewsArr.filter(reviewObj => reviewObj.product_id == product.id)
+    console.log('???????? FILTERED ARRAY', filteredArr)
+
+    let userReview
+    if (session) {
+        userReview = filteredArr.some((obj) => obj.user_id == session.id)
+    }
+
+    // use userId to find thier shop
+    // use the shops id too see if its the owner of the product and if this is true the you hsould not be able to leave a review
+    let isOwner
+    if (session.id == product.shop_id) {
+        isOwner = true
+    }
+
     const review = (e) => {
         e.preventDefault()
-        history.push(`/create-review`)
+        history.push(`/create-review/${product.id}`)
     }
 
 
@@ -46,19 +64,19 @@ function ProductDetail() {
                 </div>
                 <div>
                     {product?.description}
-                </div>
+                 </div>
                 <div>
                     <AddToCart/>
                 </div>
-                    {reviewsArr?.map(review => (
-                    <div key={review?.id}>
+            {filteredArr?.map(review => (
+                <div key={review?.id}>
+                    {review?.review_image && <img src={review?.review_image} alt={review?.review} style={{ width: '100px', height: '100px' }} />}
                     <div>{review?.review}</div>
                     <div>{review?.stars}</div>
-                    </div>
-                ))}
+                    <div>--------------------------------</div>
             </div>
             <div>
-                <button onClick={review}>Leave a big review?</button>
+                {!isOwner && session && !userReview && <button onClick={review}>Leave a review?</button>}
             </div>
         </div>
 

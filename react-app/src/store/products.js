@@ -54,13 +54,14 @@ const deleteProduct = (deleted) => {
 
 // Thunks
 export const getAllProducts = () => async dispatch => {
-    const response = await fetch(`/api/products`)
+    const response = await fetch(`/api/products/`)
 
     if (response.ok) {
         const products = await response.json()
         dispatch(loadAll(products))
         return products
     }
+    return 
 }
 
 export const getSingleProduct = (productId) => async dispatch => {
