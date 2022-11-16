@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 
 function ProductCard({ product }) {
     console.log('prop', product)
+
     return (
         <>
             <Link key={product.id} to={`/product/${product.id}`}>

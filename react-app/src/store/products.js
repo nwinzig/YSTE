@@ -4,6 +4,7 @@ const LOAD_SINGLE_PRODUCT = 'products/LOAD_SINGLE_PRODUCT'
 const CREATE_PRODUCT = 'products/CREATE_PRODUCT'
 const LOAD_USER_PRODUCTS = 'products/LOAD_USER_PRODUCTS'
 const DELETE_PRODUCT = 'products/DELETE_PRODUCT'
+const LOAD_IMAGES = 'products/LOAD_IMAGES'
 // const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
 
 
@@ -128,6 +129,29 @@ export const editItem = (editProduct, productId) => async dispatch => {
 }
 
 
+// export const loadImages = () => async dispatch => {
+//     const response = await fetch('/api/products/product-images')
+
+//     if (response.ok) {
+//         const products = await response.json()
+//         console.log('thunk owner products', products)
+//         dispatch(loadByUser(products))
+//         return products
+//     }
+// }
+// }
+
+export const postImages = (newImages, id) => async dispatch => {
+    const response = await fetch(`/api/products/product-images/${id}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newImages)
+    })
+
+    return { 'message': 'photos added' }
+}
+
+
 // Initial State
 let initialState = {}
 // Reducer
@@ -145,7 +169,7 @@ const productsReducer = (state = initialState, action) => {
         }
         case CREATE_PRODUCT: {
             newState = { ...action.newProduct }
-
+            console.log('############# reducer create hit', newState)
             return newState
         }
         case LOAD_USER_PRODUCTS: {

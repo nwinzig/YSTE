@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getSingleProduct } from '../../store/products'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 import { getAllReviews } from '../../store/reviews'
 import ReviewFormModal from '../CreateReview'
 import ReviewForm from '../CreateReview/reviewForm'
 
 
 function ProductDetail() {
+    const history = useHistory()
     const dispatch = useDispatch()
     const product = useSelector((state) => state.products)
     const reviews = useSelector((state) => state.reviews)
@@ -18,6 +19,10 @@ function ProductDetail() {
     // console.log('reviews Array is here', reviewsArr)
     // console.log('params', params)
 
+    const review = (e) => {
+        e.preventDefault()
+        history.push(`/create-review`)
+    }
     useEffect(() => {
         dispatch(getSingleProduct(productId)).then(() => dispatch(getAllReviews(productId)))
     }, [dispatch])
@@ -33,7 +38,7 @@ function ProductDetail() {
                 </div>
             ))}
             <div>
-                <ReviewFormModal />
+                <button onClick={review}>Leave a big review?</button>
             </div>
         </>
     )

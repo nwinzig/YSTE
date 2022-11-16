@@ -15,7 +15,7 @@ function OwnerProducts() {
 
     const addBtn = (e) => {
         e.preventDefault()
-        history.push('/newProduct')
+        history.push(`/newProduct/`)
     }
 
     useEffect(() => {

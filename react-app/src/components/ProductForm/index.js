@@ -1,15 +1,17 @@
 import React, { useEffect, useState } from 'react'
-import { CreateSingleProduct } from '../../store/products'
-import {useDispatch, useSelector} from 'react-redux'
-import {useHistory} from 'react-router-dom'
+import { CreateSingleProduct, postImages } from '../../store/products'
+import { useDispatch, useSelector } from 'react-redux'
+import { useHistory } from 'react-router-dom'
 
-let categories = [{value:'Cars' }, {value:'Clothing'}, {value:'Electronics'}, {value:'Home Goods'}, {value:'miscellaneous'}]
+let categories = [{ value: 'Cars' }, { value: 'Clothing' }, { value: 'Electronics' }, { value: 'Home Goods' }, { value: 'miscellaneous' }]
 function ProductForm() {
+    const prodlist = useSelector(state => state.products)
+    console.log('###########', prodlist)
     const [productName, setProductName] = useState('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState('')
     const [category, setCategory] = useState(categories[0].value)
-    const [stock, setStock] = useState('')
+    const [product_image, setProduct_image] = useState('')
     const history = useHistory()
 
     const dispatch = useDispatch()
@@ -22,14 +24,22 @@ function ProductForm() {
             description,
             price,
             category,
-            stock: 1
+            stock: 1,
         }
 
-        await dispatch(CreateSingleProduct(newProduct))
+        let newImages = {
+            product_image
+        }
+
+        await dispatch(CreateSingleProduct(newProduct)).then((data) => (
+            // dispatch(postImages(newImages, data[data.length - 1].id))
+            console.log('datatatttta', data)
+        ))
+        console.log('hit a second time', prodlist)
 
         return history.push('/')
     }
-    
+
     return (
         <form onSubmit={handleSubmit}>
             <div>
@@ -44,7 +54,11 @@ function ProductForm() {
                 <label>Price</label>
                 <input type='text' value={price} onChange={(e) => setPrice(e.target.value)} />
             </div>
-            
+            <div>
+                <label>Image Url</label>
+                <input type='text' value={product_image} onChange={(e) => setProduct_image(e.target.value)} />
+            </div>
+
             <div>
                 <label>Category</label>
                 <select value={category} onChange={(e) => setCategory(e.target.value)} >
