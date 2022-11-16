@@ -26,8 +26,15 @@ function ProductDetail() {
     console.log('???????? FILTERED ARRAY', filteredArr)
 
     let userReview
-    if(session){
-         userReview = filteredArr.some((obj) => obj.user_id == session.id)
+    if (session) {
+        userReview = filteredArr.some((obj) => obj.user_id == session.id)
+    }
+
+    // use userId to find thier shop
+    // use the shops id too see if its the owner of the product and if this is true the you hsould not be able to leave a review
+    let isOwner
+    if (session.id == product.shop_id) {
+        isOwner = true
     }
 
     const review = (e) => {
@@ -41,21 +48,22 @@ function ProductDetail() {
         <>
             <h1>{product.product_name}</h1>
             {product.image1 && <img src={product?.image1} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
-            {product.image2 && <img src={product?.image1} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
-            {product.image3 && <img src={product?.image1} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
-            {product.image4 && <img src={product?.image1} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
-            
+            {product.image2 && <img src={product?.image2} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
+            {product.image3 && <img src={product?.image3} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
+            {product.image4 && <img src={product?.image4} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
+
 
             {filteredArr.map(review => (
 
                 <div key={review.id}>
+                    {review.review_image && <img src={review.review_image} alt={review.review} style={{ width: '100px', height: '100px' }} />}
                     <div>{review.review}</div>
                     <div>{review.stars}</div>
-                    {review.review_image && <img src={review.review_image} alt={review.review} />}
+                    <div>--------------------------------</div>
                 </div>
             ))}
             <div>
-                {session && !userReview && <button onClick={review}>Leave a big review?</button>}
+                {!isOwner && session && !userReview && <button onClick={review}>Leave a review?</button>}
             </div>
         </>
     )
