@@ -2,6 +2,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import SearchBar from './nav/SearchComponent';
+
 
 const NavBar = () => {
   return (
@@ -12,6 +14,7 @@ const NavBar = () => {
             Home
           </NavLink>
         </li>
+        <SearchBar />
         <li>
           <NavLink to='/login' exact={true} activeClassName='active'>
             Login
@@ -33,6 +36,11 @@ const NavBar = () => {
         <li>
           <NavLink to='/your-products' exact={true} activeClassName='active'>
             Product Manager
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to='/cart' exact={true} activeClassName='active'>
+            Cart
           </NavLink>
         </li>
       </ul>

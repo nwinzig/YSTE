@@ -6,7 +6,7 @@ from app.forms import SearchForm
 search_routes = Blueprint('search', __name__)
 
 
-@search_routes.route('/', methods=['POST'])
+@search_routes.route('/', methods=['GET', 'POST'])
 def index():
 
     form = SearchForm()
