@@ -18,6 +18,9 @@ import OwnerProducts from './components/ProductByOwner';
 import OwnerItemCard from './components/OwnerItemCard';
 import EditProductForm from './components/EditProductForm';
 import SearchResult from './components/nav/SearchResult';
+import OwnerReviews from './components/ReviewsByOwner';
+
+
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -61,6 +64,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/your-products' exact={true}>
           <OwnerProducts />
+        </ProtectedRoute>
+        <ProtectedRoute path='/your-reviews' exact={true}>
+          <OwnerReviews />
         </ProtectedRoute>
         <Route path='/product/:productId' exact={true}>
           <ProductDetail />
