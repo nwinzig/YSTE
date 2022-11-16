@@ -6,13 +6,10 @@ import ProductCard from '../ProductCard/index'
 function AllProducts() {
     const dispatch = useDispatch()
     const [loaded, setLoaded] = useState(false)
-    // const [curruser, setCurrUser] = useState(false)
     const products = useSelector(state => state.products)
     const user = useSelector(state => state.session.user)
 
-    // if (user) {
-    //     setCurrUser(true)
-    // }
+
 
 
     let productList = Object.values(products)
@@ -21,11 +18,18 @@ function AllProducts() {
         dispatch(getAllProducts()).then(setLoaded(true))
     }, [dispatch])
 
+    console.log('firstname', user)
+    let intro
+    if (user) {
+        intro = <h1>Welcome back {user?.first_name}!</h1>
+    } else {
+        intro = <h1>Welcome to YSTE!</h1>
+    }
 
     return (
         <>
 
-            <h1>Welcome back {user?.username}!</h1>
+            {intro}
 
             <div>
                 {loaded && productList.map(product => {

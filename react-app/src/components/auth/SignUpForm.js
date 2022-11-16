@@ -5,6 +5,8 @@ import { signUp } from '../../store/session';
 
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -15,7 +17,14 @@ const SignUpForm = () => {
   const onSignUp = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
-      const data = await dispatch(signUp(username, email, password));
+      const obj = {
+        'first_name': firstName,
+        'last_name': lastName,
+        username,
+        email,
+        password
+      }
+      const data = await dispatch(signUp(obj));
       if (data) {
         setErrors(data)
       }
@@ -49,6 +58,25 @@ const SignUpForm = () => {
           <div key={ind}>{error}</div>
         ))}
       </div>
+      <div>
+        <label>First Name</label>
+        <input
+          type='text'
+          name='firstname'
+          onChange={(e) => setFirstName(e.target.value)}
+          value={firstName}
+        ></input>
+      </div>
+      <div>
+        <label>Last Name</label>
+        <input
+          type='text'
+          name='lastname'
+          onChange={(e) => setLastName(e.target.value)}
+          value={lastName}
+        ></input>
+      </div>
+
       <div>
         <label>User Name</label>
         <input
