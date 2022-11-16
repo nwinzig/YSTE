@@ -7,10 +7,11 @@ products_routes = Blueprint('product', __name__)
 
 #get all products
 @products_routes.route('/')
+# @login_required
 def index():
     """get all products, to be used on splash page """
     products = Product.query.all()
-    print('backend', products[0].image1)
+    
     newProducts = []
     newProducts.extend([i.to_dict() for i in products])
 
@@ -115,6 +116,7 @@ def delete_product(id):
 @products_routes.route('/<int:id>/reviews', methods=["GET"])
 def get_reviews(id):
     reviews = ProductReview.query.filter(ProductReview.product_id==id).all()
+
     print('reviews--------', reviews)
     new_reviews = []
     new_reviews.extend([i.to_dict() for i in reviews])
@@ -135,12 +137,15 @@ def create_reviews(id):
             'stars': form.data['stars'],
             'review_image': form.data['review_image'],
             'product_id': id,
-            # 'user_id': current_user.id,
+            'user_id': current_user.id,
         }
+
         new_review = ProductReview(**params)
+        print('$$$$$$$$$$$$$$$$ BACKEND NEW REVIEW $$$$$$$$$$', new_review)
         db.session.add(new_review)
         db.session.commit()
-        return redirect(f'/api/products/{id}')
+        # return redirect(f'/api/products/{id}')
+        return {'review': new_review.to_dict()}
     return "Not working"
 
 

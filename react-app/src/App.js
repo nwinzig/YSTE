@@ -67,7 +67,7 @@ function App() {
         <ProtectedRoute path='/your-products' exact={true}>
           <OwnerProducts />
         </ProtectedRoute>
-        <ProtectedRoute exact path='/create-review'>
+        <ProtectedRoute exact path='/create-review/:productId'>
           <ReviewForm />
         </ProtectedRoute>
         <ProtectedRoute path='/your-reviews' exact={true}>

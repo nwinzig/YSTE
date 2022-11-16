@@ -5,6 +5,7 @@ import { createReview, getAllReviews } from '../../store/reviews'
 
 function ReviewForm() {
     const dispatch = useDispatch()
+    const history = useHistory()
     const { productId } = useParams()
     console.log('this is produst id', productId)
     const [review, setReview] = useState('')
@@ -21,6 +22,8 @@ function ReviewForm() {
         }
 
         await dispatch(createReview(productId, obj)).then(() => dispatch(getAllReviews(productId)))
+
+        history.push(`/product/${productId}`)
     }
 
     return (
