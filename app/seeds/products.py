@@ -4,13 +4,13 @@ from app.models import db, Product, environment, SCHEMA
 # Adds a demo user, you can add other users here if you want
 def seed_products():
     demo_product = Product(
-        shop_id = 1, product_name="Model-S", description="great car not cheaply made I swear", price=5, category="Cars", stock=2000
+        shop_id = 1, product_name="Model-S", description="great car not cheaply made I swear", price=5, category="Cars", stock=2000, image1='https://i.etsystatic.com/8955825/r/il/f3b5b6/2331496867/il_680x540.2331496867_fgw5.jpg'
     )
     marnie_product = Product(
-        shop_id = 2, product_name="Grey Sweatshirt", description="great shirt not cheaply made I swear", price=15, category="Clothing", stock=3000
+        shop_id = 2, product_name="Grey Sweatshirt", description="great shirt not cheaply made I swear", price=15, category="Clothing", stock=3000, image1='https://i.etsystatic.com/8955825/r/il/f3b5b6/2331496867/il_680x540.2331496867_fgw5.jpg'
     )
     bobbie_product = Product(
-        shop_id = 3, product_name="K68 Corsair Keyboard", description="great keyboard not cheaply made I swear", price=135, category="Electronics", stock=2
+        shop_id = 3, product_name="K68 Corsair Keyboard", description="great keyboard not cheaply made I swear", price=135, category="Electronics", stock=2, image1='https://i.etsystatic.com/8955825/r/il/f3b5b6/2331496867/il_680x540.2331496867_fgw5.jpg'
     )
     db.session.add(demo_product)
     db.session.add(marnie_product)

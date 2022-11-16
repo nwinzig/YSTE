@@ -10,7 +10,7 @@ products_routes = Blueprint('product', __name__)
 def index():
     """get all products, to be used on splash page """
     products = Product.query.all()
-
+    print('backend', products[0].image1)
     newProducts = []
     newProducts.extend([i.to_dict() for i in products])
 
@@ -55,14 +55,18 @@ def create_Product():
             'price': form.data['price'],
             'category': form.data['category'],
             'stock': form.data['stock'],
-            'shop_id': shop_id
+            'shop_id': shop_id,
+            'image1': form.data['image1'],
+            'image2': form.data['image2'],
+            'image3': form.data['image3'],
+            'image4': form.data['image4'],
         }
         print('params', params)
         newProduct = Product(**params)
         print('newproduct', newProduct)
         db.session.add(newProduct)
         db.session.commit()
-        return {'id': newProduct }
+        return {'message': 'created' }
     return {'Error': 'bad request'}
 
 
@@ -82,6 +86,10 @@ def updateProduct(id):
         product.price = form.data['price']
         product.category = form.data['category']
         product.stock = form.data['stock']
+        product.image1 = form.data['image1']
+        product.image2 = form.data['image2']
+        product.image3 = form.data['image3']
+        product.image4 = form.data['image4']
 
 
         db.session.commit()

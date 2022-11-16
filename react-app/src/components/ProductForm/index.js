@@ -5,13 +5,16 @@ import { useHistory } from 'react-router-dom'
 
 let categories = [{ value: 'Cars' }, { value: 'Clothing' }, { value: 'Electronics' }, { value: 'Home Goods' }, { value: 'miscellaneous' }]
 function ProductForm() {
-    const prodlist = useSelector(state => state.products)
+    const prodlist = useSelector(state => state.products.products)
     console.log('###########', prodlist)
     const [productName, setProductName] = useState('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState('')
     const [category, setCategory] = useState(categories[0].value)
-    const [product_image, setProduct_image] = useState('')
+    const [image1, setImage1] = useState('')
+    const [image2, setImage2] = useState('')
+    const [image3, setImage3] = useState('')
+    const [image4, setImage4] = useState('')
     const history = useHistory()
 
     const dispatch = useDispatch()
@@ -25,17 +28,19 @@ function ProductForm() {
             price,
             category,
             stock: 1,
+            image1,
+            image3,
+            image4,
+            image2,
         }
 
-        let newImages = {
-            product_image
-        }
 
-        await dispatch(CreateSingleProduct(newProduct)).then((data) => (
-            // dispatch(postImages(newImages, data[data.length - 1].id))
-            console.log('datatatttta', data)
-        ))
-        console.log('hit a second time', prodlist)
+        // dispatch(CreateSingleProduct(newProduct)).then((data) => (
+        //     dispatch(postImages(newImages, prodlist[prodlist.length - 1].id)),
+        //     console.log('datatatttta', data),
+        //     console.log('hit a second time', prodlist)
+        //))
+        dispatch(CreateSingleProduct(newProduct))
 
         return history.push('/')
     }
@@ -56,7 +61,19 @@ function ProductForm() {
             </div>
             <div>
                 <label>Image Url</label>
-                <input type='text' value={product_image} onChange={(e) => setProduct_image(e.target.value)} />
+                <input type='text' value={image1} onChange={(e) => setImage1(e.target.value)} />
+            </div>
+            <div>
+                <label>Image Url</label>
+                <input type='text' value={image2} onChange={(e) => setImage2(e.target.value)} />
+            </div>
+            <div>
+                <label>Image Url</label>
+                <input type='text' value={image3} onChange={(e) => setImage3(e.target.value)} />
+            </div>
+            <div>
+                <label>Image Url</label>
+                <input type='text' value={image4} onChange={(e) => setImage4(e.target.value)} />
             </div>
 
             <div>

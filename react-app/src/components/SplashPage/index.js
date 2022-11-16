@@ -24,13 +24,13 @@ function AllProducts() {
 
     return (
         <>
-            
+
             <h1>Welcome back {user?.username}!</h1>
-            
+
             <div>
                 {loaded && productList.map(product => {
                     return (
-                        <ProductCard key={product.id} product={product} />
+                        <ProductCard key={product?.id} product={product} />
                     )
                 })}
             </div>

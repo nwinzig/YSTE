@@ -58,7 +58,7 @@ export const getAllProducts = () => async dispatch => {
 
     if (response.ok) {
         const products = await response.json()
-        console.log(products)
+        console.log('thunk console.log', products)
         dispatch(loadAll(products))
         return products
     }

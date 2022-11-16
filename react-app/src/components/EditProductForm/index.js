@@ -16,6 +16,10 @@ function EditProductForm() {
     const [description, setDescription] = useState(product.description)
     const [price, setPrice] = useState(product.price)
     const [category, setCategory] = useState(product.category)
+    const [image1, setImage1] = useState(product.image1)
+    const [image2, setImage2] = useState(product.image2)
+    const [image3, setImage3] = useState(product.image3)
+    const [image4, setImage4] = useState(product.image4)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -25,7 +29,11 @@ function EditProductForm() {
             description,
             price,
             category,
-            stock: 1
+            stock: 1,
+            image1,
+            image3,
+            image4,
+            image2,
         }
 
         await dispatch(editItem(obj, productId))
@@ -58,6 +66,22 @@ function EditProductForm() {
                     })}
 
                 </select>
+            </div>
+            <div>
+                <label>Image Url</label>
+                <input type='text' value={image1} onChange={(e) => setImage1(e.target.value)} />
+            </div>
+            <div>
+                <label>Image Url</label>
+                <input type='text' value={image2} onChange={(e) => setImage2(e.target.value)} />
+            </div>
+            <div>
+                <label>Image Url</label>
+                <input type='text' value={image3} onChange={(e) => setImage3(e.target.value)} />
+            </div>
+            <div>
+                <label>Image Url</label>
+                <input type='text' value={image4} onChange={(e) => setImage4(e.target.value)} />
             </div>
             <button type='submit'>Submit</button>
         </form>
