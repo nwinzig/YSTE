@@ -1,6 +1,7 @@
 
 // Action
 const GET_CART = 'cart/GET_CART';
+const DELETE_PRODUCT_FROM_CART = 'cart/DELETE_PRODUCT_FROM_CART'
 
 
 //Action Creators
@@ -11,11 +12,17 @@ const getCart = (data) => {
     }
 }
 
+const deleteProduct = (data) => {
+    return {
+        'type': DELETE_PRODUCT_FROM_CART,
+        data
+    }
+}
 
 //Thunks
 export const getCurrentCart = () => async dispatch => {
     const response = await fetch('/api/cart/')
-    console.log('this is response', response)
+    // console.log('this is response', response)
     if(response.ok){
         const cart = await response.json()
         console.log('this is cart', cart)
@@ -23,6 +30,21 @@ export const getCurrentCart = () => async dispatch => {
         return cart
     }
     return response
+}
+
+export const deleteProdFromCart = (productId) => async dispatch => {
+    console.log('--------- before response in thunk', productId)
+    const response = await fetch(`/api/cart/product/${productId}`, {
+        method: "DELETE"
+    })
+    console.log('--------- after response in thunk', response)
+    // console.log('response from delete thunk', response)
+    if (response.ok){
+        dispatch(deleteProduct(productId))
+        console.log('after dispatch in thunk')
+        // return
+    }
+    console.log("Delete Failed")
 }
 
 

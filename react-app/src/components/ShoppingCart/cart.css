@@ -1,0 +1,36 @@
+.cart-wrapper{
+border: 1px solid red;
+/* display: flex;
+justify-content: space-between; */
+margin-left: 20%;
+margin-right: 20%;
+margin-top: 40px;
+/* background-color: grey; */
+}
+
+.cart-mapper{
+
+}
+
+
+.checkout {
+    background-color: green;
+    bottom: 0px;
+}
+
+.item-count{
+    margin-left: 20%;
+    margin-right: 20%;
+    /* font-weight: bold; */
+    /* padding: ; */
+    font-size: 32px;
+}
+.item-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.item-wrapper{
+    border: solid 1px orange;
+    margin-bottom: 10px;
+}

@@ -25,14 +25,18 @@ def index():
 #/api/cartproduct/id
 #/api/cart/product/productid
 # delete from cart
-@cart_routes.route('/product/<int:id>', methods=['Delete'])
-# @login_required
+@cart_routes.route('/product/<int:id>', methods=['DELETE'])
+@login_required
 def delete_from_cart(id):
     # userId = current_user.id
 
+    # get user id, get cart based on user id,
+    # find prod to delete on condition of
+    # matching cart id and product id
 
-
-    product_to_delete = CartProduct.query.get(4)
+    print('checking backend', id)
+    product_to_delete = CartProduct.query.filter(id == CartProduct.product_id).one()
+    print('product to delete---------', product_to_delete)
     db.session.delete(product_to_delete)
     db.session.commit()
 
