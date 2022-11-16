@@ -19,13 +19,12 @@ function OwnerItemCard({ product }) {
 
     const editBtn = async (e, productId) => {
         history.push(`/editProduct/${product.id}`)
-        
-
     }
 
     return (
         <>
-            <div>{product?.product_name}</div>
+            <div onClick={() => history.push(`/product/${product.id}`)}><img src={product?.image1} alt={product?.product_name} style={{ width: '200px', height: '200px' }} /></div>
+            <div onClick={() => history.push(`/product/${product.id}`)}>{product?.product_name}</div>
             <div>{product?.description}</div>
             <div>${product?.price}</div>
             <div>{product?.category}</div>
