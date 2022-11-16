@@ -16,7 +16,7 @@ function AllProducts() {
 
 
     let productList = Object.values(products)
-    console.log('!!!!!!!!', productList)
+    // console.log('!!!!!!!!', productList)
     useEffect(() => {
         dispatch(getAllProducts()).then(setLoaded(true))
     }, [dispatch])
