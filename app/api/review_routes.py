@@ -6,7 +6,7 @@ from flask_login import current_user, login_user, logout_user, login_required
 review_routes = Blueprint('review', __name__)
 
 @review_routes.route('/<int:id>', methods=["PUT"])
-# @login_required
+@login_required
 def edit_review(id):
     form = EditReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']

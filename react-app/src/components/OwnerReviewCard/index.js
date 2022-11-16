@@ -6,7 +6,7 @@ import { getAllProducts } from '../../store/products'
 import { getUserReviews } from '../../store/reviews'
 // import EditProductForm from '../EditProductForm'
 
-function OwnerReviewCard ({review}) {
+function OwnerReviewCard({ review }) {
 
     const [showEditForm, setShowEditForm] = useState(false)
     const dispatch = useDispatch()
@@ -18,9 +18,8 @@ function OwnerReviewCard ({review}) {
         dispatch(deleteReview(review.id)).then(() => dispatch(getUserReviews()))
     }
 
-    const editBtn = async (e) => {
-        // history.push(`/editProduct/${product.id}`)
-
+    const editBtn = async (e, reviewId) => {
+        history.push(`/editReview/${review.id}`)
 
     }
 
@@ -28,8 +27,8 @@ function OwnerReviewCard ({review}) {
         <>
             <div>{review.review}</div>
             <div>{review.stars}</div>
-           
-            <button onClick={editBtn} >Edit</button>
+
+            <button onClick={(e) => editBtn(e, review.id)}>Edit</button>
             <button onClick={deleteBtn}>Delete</button>
             <div>-----------------------------</div>
         </>

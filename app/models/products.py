@@ -14,8 +14,11 @@ class Product(db.Model):
     price = db.Column(db.Float, nullable=False)
     category = db.Column(db.String(100), nullable=False)
     stock = db.Column(db.Integer, nullable=False)
+    image1 = db.Column(db.String, nullable=False)
+    image2 = db.Column(db.String)
+    image3 = db.Column(db.String)
+    image4 = db.Column(db.String)
 
-    # relationship
     # cart = db.relationship("Cart", back_populates="products", cascade="all, delete-orphan")
     shop = db.relationship("Shop", back_populates="products")
     product_image = db.relationship("ProductImage", back_populates="products", cascade="all, delete-orphan")
@@ -34,7 +37,11 @@ class Product(db.Model):
             'description': self.description,
             'price': self.price,
             'category': self.category,
-            'stock': self.stock
+            'stock': self.stock,
+            'image1': self.image1,
+            'image2': self.image2,
+            'image3': self.image3,
+            'image4': self.image4,
         }
 
 

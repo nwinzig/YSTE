@@ -10,7 +10,7 @@ products_routes = Blueprint('product', __name__)
 def index():
     """get all products, to be used on splash page """
     products = Product.query.all()
-
+    print('backend', products[0].image1)
     newProducts = []
     newProducts.extend([i.to_dict() for i in products])
 
@@ -55,14 +55,18 @@ def create_Product():
             'price': form.data['price'],
             'category': form.data['category'],
             'stock': form.data['stock'],
-            'shop_id': shop_id
+            'shop_id': shop_id,
+            'image1': form.data['image1'],
+            'image2': form.data['image2'],
+            'image3': form.data['image3'],
+            'image4': form.data['image4'],
         }
         print('params', params)
         newProduct = Product(**params)
         print('newproduct', newProduct)
         db.session.add(newProduct)
         db.session.commit()
-        return redirect('/api/products/')
+        return {'message': 'created' }
     return {'Error': 'bad request'}
 
 
@@ -82,6 +86,10 @@ def updateProduct(id):
         product.price = form.data['price']
         product.category = form.data['category']
         product.stock = form.data['stock']
+        product.image1 = form.data['image1']
+        product.image2 = form.data['image2']
+        product.image3 = form.data['image3']
+        product.image4 = form.data['image4']
 
 
         db.session.commit()
@@ -117,7 +125,7 @@ def get_reviews(id):
 
 # create reviews for product
 @products_routes.route('/<int:id>/reviews', methods=["POST"])
-# @login_required
+@login_required
 def create_reviews(id):
     form = CreateReviewForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -180,3 +188,30 @@ def user_products():
     owner_products = []
     owner_products.extend([i.to_dict() for i in products])
     return {'products': owner_products}
+
+
+#get product images
+@products_routes.route('/product-images')
+@login_required
+def product_images(id):
+    product_image = ProductImage.query.filter(id == ProductImage.product_id).one()
+    newImage = product_image.to_dict()
+    return {'product_image': newImage}
+
+
+#add product images
+@products_routes.route('/product-images/<int:id>', methods=['POST'])
+@login_required
+def add_images(id):
+    newImages = AddProductImageForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        params = {
+            'product_image': form.data['product_image'],
+            'product_id': id
+        }
+        new_image = ProductImage(**params)
+        db.session.add(new_image)
+        db.session.commit()
+        return redirect(f'/api/products/{id}')
+    return "Not working"
