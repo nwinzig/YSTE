@@ -5,7 +5,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import { getAllReviews } from '../../store/reviews'
 import ReviewFormModal from '../CreateReview'
 import ReviewForm from '../CreateReview/reviewForm'
-
+import AddToCart from '../ShoppingCart/AddToCart'
 
 function ProductDetail() {
     const history = useHistory()
@@ -41,31 +41,45 @@ function ProductDetail() {
         e.preventDefault()
         history.push(`/create-review/${product.id}`)
     }
+
+
     useEffect(() => {
         dispatch(getSingleProduct(productId)).then(() => dispatch(getAllReviews(productId)))
     }, [dispatch])
+
+
+
     return (
-        <>
-            <h1>{product.product_name}</h1>
-            {product.image1 && <img src={product?.image1} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
-            {product.image2 && <img src={product?.image2} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
-            {product.image3 && <img src={product?.image3} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
-            {product.image4 && <img src={product?.image4} alt={product.product_name} style={{ width: '200px', height: '200px' }} />}
-
-
-            {filteredArr.map(review => (
-
-                <div key={review.id}>
-                    {review.review_image && <img src={review.review_image} alt={review.review} style={{ width: '100px', height: '100px' }} />}
-                    <div>{review.review}</div>
-                    <div>{review.stars}</div>
-                    <div>--------------------------------</div>
+        <div className='product-detail-wrapper'>
+            <div>
+                <img src={product?.image1} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />
+                <img src={product?.image2} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />
+                <img src={product?.image3} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />
+                <img src={product?.image4} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />
+            </div>
+            <div>
+                <h1>{product?.product_name}</h1>
+                <div>
+                    ${product?.price}
                 </div>
-            ))}
+                <div>
+                    {product?.description}
+                 </div>
+                <div>
+                    <AddToCart/>
+                </div>
+            {filteredArr?.map(review => (
+                <div key={review?.id}>
+                    {review?.review_image && <img src={review?.review_image} alt={review?.review} style={{ width: '100px', height: '100px' }} />}
+                    <div>{review?.review}</div>
+                    <div>{review?.stars}</div>
+                    <div>--------------------------------</div>
+            </div>
             <div>
                 {!isOwner && session && !userReview && <button onClick={review}>Leave a review?</button>}
             </div>
-        </>
+        </div>
+
     )
 }
 

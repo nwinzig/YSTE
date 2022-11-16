@@ -49,31 +49,31 @@ function ProductForm() {
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Product Name</label>
-                <input type='text' value={productName} onChange={(e) => setProductName(e.target.value)} />
+                <input type='text' placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
             </div>
             <div>
                 <label>Description</label>
-                <input type='text' value={description} onChange={(e) => setDescription(e.target.value)} />
+                <input type='text' placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
             </div>
             <div>
                 <label>Price</label>
-                <input type='text' value={price} onChange={(e) => setPrice(e.target.value)} />
+                <input type='text' placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
             </div>
             <div>
                 <label>Image Url</label>
-                <input type='text' value={image1} onChange={(e) => setImage1(e.target.value)} />
+                <input type='text' placeholder="Image Required" required value={image1} onChange={(e) => setImage1(e.target.value)} />
             </div>
             <div>
                 <label>Image Url</label>
-                <input type='text' value={image2} onChange={(e) => setImage2(e.target.value)} />
+                <input type='text' placeholder="Optional Image" value={image2} onChange={(e) => setImage2(e.target.value)} />
             </div>
             <div>
                 <label>Image Url</label>
-                <input type='text' value={image3} onChange={(e) => setImage3(e.target.value)} />
+                <input type='text' placeholder="Optional Image" value={image3} onChange={(e) => setImage3(e.target.value)} />
             </div>
             <div>
                 <label>Image Url</label>
-                <input type='text' value={image4} onChange={(e) => setImage4(e.target.value)} />
+                <input type='text' placeholder="Optional Image" value={image4} onChange={(e) => setImage4(e.target.value)} />
             </div>
 
             <div>
