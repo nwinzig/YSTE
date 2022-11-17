@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react'
-import { CreateSingleProduct, getAllProducts, postImages } from '../../store/products'
+import { CreateSingleProduct, getUserProducts, postImages } from '../../store/products'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
 let categories = [{ value: 'Cars' }, { value: 'Clothing' }, { value: 'Electronics' }, { value: 'Home Goods' }, { value: 'miscellaneous' }]
 function ProductForm() {
     const prodlist = useSelector(state => state.products.products)
-    console.log('###########', prodlist)
+    // console.log('###########', prodlist)
     const [productName, setProductName] = useState('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState('')
@@ -21,11 +21,12 @@ function ProductForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-
+        let priceInt = parseFloat(price)
+        let newprice = (Math.round(priceInt * 100) / 100).toFixed(2)
         let newProduct = {
             'product_name': productName,
             description,
-            price,
+            'price': newprice,
             category,
             stock: 1,
             image1,
@@ -40,24 +41,24 @@ function ProductForm() {
         //     console.log('datatatttta', data),
         //     console.log('hit a second time', prodlist)
         //))
-        dispatch(CreateSingleProduct(newProduct)).then(() => dispatch(getAllProducts()))
+        dispatch(CreateSingleProduct(newProduct)).then(() => dispatch(getUserProducts()))
 
-        return history.push('/')
+        return history.push('/your-products')
     }
 
     return (
         <form onSubmit={handleSubmit}>
             <div>
                 <label>Product Name</label>
-                <input type='text' placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
+                <input required type='text' placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
             </div>
             <div>
                 <label>Description</label>
-                <input type='text' placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
+                <input required type='text' placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
             </div>
             <div>
                 <label>Price</label>
-                <input type='text' placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                <input required type='number' min={1} step='0.01' placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
             </div>
             <div>
                 <label>Image Url</label>

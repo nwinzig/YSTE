@@ -169,7 +169,7 @@ const productsReducer = (state = initialState, action) => {
         }
         case CREATE_PRODUCT: {
             newState = { ...action.newProduct }
-            console.log('############# reducer create hit', newState)
+            // console.log('############# reducer create hit', newState)
             return newState
         }
         case LOAD_USER_PRODUCTS: {

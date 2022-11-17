@@ -67,7 +67,7 @@ def create_Product():
         print('newproduct', newProduct)
         db.session.add(newProduct)
         db.session.commit()
-        return {'message': 'created' }
+        return newProduct.to_dict()
     return {'Error': 'bad request'}
 
 
@@ -156,11 +156,11 @@ def create_reviews(id):
 @products_routes.route('/<int:id>/cart/cartProduct',  methods=['GET', 'POST'])
 @login_required
 def add_cart(id):
-    print('this is backend cart id===================', id)
+
     user_id = current_user.id
     current_product = Product.query.get(int(id))
     current_cart = Cart.query.filter(user_id == Cart.user_id).first()
-    # if current_user.id == Cart.user_id:
+
     new_cart_product = {
         'cart_id': current_cart.id,
         'product_id': current_product.id
@@ -169,8 +169,7 @@ def add_cart(id):
     cart_product = CartProduct(**new_cart_product)
     db.session.add(cart_product)
     db.session.commit()
-    # return redirect('/api/cart')
-    # return 'Cant add to Cart'
+
     return {cart_product.to_dict()}
 
 #filter products by category
@@ -188,7 +187,7 @@ def load_products_by_category(category):
 # get all products by User
 
 @products_routes.route('/user-products')
-# @login_required
+@login_required
 def user_products():
     shop = Shop.query.filter(Shop.user_id == current_user.id).one()
     products = Product.query.filter(Product.shop_id == shop.id).all()

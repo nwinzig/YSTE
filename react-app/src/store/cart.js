@@ -33,7 +33,7 @@ export const getCurrentCart = () => async dispatch => {
 
     if (response.ok) {
         const cart = await response.json()
-        console.log('this is cart', cart)
+        // console.log('this is cart', cart)
         dispatch(getCart(cart))
         return cart
     }
@@ -55,16 +55,16 @@ export const deleteProdFromCart = (productId) => async dispatch => {
 
 
 export const addCart = (productId) => async dispatch => {
-    console.log('thunk productId', productId)
+    // console.log('thunk productId', productId)
     const response = await fetch(`/api/products/${productId.product}/cart/cartProduct`, {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(productId.product)
     })
-    console.log('this response after fetch addCart', response)
+    // console.log('this response after fetch addCart', response)
     if (response.ok) {
         const cartAdder = await response.json()
-        console.log('this is after thunk response cartadder', cartAdder)
+        // console.log('this is after thunk response cartadder', cartAdder)
         dispatch(addToCart(cartAdder))
         // return cartAdder
     }

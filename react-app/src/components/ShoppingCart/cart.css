@@ -1,10 +1,40 @@
-.item-count{
+
+.headerWrapper{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 15%;
     margin-left: 15%;
-    margin-right: 20%;
+
+}
+
+.item-count{
     font-weight: lighter;
     /* padding: ; */
     font-size: 32px;
 }
+.shoppingWrapper{
+    display: flex;
+}
+.shoppingWrapper:hover{
+    background-color: lightgray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* box-shadow: 0 0 30px blue; */
+    /* overflow: visible; */
+    width: 150px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+.animatedKeepShopping{
+
+    align-self: center;
+    color: black;
+    text-decoration: none;
+    font-size: 22px;
+}
+
 .cart-wrapper{
 /* border: 1px solid red; */
 /* display: flex;
@@ -28,11 +58,11 @@ margin-top: 40px;
 
 .item-wrapper{
     /* border: solid 1px orange; */
-    box-shadow: 0 0 12px rgb(183, 183, 183);
+    /* box-shadow: 0 0 12px rgb(183, 183, 183); */
     border-radius: 10px;
-    margin-bottom: 30px;
-    min-height: 50%;
-    max-height: 80%;
+    margin-bottom: 10px;
+    min-height: 200px;
+    max-height: 400px;
     width: 100%;
     display: flex;
     align-items: center;
@@ -41,13 +71,19 @@ margin-top: 40px;
 }
 .image-wrapper{
     width: 50%;
-    height: 80%;
+    height: 300px;
     display: flex;
+    justify-content: center;
     align-items: center;
 }
 .item-image{
-    height: 80%;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 300px;
+    max-width: 100%;
+    border-radius: 10px;
+    margin-left: 5px;
 }
 .productInfo{
     height: 100%;
@@ -61,6 +97,11 @@ margin-top: 40px;
 .item-name{
     margin-bottom: 20px;
     font-weight: bold;
+    color: black;
+    text-decoration: none;
+}
+.item-name:hover{
+    text-decoration: underline;
 }
 .item-price{
     margin-top: 20px;
@@ -103,4 +144,29 @@ align-self: flex-end;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+
+.moreProducts{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    height:100%;
+}
+.spotlightProduct{
+    height:100px;
+    width:16%
+}
+.spotlightimage{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 300px;
+    max-width: 100%;
+    border-radius: 10px;
+    margin-left: 5px;
 }
