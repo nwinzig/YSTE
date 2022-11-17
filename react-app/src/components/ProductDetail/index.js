@@ -33,7 +33,7 @@ function ProductDetail() {
     // use userId to find thier shop
     // use the shops id too see if its the owner of the product and if this is true the you hsould not be able to leave a review
     let isOwner
-    if (session.id == product.shop_id) {
+    if (session?.id == product?.shop_id) {
         isOwner = true
     }
 

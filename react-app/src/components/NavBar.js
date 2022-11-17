@@ -4,10 +4,11 @@ import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './nav/SearchComponent';
 import { login } from '../store/session';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const NavBar = () => {
   const dispatch = useDispatch()
+  const user = useSelector(state => state.session.user)
   const demoUser = () => {
     const obj = {
       'email': 'demo@aa.io',
@@ -26,16 +27,16 @@ const NavBar = () => {
           </NavLink>
         </li>
         <SearchBar />
-        <li>
+        {!user && <li>
           <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink>
-        </li>
-        <li>
+        </li>}
+        {!user && <li>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>
-        </li>
+        </li>}
         <li>
           <NavLink to='/users' exact={true} activeClassName='active'>
             Users
@@ -59,11 +60,11 @@ const NavBar = () => {
             Cart
             </NavLink>
         </li>
-        <li>
+        {!user && <li>
             <button onClick={demoUser}>
             Demo User
             </button>
-        </li>
+        </li>}
       </ul>
     </nav>
   );
