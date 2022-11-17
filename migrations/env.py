@@ -6,7 +6,6 @@ from logging.config import fileConfig
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
 
-from flask import current_app
 
 from alembic import context
 
@@ -27,6 +26,7 @@ logger = logging.getLogger('alembic.env')
 # for 'autogenerate' support
 # from myapp import mymodel
 # target_metadata = mymodel.Base.metadata
+
 from flask import current_app
 config.set_main_option(
     'sqlalchemy.url',
@@ -79,7 +79,11 @@ def run_migrations_online():
                 directives[:] = []
                 logger.info('No changes in schema detected.')
 
-    connectable = current_app.extensions['migrate'].db.get_engine()
+    connectable = engine_from_config(
+        config.get_section(config.config_ini_section),
+        prefix='sqlalchemy.',
+        poolclass=pool.NullPool,
+    )
 
     with connectable.connect() as connection:
         context.configure(
@@ -89,7 +93,13 @@ def run_migrations_online():
             **current_app.extensions['migrate'].configure_args
         )
 
+    if environment == "production":
+            connection.execute(f"CREATE SCHEMA IF NOT EXISTS {SCHEMA}")
+
+        # Set search path to your schema (only in production)
         with context.begin_transaction():
+            if environment == "production":
+                context.execute(f"SET search_path TO {SCHEMA}")
             context.run_migrations()
 
 
