@@ -58,22 +58,27 @@ function CartComponent() {
                         {cartItems?.map((item) => (
                         <div className="item-wrapper">
                             <div className="image-wrapper">
-                            <img className="item-image" src={item?.image1} alt="Item image"></img>
+                                <img className="item-image" src={item?.image1} alt="Item image"></img>
                             </div>
-                        <div className="item-name">
-                            {item?.product_name}
-                        </div>
-                        <div className="item-description">
-                            {item?.description}
-                        </div>
-                        <div className="item-price">
-                            ${item?.price}
-                        </div>
-                        <div className='delete-prod'>
-                            <button className="delete-button" onClick={(e) => handleDelete(e, item?.id)} >
-                                Remove
-                            </button>
-                        </div>
+                            <div className="productInfo">
+                                <div className="item-name">
+                                    {item?.product_name}
+                                </div>
+                                {/* <div>
+                                    {item?.category}
+                                </div> */}
+                                <div className="item-description">
+                                    {item?.description}
+                                </div>
+                                <div className="item-price">
+                                    Price: ${item?.price}
+                                </div>
+                                <div className='delete-prod'>
+                                    <button className="delete-button" onClick={(e) => handleDelete(e, item?.id)} >
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         ))}
                     </div>
