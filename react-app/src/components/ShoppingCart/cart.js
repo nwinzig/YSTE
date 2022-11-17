@@ -17,6 +17,7 @@ function CartComponent() {
     let cartArr = cartObj.cart;
     let productsArr = Object.values(productsObj);
     console.log('cartArr', cartArr)
+    // console.log('productsArr',productsArr)
     useEffect(() => {
         dispatch(getCurrentCart()).then(() => dispatch(getCurrentCart())).then(() => dispatch(getAllProducts()));
     }, [dispatch]);
@@ -30,16 +31,28 @@ function CartComponent() {
         });
     }
     console.log('productIds',productIds)
-    // cartItems = productsArr?.filter((product) => {
-    //     return productIds?.includes(product?.id);
-    // });
+    cartItems = productsArr?.filter((product) => {
+        return productIds?.includes(product?.id);
+    });
 
     //testing
-    productsArr?.forEach(product => {
-        if(productIds?.includes(product?.id)){
-            cartItems.push(product)
+    // productsArr?.forEach(product => {
+    //     if(productIds?.includes(product?.id)){
+    //         cartItems.push(product)
+    //     }
+    // })
+
+    cartItems?.forEach(product => {
+        let total = 0
+        product.quantity = total
+        for(let i = 0; i < cartArr.length; i++){
+            if(cartArr[i].product_id === product.id){
+                product.quantity+=1
+            }
         }
+        total = 0
     })
+
 
     console.log('cartItems', cartItems)
     const handleDelete = (e, productId) => {
@@ -52,7 +65,7 @@ function CartComponent() {
 
     let sum = 0;
     cartItems?.forEach(product => {
-        sum+= product?.price
+        sum+= product?.price * product?.quantity
     })
 
     return (
@@ -72,6 +85,9 @@ function CartComponent() {
                                 <div className="item-name">
                                     {item?.product_name}
                                 </div>
+                                <div className="itemQuantity">
+                                    Quantity: {item?.quantity}
+                                </div>
                                 {/* <div>
                                     {item?.category}
                                 </div> */}
@@ -80,6 +96,9 @@ function CartComponent() {
                                 </div>
                                 <div className="item-price">
                                     Price: ${item?.price}
+                                </div>
+                                <div className="total-item-price">
+                                    Total Price: ${item?.price * item.quantity}
                                 </div>
                                 <div className='delete-prod'>
                                     <button className="delete-button" onClick={(e) => handleDelete(e, item?.id)} >
