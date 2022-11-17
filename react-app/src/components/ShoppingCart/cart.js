@@ -6,6 +6,7 @@ import FilledCartComponent from "./cartWithItems";
 import { deleteProdFromCart, getCurrentCart } from "../../store/cart";
 import { getAllProducts, getSingleProduct } from "../../store/products";
 import "./cart.css"
+import AddToCart from "./AddToCart";
 
 function CartComponent() {
     const dispatch = useDispatch();
@@ -13,10 +14,10 @@ function CartComponent() {
     const productsObj = useSelector((state) => state.products);
     const userObj = useSelector((state) => state.session.user);
     const cartObj = useSelector((state) => state.cart);
-    console.log('what are we getting from cart state', cartObj)
+    // console.log('what are we getting from cart state', cartObj)
     let cartArr = cartObj.cart;
     let productsArr = Object.values(productsObj);
-    console.log('cartArr', cartArr)
+    // console.log('cartArr', cartArr)
     // console.log('productsArr',productsArr)
     useEffect(() => {
         dispatch(getCurrentCart()).then(() => dispatch(getCurrentCart())).then(() => dispatch(getAllProducts()));
@@ -30,7 +31,7 @@ function CartComponent() {
         return item.product_id;
         });
     }
-    console.log('productIds',productIds)
+    // console.log('productIds',productIds)
     cartItems = productsArr?.filter((product) => {
         return productIds?.includes(product?.id);
     });
@@ -53,8 +54,18 @@ function CartComponent() {
         total = 0
     })
 
+    //
+    let spotlightProducts = []
+    let numProducts = 0
+    while(numProducts < 5){
+        let index = Math.floor(Math.random() * productsArr.length-1)
+        spotlightProducts.push(productsArr[index])
+        numProducts+=1
+    }
+    console.log('spotlight products', spotlightProducts)
 
-    console.log('cartItems', cartItems)
+
+    // console.log('cartItems', cartItems)
     const handleDelete = (e, productId) => {
         e.preventDefault()
         let productToDelete = cartArr?.find(({product_id}) => product_id === productId)
@@ -70,8 +81,15 @@ function CartComponent() {
 
     return (
         <div className="ultimate-wrapper">
-            <div className="item-count">
-            {cartItems?.length} items in your cart
+            <div className="headerWrapper">
+                <div className="item-count">
+                {cartItems?.length} items in your cart
+                </div>
+                <div className="shoppingWrapper">
+                <Link to={'/'}className="animatedKeepShopping">
+                    Keep shopping
+                </Link>
+                </div>
             </div>
             <div className="cart-wrapper">
                 <div className="item-details">
@@ -82,9 +100,9 @@ function CartComponent() {
                                 <img className="item-image" src={item?.image1} alt="Item image"></img>
                             </div>
                             <div className="productInfo">
-                                <div className="item-name">
+                                <Link to={`/product/${item.id}`} className="item-name">
                                     {item?.product_name}
-                                </div>
+                                </Link>
                                 <div className="itemQuantity">
                                     Quantity: {item?.quantity}
                                 </div>
@@ -123,6 +141,29 @@ function CartComponent() {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="discoverText">
+                <h3>
+                    Discover other items
+                </h3>
+            </div>
+            <div className="moreProducts">
+                {spotlightProducts?.map((product) => (
+                    <div to={`/product/${product?.id}`}className="spotlightProduct">
+                        <Link to={`/product/${product?.id}`} className="spotlightImageWrapper">
+                            <img className="spotlightimage" src={product?.image1} alt="Product image"></img>
+                        </Link>
+                        <Link to={`/product/${product?.id}`} className="spotlightName">
+                            {product?.product_name}
+                        </Link>
+                        <div className="spotlightPrice">
+                            {product?.price}
+                        </div>
+                        {/* <div>
+                            <AddToCart />
+                        </div> */}
+                    </div>
+                ))}
             </div>
         </div>
         );
