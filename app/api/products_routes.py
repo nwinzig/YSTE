@@ -67,7 +67,7 @@ def create_Product():
         print('newproduct', newProduct)
         db.session.add(newProduct)
         db.session.commit()
-        return {'message': 'created' }
+        return newProduct.to_dict()
     return {'Error': 'bad request'}
 
 
@@ -188,7 +188,7 @@ def load_products_by_category(category):
 # get all products by User
 
 @products_routes.route('/user-products')
-# @login_required
+@login_required
 def user_products():
     shop = Shop.query.filter(Shop.user_id == current_user.id).one()
     products = Product.query.filter(Product.shop_id == shop.id).all()
