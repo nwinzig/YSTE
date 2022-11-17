@@ -13,10 +13,7 @@ function ProductDetail() {
     const product = useSelector((state) => state.products)
     const reviews = useSelector((state) => state.reviews)
     const session = useSelector((state) => state.session.user)
-    // console.log('reviewwwwwwws', reviews)
-    // console.log('productsssssssss', product)
-    // console.log('sessionnnnnnnnn', session)
-    // console.log('???????? ProductDetail', product)
+
     const { productId } = useParams()
     const reviewsArr = Object.values(reviews)
     // console.log('reviews Array is here', reviewsArr)
