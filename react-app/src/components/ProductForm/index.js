@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { CreateSingleProduct, postImages } from '../../store/products'
+import { CreateSingleProduct, getUserProducts, postImages } from '../../store/products'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 
@@ -40,9 +40,9 @@ function ProductForm() {
         //     console.log('datatatttta', data),
         //     console.log('hit a second time', prodlist)
         //))
-        dispatch(CreateSingleProduct(newProduct))
+        dispatch(CreateSingleProduct(newProduct)).then(() => dispatch(getUserProducts()))
 
-        return history.push('/')
+        return history.push('/your-products')
     }
 
     return (
