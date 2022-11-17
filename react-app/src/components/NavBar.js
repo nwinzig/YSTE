@@ -3,9 +3,20 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './nav/SearchComponent';
-
+import { login } from '../store/session';
+import { useDispatch } from 'react-redux';
 
 const NavBar = () => {
+  const dispatch = useDispatch()
+  const demoUser = () => {
+    const obj = {
+      'email': 'demo@aa.io',
+      'password': 'password'
+    }
+    dispatch(login(obj.email, obj.password))
+  }
+
+  
   return (
     <nav>
       <ul>
@@ -47,6 +58,11 @@ const NavBar = () => {
             <NavLink to='/cart' exact={true} activeClassName='active'>
             Cart
             </NavLink>
+        </li>
+        <li>
+            <button onClick={demoUser}>
+            Demo User
+            </button>
         </li>
       </ul>
     </nav>
