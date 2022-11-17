@@ -12,10 +12,38 @@ def seed_carts():
     bobbie_carts = Cart(
         user_id = 3,
     )
+    mathew_carts = Cart(
+        user_id = 4,
+    )
+    remington_carts = Cart(
+        user_id = 5,
+    )
+    kratos_carts = Cart(
+        user_id = 6,
+    )
+    naruto_carts = Cart(
+        user_id = 7,
+    )
+    kakashi_carts = Cart(
+        user_id = 8,
+    )
+    peter_carts = Cart(
+        user_id = 9,
+    )
+    batman_carts = Cart(
+        user_id = 10,
+    )
 
     db.session.add(demo_carts)
     db.session.add(marnie_carts)
     db.session.add(bobbie_carts)
+    db.session.add(mathew_carts)
+    db.session.add(remington_carts)
+    db.session.add(kratos_carts)
+    db.session.add(naruto_carts)
+    db.session.add(kakashi_carts)
+    db.session.add(peter_carts)
+    db.session.add(batman_carts)
     db.session.commit()
 
 
