@@ -56,7 +56,7 @@ export const deleteProdFromCart = (productId) => async dispatch => {
 
 export const addCart = (productId) => async dispatch => {
     console.log('thunk productId', productId)
-    const response = await fetch(`/api/products/${productId.product}/cart/cartProduct/`, {
+    const response = await fetch(`/api/products/${productId.product}/cart/cartProduct`, {
         method: "POST",
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(productId.product)
@@ -66,7 +66,7 @@ export const addCart = (productId) => async dispatch => {
         const cartAdder = await response.json()
         console.log('this is after thunk response cartadder', cartAdder)
         dispatch(addToCart(cartAdder))
-        return cartAdder
+        // return cartAdder
     }
 }
 

@@ -18,7 +18,7 @@ function AddToCart() {
         let data = {
             product
         }
-        console.log('this is the params before dispatch', data)
+        // console.log('this is the params before dispatch', data)
         dispatch(addCart(data))
         history.push('/cart')
     }
