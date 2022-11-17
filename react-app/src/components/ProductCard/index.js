@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 
 function ProductCard({ product }) {
-    console.log('prop', product)
+    // console.log('prop', product)
     const history = useHistory()
 
 
