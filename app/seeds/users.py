@@ -6,13 +6,33 @@ def seed_users():
     demo = User(
         username='Demo', first_name="Elon", last_name="Musk", email='demo@aa.io', password='password')
     marnie = User(
-        username='marnie', first_name="Jeff", last_name="Bezos", email='marnie@aa.io', password='password')
+        username='Marnie', first_name="Jeff", last_name="Bezos", email='marnie@aa.io', password='password')
     bobbie = User(
-        username='bobbie',first_name="Bill", last_name="Gates", email='bobbie@aa.io', password='password')
+        username='Bobbie',first_name="Bill", last_name="Gates", email='bobbie@aa.io', password='password')
+    mathew = User(
+        username='Mathew',first_name="Mathew", last_name="Gmoney", email='mathew@aa.io', password='password')
+    remington = User(
+        username='Remington',first_name="Remington", last_name="Barrett", email='remington@aa.io', password='password')
+    kratos = User(
+        username='God_of_war',first_name="Kratos", last_name="God", email='god_of_war@aa.io', password='password')
+    naruto = User(
+        username='Jinchuriki',first_name="Naruto", last_name="Uzumaki", email='jinchuriki@aa.io', password='password')
+    kakashi = User(
+        username='Copy_ninja',first_name="Kakashi", last_name="Hatake", email='copy_ninja@aa.io', password='password')
+    peter = User(
+        username='Family_guy',first_name="Peter", last_name="Griffin", email='family_guy@aa.io', password='password')
+    batman = User(
+        username='Dark_knight',first_name="Bruce", last_name="Wayne", email='dark_knight@aa.io', password='password')
 
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
+    db.session.add(mathew)
+    db.session.add(kratos)
+    db.session.add(naruto)
+    db.session.add(kakashi)
+    db.session.add(peter)
+    db.session.add(batman)
     db.session.commit()
 
 
