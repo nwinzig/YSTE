@@ -8,16 +8,28 @@ function EditReviewForm() {
     console.log('edit review id', reviewId)
     const reviews = useSelector(state => state.reviews.reviews)
     
-    const prevReview = reviews.filter(review => review.id == reviewId)[0]
+    const prevReview = reviews?.filter(review => review.id == reviewId)[0]
     const history = useHistory()
     const dispatch = useDispatch()
-    const [review, setReview] = useState(prevReview.review)
-    const [stars, setStars] = useState(prevReview.stars)
-    const [img, setImg] = useState(prevReview.img)
+    const [review, setReview] = useState(prevReview?.review)
+    const [stars, setStars] = useState(prevReview?.stars)
+    const [img, setImg] = useState(prevReview?.img)
+    const [errors, setErrors] = useState([])
 
     const submitter = async (e) => {
         e.preventDefault()
+        setErrors([])
 
+        if (review.length < 5 || review.length > 240) {
+            setErrors(['Review must be between 5 and 240 characters'])
+            return
+        }
+
+        if (stars > 5 || stars < 1) {
+            setErrors(['Stars must be between 1 and 5'])
+            return
+        }
+        
         let obj = {
             review,
             stars,
@@ -30,13 +42,18 @@ function EditReviewForm() {
 
     return (
         <form onSubmit={submitter}>
+            <ul>
+                {!!errors.length && errors.map((error, index) => (
+                    <li key={index}>{error}</li>
+                ))}
+            </ul>
             <div>
                 <label> Review: </label>
-                <input value={review} onChange={e => setReview(e.target.value)} />
+                <input required value={review} onChange={e => setReview(e.target.value)} />
             </div>
             <div>
                 <label> Stars: </label>
-                <input type='number' value={stars} onChange={e => setStars(e.target.value)} />
+                <input required type='number' value={stars} onChange={e => setStars(e.target.value)} />
             </div>
             <div>
                 <label>Image Url: </label>
