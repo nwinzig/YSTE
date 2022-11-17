@@ -12,9 +12,38 @@ def seed_shops():
     bobbie_shop = Shop(
         user_id = 3, shop_name="Microsoft", shop_image=""
     )
+    mathew_shop = Shop(
+        user_id = 4, shop_name="Matts Go To", shop_image=""
+    )
+    remington_shop = Shop(
+        user_id = 5, shop_name="Remies", shop_image=""
+    )
+    kratos_shop = Shop(
+        user_id = 6, shop_name="God of Products", shop_image=""
+    )
+    naruto_shop = Shop(
+        user_id = 7, shop_name="Leaf Village Shop", shop_image=""
+    )
+    kakashi_shop = Shop(
+        user_id = 8, shop_name="Kakashi's Book Store", shop_image=""
+    )
+    peter_shop = Shop(
+        user_id = 9, shop_name="Family Merch", shop_image=""
+    )
+    batman_shop = Shop(
+        user_id = 10, shop_name="Alfreds", shop_image=""
+    )
+
     db.session.add(demo_shop)
     db.session.add(marnie_shop)
     db.session.add(bobbie_shop)
+    db.session.add(mathew_shop)
+    db.session.add(remington_shop)
+    db.session.add(kratos_shop)
+    db.session.add(naruto_shop)
+    db.session.add(kakashi_shop)
+    db.session.add(peter_shop)
+    db.session.add(batman_shop)
     db.session.commit()
 
 
