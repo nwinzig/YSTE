@@ -61,7 +61,7 @@ export const getAllProducts = () => async dispatch => {
         dispatch(loadAll(products))
         return products
     }
-    return 
+    return
 }
 
 export const getSingleProduct = (productId) => async dispatch => {
@@ -90,7 +90,7 @@ export const CreateSingleProduct = (newProduct) => async dispatch => {
 }
 
 export const getUserProducts = (userId) => async dispatch => {
-    const response = await fetch('/api/products/user-products')
+    const response = await fetch('/api/products/user-products/')
 
     if (response.ok) {
         const products = await response.json()
