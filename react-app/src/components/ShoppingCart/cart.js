@@ -13,10 +13,10 @@ function CartComponent() {
     const productsObj = useSelector((state) => state.products);
     const userObj = useSelector((state) => state.session.user);
     const cartObj = useSelector((state) => state.cart);
-
+    console.log('what are we getting from cart state', cartObj)
     let cartArr = cartObj.cart;
     let productsArr = Object.values(productsObj);
-
+    console.log('cartArr', cartArr)
     useEffect(() => {
         dispatch(getCurrentCart()).then(() => dispatch(getCurrentCart())).then(() => dispatch(getAllProducts()));
     }, [dispatch]);
@@ -29,11 +29,19 @@ function CartComponent() {
         return item.product_id;
         });
     }
+    console.log('productIds',productIds)
+    // cartItems = productsArr?.filter((product) => {
+    //     return productIds?.includes(product?.id);
+    // });
 
-    cartItems = productsArr?.filter((product) => {
-        return productIds?.includes(product?.id);
-    });
+    //testing
+    productsArr?.forEach(product => {
+        if(productIds?.includes(product?.id)){
+            cartItems.push(product)
+        }
+    })
 
+    console.log('cartItems', cartItems)
     const handleDelete = (e, productId) => {
         e.preventDefault()
         let productToDelete = cartArr?.find(({product_id}) => product_id === productId)
@@ -58,22 +66,27 @@ function CartComponent() {
                         {cartItems?.map((item) => (
                         <div className="item-wrapper">
                             <div className="image-wrapper">
-                            <img className="item-image" src={item?.image1} alt="Item image"></img>
+                                <img className="item-image" src={item?.image1} alt="Item image"></img>
                             </div>
-                        <div className="item-name">
-                            {item?.product_name}
-                        </div>
-                        <div className="item-description">
-                            {item?.description}
-                        </div>
-                        <div className="item-price">
-                            ${item?.price}
-                        </div>
-                        <div className='delete-prod'>
-                            <button className="delete-button" onClick={(e) => handleDelete(e, item?.id)} >
-                                Remove
-                            </button>
-                        </div>
+                            <div className="productInfo">
+                                <div className="item-name">
+                                    {item?.product_name}
+                                </div>
+                                {/* <div>
+                                    {item?.category}
+                                </div> */}
+                                <div className="item-description">
+                                    {item?.description}
+                                </div>
+                                <div className="item-price">
+                                    Price: ${item?.price}
+                                </div>
+                                <div className='delete-prod'>
+                                    <button className="delete-button" onClick={(e) => handleDelete(e, item?.id)} >
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                         ))}
                     </div>
