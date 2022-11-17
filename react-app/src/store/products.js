@@ -61,7 +61,7 @@ export const getAllProducts = () => async dispatch => {
         dispatch(loadAll(products))
         return products
     }
-    return 
+    return
 }
 
 export const getSingleProduct = (productId) => async dispatch => {
@@ -169,7 +169,7 @@ const productsReducer = (state = initialState, action) => {
         }
         case CREATE_PRODUCT: {
             newState = { ...action.newProduct }
-            console.log('############# reducer create hit', newState)
+            // console.log('############# reducer create hit', newState)
             return newState
         }
         case LOAD_USER_PRODUCTS: {
