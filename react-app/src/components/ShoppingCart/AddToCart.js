@@ -10,11 +10,11 @@ function AddToCart() {
     let history = useHistory()
     let {productId} = useParams()
     // const [productId, setProductId] = useState('')
-    console.log('this is productId state variable',productId)
+    // console.log('this is productId state variable',productId)
     let product= parseInt(productId)
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('this is product id inside component-----', productId)
+        // console.log('this is product id inside component-----', productId)
         let data = {
             product
         }

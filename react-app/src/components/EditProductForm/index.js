@@ -11,15 +11,15 @@ function EditProductForm() {
     const history = useHistory()
     const { productId } = useParams()
 
-    const product = products.filter(product => product.id == productId)[0]
-    const [productName, setProductName] = useState(product.product_name)
-    const [description, setDescription] = useState(product.description)
-    const [price, setPrice] = useState(product.price)
-    const [category, setCategory] = useState(product.category)
-    const [image1, setImage1] = useState(product.image1)
-    const [image2, setImage2] = useState(product.image2)
-    const [image3, setImage3] = useState(product.image3)
-    const [image4, setImage4] = useState(product.image4)
+    const product = products?.filter(product => product?.id == productId)[0]
+    const [productName, setProductName] = useState(product?.product_name)
+    const [description, setDescription] = useState(product?.description)
+    const [price, setPrice] = useState(product?.price)
+    const [category, setCategory] = useState(product?.category)
+    const [image1, setImage1] = useState(product?.image1)
+    const [image2, setImage2] = useState(product?.image2)
+    const [image3, setImage3] = useState(product?.image3)
+    const [image4, setImage4] = useState(product?.image4)
 
     const handleSubmit = async (e) => {
         e.preventDefault()
