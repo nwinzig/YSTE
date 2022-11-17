@@ -10,6 +10,7 @@ function EditProductForm() {
     const dispatch = useDispatch()
     const history = useHistory()
     const { productId } = useParams()
+    const [errors, setErrors] = useState([])
 
     const product = products?.filter(product => product?.id == productId)[0]
     const [productName, setProductName] = useState(product?.product_name)
@@ -23,7 +24,17 @@ function EditProductForm() {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setErrors([])
 
+        if (description.length < 10 || description > 240) {
+            setErrors(['Description must be between 10 and 240 characters'])
+            return
+        }
+
+        if (Number(price) > 25000) {
+            setErrors(['Price must be between $1 and $25,000'])
+            return
+        }
         let obj = {
             'product_name': productName,
             description,
@@ -43,17 +54,22 @@ function EditProductForm() {
     }
     return (
         <form onSubmit={handleSubmit}>
+            <ul>
+                {!!errors.length && errors.map((error, index) => (
+                    <li key={index}>{error}</li>
+                ))}
+            </ul>
             <div>
                 <label>Product Name:</label>
-                <input value={productName} onChange={e => setProductName(e.target.value)} />
+                <input required value={productName} onChange={e => setProductName(e.target.value)} />
             </div>
             <div>
                 <label>Description:</label>
-                <input value={description} onChange={e => setDescription(e.target.value)} />
+                <input required value={description} onChange={e => setDescription(e.target.value)} />
             </div>
             <div>
                 <label>Price</label>
-                <input value={price} onChange={e => setPrice(e.target.value)} />
+                <input required value={price} onChange={e => setPrice(e.target.value)} />
             </div>
             <div>
                 <label>Category</label>
@@ -69,7 +85,7 @@ function EditProductForm() {
             </div>
             <div>
                 <label>Image Url</label>
-                <input type='text' value={image1} onChange={(e) => setImage1(e.target.value)} />
+                <input required type='text' value={image1} onChange={(e) => setImage1(e.target.value)} />
             </div>
             <div>
                 <label>Image Url</label>
