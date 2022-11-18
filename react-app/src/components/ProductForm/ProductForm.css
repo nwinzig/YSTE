@@ -53,3 +53,19 @@ label {
 /* input:focus {
     border: #F1641D
 } */
+
+.error-map {
+    display: inline;
+    margin-left: 20px;
+    font-size: 18px;
+    color:red
+}
+/* error-map {
+    display: flex;
+    position: relative;
+    margin-left: 20px;
+
+
+    font-size: 22px;
+    color:red
+} */

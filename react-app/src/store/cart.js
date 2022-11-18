@@ -78,6 +78,7 @@ const cartReducer = (state = initialState, action) => {
     let newState = {}
     switch (action.type) {
         case GET_CART: {
+            newState = {}
             newState = { ...state, ...action.data }
             return newState
         }

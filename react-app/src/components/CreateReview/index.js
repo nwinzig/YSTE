@@ -4,7 +4,7 @@ import ReviewForm from './reviewForm';
 
 function ReviewFormModal() {
     const [showModal, setShowModal] = useState(false);
-    console.log('showmodal', showModal)
+    // console.log('showmodal', showModal)
     // const handleClick = (e) => {
     //     e.preventDefault()
     //     setShowModal(true)
