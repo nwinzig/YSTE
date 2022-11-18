@@ -28,6 +28,7 @@ def seed_users():
     db.session.add(marnie)
     db.session.add(bobbie)
     db.session.add(mathew)
+    db.session.add(remington)
     db.session.add(kratos)
     db.session.add(naruto)
     db.session.add(kakashi)

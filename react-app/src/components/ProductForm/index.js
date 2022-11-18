@@ -7,6 +7,7 @@ let categories = [{ value: 'Cars' }, { value: 'Clothing' }, { value: 'Electronic
 function ProductForm() {
     const prodlist = useSelector(state => state.products.products)
     // console.log('###########', prodlist)
+
     const [productName, setProductName] = useState('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState('')
@@ -15,12 +16,24 @@ function ProductForm() {
     const [image2, setImage2] = useState('')
     const [image3, setImage3] = useState('')
     const [image4, setImage4] = useState('')
+    const [errors, setErrors] = useState([])
     const history = useHistory()
 
     const dispatch = useDispatch()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
+        setErrors([])
+        if (description.length < 10 || description > 240){
+            setErrors(['Description must be between 10 and 240 characters'])
+            return 
+        }
+
+        if (Number(price) > 25000){
+            setErrors(['Price must be between $1 and $25,000'])
+            return
+        }
+        
         let priceInt = parseFloat(price)
         let newprice = (Math.round(priceInt * 100) / 100).toFixed(2)
         let newProduct = {
@@ -48,6 +61,11 @@ function ProductForm() {
 
     return (
         <form onSubmit={handleSubmit}>
+            <ul>
+                {!!errors.length && errors.map((error, index) => (
+                    <li key={index}>{error}</li>
+                ))}
+            </ul>
             <div>
                 <label>Product Name</label>
                 <input required type='text' placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
