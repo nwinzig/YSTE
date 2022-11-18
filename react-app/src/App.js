@@ -64,7 +64,7 @@ function App() {
         <ProtectedRoute path='/newProduct' exact={true}>
           <ProductForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/your-products' exact={true}>
+        <ProtectedRoute path='/your-products' exact={true} style={{width:'100%'}}>
           <OwnerProducts />
         </ProtectedRoute>
         <ProtectedRoute exact path='/create-review/:productId'>
