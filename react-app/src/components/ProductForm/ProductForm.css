@@ -1,11 +1,51 @@
 .productform {
-    display: inline;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-left: 100px;
+    margin-top: 50px;
+    margin-bottom: 100px;
 }
 
 input {
+    display: flex;
+    flex-direction: column;
     width: 70%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+label {
+    margin-left: 17px;
+    margin-top: 60px;
+}
+
+.category {
+    display: inline-block;
+
+}
+
+.productsubmit {
+    width: 100px;
+    border-radius: 20px;
+    border: none;
+    height: 30px;
+    margin-top: 50px;
+    background-color: #F1641D;
+    color: white;
+}
+
+.categoryselect {
+    display: inline;
+    margin-left: 15px;
+}
+
+.catlabel {
+    margin-right: 50px;
+}
+
+.productsubmit:hover {
+    box-shadow: 0 0 12px rgb(183, 183, 183);
 }

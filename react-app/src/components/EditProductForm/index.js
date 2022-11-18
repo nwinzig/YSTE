@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { editItem } from '../../store/products'
 import { useDispatch, useSelector } from 'react-redux'
+import './EditProductForm.css'
 
 let categories = [{ value: 'Cars' }, { value: 'Clothing' }, { value: 'Electronics' }, { value: 'Home Goods' }, { value: 'miscellaneous' }]
 
@@ -53,7 +54,7 @@ function EditProductForm() {
 
     }
     return (
-        <form onSubmit={handleSubmit}>
+        <form className='editpform' onSubmit={handleSubmit}>
             <ul>
                 {!!errors.length && errors.map((error, index) => (
                     <li key={index}>{error}</li>
@@ -68,11 +69,24 @@ function EditProductForm() {
                 <input required value={description} onChange={e => setDescription(e.target.value)} />
             </div>
             <div>
-                <label>Price</label>
+                <label>Price:</label>
                 <input required value={price} onChange={e => setPrice(e.target.value)} />
             </div>
             <div>
-                <label>Category</label>
+                <label>Image Url:</label>
+                <input required type='text' value={image1} onChange={(e) => setImage1(e.target.value)} />
+            </div>
+            <div>
+                <input type='text' value={image2} onChange={(e) => setImage2(e.target.value)} />
+            </div>
+            <div>
+                <input type='text' value={image3} onChange={(e) => setImage3(e.target.value)} />
+            </div>
+            <div>
+                <input type='text' value={image4} onChange={(e) => setImage4(e.target.value)} />
+            </div>
+            <div>
+                <label className='editcategory'>Category:</label>
                 <select value={category} onChange={(e) => setCategory(e.target.value)} >
                     {categories.map((category, index) => {
                         return (<option key={index} value={category.value}>
@@ -83,23 +97,7 @@ function EditProductForm() {
 
                 </select>
             </div>
-            <div>
-                <label>Image Url</label>
-                <input required type='text' value={image1} onChange={(e) => setImage1(e.target.value)} />
-            </div>
-            <div>
-                <label>Image Url</label>
-                <input type='text' value={image2} onChange={(e) => setImage2(e.target.value)} />
-            </div>
-            <div>
-                <label>Image Url</label>
-                <input type='text' value={image3} onChange={(e) => setImage3(e.target.value)} />
-            </div>
-            <div>
-                <label>Image Url</label>
-                <input type='text' value={image4} onChange={(e) => setImage4(e.target.value)} />
-            </div>
-            <button type='submit'>Submit</button>
+            <button className='submiteditproduct' type='submit'>Submit</button>
         </form>
     )
 }
