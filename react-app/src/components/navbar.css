@@ -100,12 +100,12 @@ nav{
 
 .categoryWrapper{
     border-bottom: 2px solid lightgray;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     align-items: center;
     align-content: center;
 }

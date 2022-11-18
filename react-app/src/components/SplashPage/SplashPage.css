@@ -1,0 +1,72 @@
+.contentWrapper{
+
+}
+
+.welcomeWrapper{
+    display: flex;
+    justify-content: center;
+    background-color: #FDEBD2;
+}
+.circularCatWrapper{
+    height: 100px;
+}
+.beige{
+    background-color: #FDEBD2;
+    display: flex;
+    justify-content: space-evenly;
+}
+.circularWrapperleft{
+    margin-left: 15%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.circularWrapper{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.circularWrapperright{
+    margin-right: 15%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.circular{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100px;
+    width: 100px;
+    background-color: blue;
+    border-radius: 50%;
+}
+.circular:hover{
+    box-shadow: 0 0 2px 2px gray;
+    cursor: pointer;
+}
+.white{
+    background-color: white;
+    height: 50px;
+
+}
+
+
+.spotlightGridWrapper{
+
+}
+
+
+
+
+
+
+
+.productCardWrapper{
+    margin-left: 10%;
+    margin-right: 10%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 30px;
+    column-gap: 10px;
+}

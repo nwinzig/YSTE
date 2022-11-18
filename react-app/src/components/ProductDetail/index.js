@@ -16,7 +16,7 @@ function ProductDetail() {
 
     const { productId } = useParams()
     const reviewsArr = Object.values(reviews)
-    // console.log('reviews Array is here', reviewsArr)
+    console.log('reviews Array is here', reviewsArr)
     // console.log('params', params)
 
     let filteredArr = reviewsArr.filter(reviewObj => reviewObj.product_id == product.id)
