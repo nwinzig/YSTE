@@ -27,13 +27,13 @@ function EditProductForm() {
         e.preventDefault()
         setErrors([])
 
-        if (description.length < 10 || description > 240) {
-            setErrors(['Description must be between 10 and 240 characters'])
+        if (description.length < 1 || description > 240) {
+            setErrors(['Description must be between 1 and 240 characters'])
             return
         }
 
-        if (Number(price) > 25000) {
-            setErrors(['Price must be between $1 and $25,000'])
+        if (Number(price) > 1000000) {
+            setErrors(['Price must be between $1 and $1,000,000'])
             return
         }
         let obj = {
@@ -47,7 +47,7 @@ function EditProductForm() {
             image4,
             image2,
         }
-
+        setErrors([])
         await dispatch(editItem(obj, productId))
 
         history.push('/your-products')
@@ -62,7 +62,7 @@ function EditProductForm() {
             </ul>
             <div>
                 <label>Product Name:</label>
-                <input required value={productName} onChange={e => setProductName(e.target.value)} />
+                <input required value={productName} placeholder={productName} onChange={e => setProductName(e.target.value)} />
             </div>
             <div>
                 <label>Description:</label>
@@ -70,20 +70,20 @@ function EditProductForm() {
             </div>
             <div>
                 <label>Price:</label>
-                <input required value={price} onChange={e => setPrice(e.target.value)} />
+                <input required type='number' min={1} step='0.01' value={price} onChange={e => setPrice(e.target.value)} />
             </div>
             <div>
                 <label>Image Url:</label>
                 <input required type='text' value={image1} onChange={(e) => setImage1(e.target.value)} />
             </div>
             <div>
-                <input type='text' value={image2} onChange={(e) => setImage2(e.target.value)} />
+                <input type='text' value={image2} placeholder='Optional Image' onChange={(e) => setImage2(e.target.value)} />
             </div>
             <div>
-                <input type='text' value={image3} onChange={(e) => setImage3(e.target.value)} />
+                <input type='text' value={image3} placeholder='Optional Image' onChange={(e) => setImage3(e.target.value)} />
             </div>
             <div>
-                <input type='text' value={image4} onChange={(e) => setImage4(e.target.value)} />
+                <input type='text' value={image4} placeholder='Optional Image' onChange={(e) => setImage4(e.target.value)} />
             </div>
             <div>
                 <label className='editcategory'>Category:</label>
