@@ -2,7 +2,8 @@
 const LOAD_REVIEWS = 'reviews/LOAD_REVIEWS'
 const CREATE_REVIEW = 'reviews/CREATE_REVIEW'
 const LOAD_USER_REVIEWS = 'reviews/LOAD_USER_REVIEWS'
-
+const EDIT_REVIEW = 'reviews/EDIT_REVIEW'
+const DELETE_REVIEW = 'reviews/DELETE_REVIEW'
 
 //Action Creators
 const loadAll = (reviews) => {
@@ -18,7 +19,19 @@ const loadUserReviews = (reviews) => {
         reviews
     }
 }
+const editReviewAction = (reviews) => {
+    return {
+        'type': EDIT_REVIEW,
+        reviews
+    }
+}
 
+const deleteReviewAction = (reviews) => {
+    return {
+        'type': DELETE_REVIEW,
+        reviews
+    }
+}
 // Thunks
 export const getAllReviews = (id) => async dispatch => {
     const response = await fetch(`/api/products/${id}/reviews`)
@@ -63,9 +76,9 @@ export const deleteReview = (id) => async dispatch => {
     })
 
     if (response.ok) {
-        return
+        const deleted = await response.json()
+        dispatch(deleteReviewAction(deleted))
     }
-    return
 }
 
 
@@ -75,7 +88,11 @@ export const editReview = (id, obj) => async dispatch => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(obj)
     })
-    return
+    if (response.ok){
+        const review = await response.json()
+        dispatch(editReviewAction(review))
+        return review
+    }
 }
 
 // Initial State
@@ -93,6 +110,15 @@ const reviewsReducer = (state = initialState, action) => {
         case LOAD_USER_REVIEWS: {
             console.log('%%%%%%%%%% LOAD USER REVIEWS REDUCER %%%%%%%', action.reviews)
             newState = { ...state, ...action.reviews }
+            return newState
+        }
+        case EDIT_REVIEW: {
+            newState = {...state, ...action.reviews}
+            return newState
+        }
+        case DELETE_REVIEW: {
+            newState = {}
+            delete newState[action.deleted]
             return newState
         }
         default:
