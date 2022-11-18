@@ -22,10 +22,10 @@ const loadUserReviews = (reviews) => {
 // Thunks
 export const getAllReviews = (id) => async dispatch => {
     const response = await fetch(`/api/products/${id}/reviews`)
-    console.log('me thunk review is hit')
+    // console.log('me thunk review is hit')
     if (response.ok) {
         const reviews = await response.json()
-        console.log('prodcut reviews', reviews)
+        // console.log('prodcut reviews', reviews)
         dispatch(loadAll(reviews))
         return reviews
     }
@@ -40,7 +40,7 @@ export const createReview = (id, obj) => async dispatch => {
 
     if(response.ok){
         const review = await response.json()
-        console.log('!!!!!!!!!! THUNK REVIEW !!!!!', review) 
+        console.log('!!!!!!!!!! THUNK REVIEW !!!!!', review)
     }
 
     return

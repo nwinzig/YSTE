@@ -1,23 +1,20 @@
-.editpform {
+.signupform {
     margin-left: 100px;
     margin-top: 50px;
     margin-bottom: 100px;
 }
 
-.submiteditproduct {
+.signupbtn {
     width: 100px;
     border-radius: 20px;
     border: none;
     height: 30px;
-    margin-top: 50px;
+    margin-top: 30px;
     background-color: #F1641D;
     color: white;
+    margin-left: 20px;
 }
 
-.submiteditproduct:hover {
+.signupbtn:hover {
     box-shadow: 0 0 12px rgb(183, 183, 183);
-}
-
-.editcategory {
-    margin-right: 20px;
 }

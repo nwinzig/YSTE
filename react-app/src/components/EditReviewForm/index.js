@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { editReview, getUserReviews } from '../../store/reviews'
+import './editReviewForm.css'
 
 function EditReviewForm() {
     const { reviewId } = useParams()
     console.log('edit review id', reviewId)
     const reviews = useSelector(state => state.reviews.reviews)
-    
+
     const prevReview = reviews?.filter(review => review.id == reviewId)[0]
     const history = useHistory()
     const dispatch = useDispatch()
@@ -29,7 +30,7 @@ function EditReviewForm() {
             setErrors(['Stars must be between 1 and 5'])
             return
         }
-        
+
         let obj = {
             review,
             stars,
@@ -41,7 +42,7 @@ function EditReviewForm() {
     }
 
     return (
-        <form onSubmit={submitter}>
+        <form className='editreviewform' onSubmit={submitter}>
             <ul>
                 {!!errors.length && errors.map((error, index) => (
                     <li key={index}>{error}</li>
@@ -59,7 +60,7 @@ function EditReviewForm() {
                 <label>Image Url: </label>
                 <input value={img} onChange={e => setImg(e.target.value)} />
             </div>
-            <button type='submit'>Submit</button>
+            <button className='editreviewbtn' type='submit'>Submit</button>
 
         </form>
     )

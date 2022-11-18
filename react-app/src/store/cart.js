@@ -31,7 +31,7 @@ const addToCart = (data) => {
 export const getCurrentCart = () => async dispatch => {
     const response = await fetch('/api/cart/')
 
-    if(response.ok){
+    if (response.ok) {
         const cart = await response.json()
         // console.log('this is cart', cart)
         dispatch(getCart(cart))
@@ -46,7 +46,7 @@ export const deleteProdFromCart = (productId) => async dispatch => {
         method: "DELETE"
     })
 
-    if (response.ok){
+    if (response.ok) {
         dispatch(deleteProduct(productId))
         return
     }
@@ -58,11 +58,11 @@ export const addCart = (productId) => async dispatch => {
     // console.log('thunk productId', productId)
     const response = await fetch(`/api/products/${productId.product}/cart/cartProduct`, {
         method: "POST",
-        headers: {'Content-Type': 'application/json'},
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(productId.product)
     })
     // console.log('this response after fetch addCart', response)
-    if (response.ok){
+    if (response.ok) {
         const cartAdder = await response.json()
         // console.log('this is after thunk response cartadder', cartAdder)
         dispatch(addToCart(cartAdder))
@@ -76,13 +76,13 @@ let initialState = {}
 
 const cartReducer = (state = initialState, action) => {
     let newState = {}
-    switch (action.type){
+    switch (action.type) {
         case GET_CART: {
-            newState = {...state, ...action.data}
+            newState = { ...state, ...action.data }
             return newState
         }
         case ADD_CART: {
-            newState = {...state, ...action.data}
+            newState = { ...state, ...action.data }
             return newState
         }
         default:

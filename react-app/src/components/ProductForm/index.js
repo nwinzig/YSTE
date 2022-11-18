@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { CreateSingleProduct, getUserProducts, postImages } from '../../store/products'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import './ProductForm.css'
 
 let categories = [{ value: 'Cars' }, { value: 'Clothing' }, { value: 'Electronics' }, { value: 'Home Goods' }, { value: 'miscellaneous' }]
 function ProductForm() {
@@ -24,16 +25,16 @@ function ProductForm() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setErrors([])
-        if (description.length < 10 || description > 240){
+        if (description.length < 10 || description > 240) {
             setErrors(['Description must be between 10 and 240 characters'])
-            return 
+            return
         }
 
-        if (Number(price) > 25000){
+        if (Number(price) > 25000) {
             setErrors(['Price must be between $1 and $25,000'])
             return
         }
-        
+
         let priceInt = parseFloat(price)
         let newprice = (Math.round(priceInt * 100) / 100).toFixed(2)
         let newProduct = {
@@ -60,57 +61,57 @@ function ProductForm() {
     }
 
     return (
+
         <form onSubmit={handleSubmit}>
-            <ul>
-                {!!errors.length && errors.map((error, index) => (
-                    <li key={index}>{error}</li>
-                ))}
-            </ul>
-            <div>
-                <label>Product Name</label>
-                <input required type='text' placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
-            </div>
-            <div>
-                <label>Description</label>
-                <input required type='text' placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
-            </div>
-            <div>
-                <label>Price</label>
-                <input required type='number' min={1} step='0.01' placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
-            </div>
-            <div>
-                <label>Image Url</label>
-                <input type='text' placeholder="Image Required" required value={image1} onChange={(e) => setImage1(e.target.value)} />
-            </div>
-            <div>
-                <label>Image Url</label>
-                <input type='text' placeholder="Optional Image" value={image2} onChange={(e) => setImage2(e.target.value)} />
-            </div>
-            <div>
-                <label>Image Url</label>
-                <input type='text' placeholder="Optional Image" value={image3} onChange={(e) => setImage3(e.target.value)} />
-            </div>
-            <div>
-                <label>Image Url</label>
-                <input type='text' placeholder="Optional Image" value={image4} onChange={(e) => setImage4(e.target.value)} />
-            </div>
+            <div className='productform'>
 
-            <div>
-                <label>Category</label>
-                <select value={category} onChange={(e) => setCategory(e.target.value)} >
-                    {categories.map((category, index) => {
-                        return (<option key={index} value={category.value}>
-                            {category.value}
-                        </option>
-                        )
-                    })}
+                <div className='hello'>
+                    <label className='productlable' >Product Name</label>
+                    <input className='a' required type='text' placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
+                </div>
+                <div>
+                    <label className='productlable' >Description</label>
+                    <input required className='b' type='text' placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
+                </div>
+                <div>
+                    <label className='productlable' >Price</label>
+                    <input required className='c' type='number' min={1} step='0.01' placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                </div>
+                <div className='imageurl'>
+                    <label className='productlable'>Image Url</label>
+                    <input type='text' className='d' placeholder="Image Required" required value={image1} onChange={(e) => setImage1(e.target.value)} />
+                </div>
+                <div>
+                    {/* <label className='productlable' >Image Url</label> */}
+                    <input type='text' className='e' placeholder="Optional Image" value={image2} onChange={(e) => setImage2(e.target.value)} />
+                </div>
+                <div>
+                    {/* <label className='productlable' Image Url> </label> */}
+                    <input type='text' className='f' placeholder="Optional Image" value={image3} onChange={(e) => setImage3(e.target.value)} />
+                </div>
+                <div>
+                    {/* <label className='productlable' >Image Url</label> */}
+                    <input type='text' className='g' placeholder="Optional Image" value={image4} onChange={(e) => setImage4(e.target.value)} />
+                </div>
 
-                </select>
+                <div className='category'>
+                    <label className='catlable' >Category</label>
+                    <select className='categoryselect' value={category} onChange={(e) => setCategory(e.target.value)} >
+                        {categories.map((category, index) => {
+                            return (<option key={index} value={category.value}>
+                                {category.value}
+                            </option>
+                            )
+                        })}
+
+                    </select>
+                </div>
+                <button className='productsubmit' type='submit'>
+                    Submit
+                </button>
             </div>
-            <button type='submit'>
-                Submit
-            </button>
-        </form>
+        </form >
+
     )
 }
 

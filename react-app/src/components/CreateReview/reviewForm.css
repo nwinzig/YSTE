@@ -1,0 +1,33 @@
+.reviewform {
+    margin-top: 50px;
+    margin-left: 100px;
+    margin-bottom: 200px;
+}
+
+.reviewsubmit {
+    width: 100px;
+    border-radius: 20px;
+    border: none;
+    height: 30px;
+    margin-top: 40px;
+    background-color: #F1641D;
+    color: white;
+    margin-left: 15px;
+}
+
+.reviewsubmit:hover {
+    box-shadow: 0 0 12px rgb(183, 183, 183);
+}
+
+.reviewformheader {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.rate-container>i {}
+
+.rate-container>i:HOVER,
+.rate-container>i:HOVER~i {
+    color: gold;
+}
