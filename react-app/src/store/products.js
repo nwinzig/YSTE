@@ -5,7 +5,7 @@ const CREATE_PRODUCT = 'products/CREATE_PRODUCT'
 const LOAD_USER_PRODUCTS = 'products/LOAD_USER_PRODUCTS'
 const DELETE_PRODUCT = 'products/DELETE_PRODUCT'
 const LOAD_IMAGES = 'products/LOAD_IMAGES'
-// const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
+const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
 const LOAD_CATEGORY_PRODUCTS = 'products/LOAD_CATEGORY_PRODUCTS'
 
 
@@ -52,12 +52,12 @@ const loadCategoryProducts = (category) => {
     }
 }
 
-// const editProduct = () => {
-//     return {
-//         'type': EDIT_PRODUCT,
+const editProduct = (product, productId) => {
+    return {
+        'type': EDIT_PRODUCT,
 
-//     }
-// }
+    }
+}
 
 
 // Thunks
@@ -122,18 +122,19 @@ export const deleteItem = (productId) => async dispatch => {
     else return { 'message': 'Delete Failed' }
 }
 
-export const editItem = (editProduct, productId) => async dispatch => {
+export const editItem = (product, productId) => async dispatch => {
     const response = await fetch(`/api/products/${productId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(editProduct)
+        body: JSON.stringify(product)
     })
 
     if (response.ok) {
-        return
+    const product = await response.json()
+    dispatch(editProduct(product))
     }
 
-    return
+
 }
 
 export const getProductByCategory = (category) => async dispatch => {
@@ -158,7 +159,7 @@ export const getProductByCategory = (category) => async dispatch => {
 //         return products
 //     }
 // }
-// }
+//
 
 export const postImages = (newImages, id) => async dispatch => {
     const response = await fetch(`/api/products/product-images/${id}`, {
@@ -203,6 +204,11 @@ const productsReducer = (state = initialState, action) => {
             console.log('THIS IS THE CHANGED STATE IN THE LOAD_CATEGORY_PRODUCTS REDUCER. ', newState)
             return newState
         }
+        // case EDIT_PRODUCT: {
+        //     newState = {...state}
+        //     newState = {...action.products}
+
+        // }
         // case DELETE_PRODUCT: {
         //     delete newState[action.deleted]
         //     newState = { ...newState }

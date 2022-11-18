@@ -94,7 +94,7 @@ def updateProduct(id):
 
 
         db.session.commit()
-        return redirect(f'/api/products/{id}')
+        return  product.to_dict()
     return {'Error': 'bad request'}
 
 

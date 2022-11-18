@@ -23,7 +23,7 @@ function EditProductForm() {
     const [image3, setImage3] = useState(product?.image3)
     const [image4, setImage4] = useState(product?.image4)
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
         setErrors([])
 
@@ -48,9 +48,9 @@ function EditProductForm() {
             image2,
         }
         setErrors([])
-        await dispatch(editItem(obj, productId))
-
+        dispatch(editItem(obj, productId))
         history.push('/your-products')
+
 
     }
     return (
