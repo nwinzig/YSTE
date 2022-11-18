@@ -1,6 +1,6 @@
-.contentWrapper{
+/* .contentWrapper{
 
-}
+} */
 
 .welcomeWrapper{
     display: flex;
@@ -53,16 +53,83 @@
 
 
 .spotlightGridWrapper{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    height: 400px;
+    /* width: 100%; */
+    margin-right: 10%;
+    margin-left: 10%;
+    /* background-color: lightgray; */
+    display: flex;
+    justify-content: space-between;
+}
+.spotCol1{
+    width: 23%;
+}
+.top1{
+    margin-bottom: 10px;
 
+    border: 1px solid black;
+    height: 36%;
+    /* overflow: hidden; */
+}
+.bottom1{
+
+    border: 1px solid black;
+    height: 63%;
+}
+.spotCol2{
+    width: 23%;
+}
+.top2{
+
+    border: 1px solid black;
+    height: 63%;
+    margin-bottom: 10px;
+}
+.bottom2{
+
+    border: 1px solid black;
+    height: 36%;
+}
+.spotCol3{
+    width: 23%;
+}
+.top3{
+    margin-bottom: 10px;
+
+    border: 1px solid black;
+    height: 36%;
+}
+.bottom3{
+
+    border: 1px solid black;
+    height: 63%;
+}
+.spotCol4{
+    width: 23%;
+}
+.top4{
+
+    border: 1px solid black;
+    height: 63%;
+    margin-bottom: 10px;
+}
+.bottom4{
+
+    border: 1px solid black;
+    height: 36%;
+}
+
+.spotimage{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 
-
-
-
-
-
 .productCardWrapper{
+    border: 1px solid black;
     margin-left: 10%;
     margin-right: 10%;
     display: grid;

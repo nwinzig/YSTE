@@ -117,10 +117,10 @@ def delete_product(id):
 def get_reviews(id):
     reviews = ProductReview.query.filter(ProductReview.product_id==id).all()
 
-    print('reviews--------', reviews)
+    # print('reviews--------', reviews)
     new_reviews = []
     new_reviews.extend([i.to_dict() for i in reviews])
-    print("my reviews", new_reviews)
+    # print("my reviews", new_reviews)
     return {"Reviews": new_reviews}
 
 
@@ -141,7 +141,7 @@ def create_reviews(id):
         }
 
         new_review = ProductReview(**params)
-        print('$$$$$$$$$$$$$$$$ BACKEND NEW REVIEW $$$$$$$$$$', new_review)
+        # print('$$$$$$$$$$$$$$$$ BACKEND NEW REVIEW $$$$$$$$$$', new_review)
         db.session.add(new_review)
         db.session.commit()
         # return redirect(f'/api/products/{id}')

@@ -40,7 +40,7 @@ function ProductCard({ product }) {
 
     return (
 
-        <div onClick={() => history.push(`/product/${product?.id}`)} >
+        <div className='border' onClick={() => history.push(`/product/${product?.id}`)} >
             <img src={product?.image1} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />
             <div>  {product?.product_name} </div>
             {/* <div>{product?.description}</div> */}
