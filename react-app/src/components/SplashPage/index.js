@@ -90,34 +90,36 @@ function AllProducts() {
             </div>
             <div className='spotlightGridWrapper'>
                 <div className='spotCol1'>
-                    <div className='top1' style={{backgroundImage: `url(${image1})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }}>
-                        <div></div>
+                    <div className='top1' style={{backgroundImage: `url(${image1})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                        <div className='spotlightpriceHolder'>
+                            ${price1}
+                        </div>
                     </div>
-                    <div className='bottom1' style={{backgroundImage: `url(${image2})`, backgroundSize:'cover' }}>
+                    <div className='bottom1' style={{backgroundImage: `url(${image2})`, backgroundSize:'cover' }} id='spotlightHover'>
 
                     </div>
                 </div>
                 <div className='spotCol2'>
-                    <div className='top2' style={{backgroundImage: `url(${image3})`, backgroundSize:'cover' }}>
+                    <div className='top2' style={{backgroundImage: `url(${image3})`, backgroundSize:'cover' }} id='spotlightHover'>
 
                     </div>
-                    <div className='bottom2' style={{backgroundImage: `url(${image4})`, backgroundSize:'cover' }}>
+                    <div className='bottom2' style={{backgroundImage: `url(${image4})`, backgroundSize:'cover' }} id='spotlightHover'>
 
                     </div>
                 </div>
                 <div className='spotCol3'>
-                    <div className='top3' style={{backgroundImage: `url(${image5})`, backgroundSize:'cover' }}>
+                    <div className='top3' style={{backgroundImage: `url(${image5})`, backgroundSize:'cover' }} id='spotlightHover'>
 
                     </div>
-                    <div className='bottom3' style={{backgroundImage: `url(${image6})`, backgroundSize:'cover',}}>
+                    <div className='bottom3' style={{backgroundImage: `url(${image6})`, backgroundSize:'cover',}} id='spotlightHover'>
 
                     </div>
                 </div>
                 <div className='spotCol4'>
-                    <div className='top4' style={{backgroundImage: `url(${image7})`, backgroundSize:'cover' }}>
+                    <div className='top4' style={{backgroundImage: `url(${image7})`, backgroundSize:'cover' }} id='spotlightHover'>
 
                     </div>
-                    <div className='bottom4' style={{backgroundImage: `url(${image8})`, backgroundSize:'cover' }}>
+                    <div className='bottom4' style={{backgroundImage: `url(${image8})`, backgroundSize:'cover' }} id='spotlightHover'>
 
                     </div>
                 </div>
