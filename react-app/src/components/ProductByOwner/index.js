@@ -4,6 +4,7 @@ import { getSingleProduct } from '../../store/products'
 import { useHistory, useParams } from 'react-router-dom'
 import { getUserProducts } from '../../store/products'
 import OwnerItemCard from '../OwnerItemCard'
+import './myProducts.css'
 
 function OwnerProducts() {
     const dispatch = useDispatch()
@@ -24,13 +25,17 @@ function OwnerProducts() {
 
 
     return (
-        <>
+        <div className='your-products-container'>
+            <div className='your-products-header' style={{textAlign:'center'}}>
             <h1>My Products!</h1>
-            {loaded && products?.map(product => (
-                <OwnerItemCard key={product.id} product={product} />
-            ))}
             <button onClick={addBtn}>+</button>
-        </>
+            </div>
+            <div className='product-card-outer-wrapper'>
+                {loaded && products?.map(product => (
+                    <OwnerItemCard key={product.id} product={product} />
+                ))}
+            </div>
+        </div>
     )
 }
 
