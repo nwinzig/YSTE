@@ -43,7 +43,7 @@ function EditReviewForm() {
 
     return (
         <form className='editreviewform' onSubmit={submitter}>
-            <ul>
+            <ul className='rerrors'>
                 {!!errors.length && errors.map((error, index) => (
                     <li key={index}>{error}</li>
                 ))}
