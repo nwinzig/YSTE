@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import { Redirect, useHistory, useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { editReview, getUserReviews } from '../../store/reviews'
 import './editReviewForm.css'
@@ -37,8 +37,9 @@ function EditReviewForm() {
             'review_image': img
         }
 
-        await dispatch(editReview(reviewId, obj)).then(() => dispatch(getUserReviews(reviewId)))
+        await dispatch(editReview(reviewId, obj)).then(() => dispatch(getUserReviews()))
         history.push('/your-reviews')
+
     }
 
     return (

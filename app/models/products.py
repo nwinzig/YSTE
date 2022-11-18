@@ -8,7 +8,7 @@ class Product(db.Model):
 
 
     id = db.Column(db.Integer, primary_key=True)
-    shop_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("shops.id")))
+    shop_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("shops.user_id")))
     product_name = db.Column(db.String(100), nullable=False)
     description = db.Column(db.String(500), nullable=False)
     price = db.Column(db.Float, nullable=False)
