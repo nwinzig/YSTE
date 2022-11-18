@@ -1,0 +1,11 @@
+.productform {
+    display: inline;
+    align-items: center;
+}
+
+input {
+    width: 70%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}

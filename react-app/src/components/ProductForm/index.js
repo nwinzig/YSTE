@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { CreateSingleProduct, getUserProducts, postImages } from '../../store/products'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import './ProductForm.css'
 
 let categories = [{ value: 'Cars' }, { value: 'Clothing' }, { value: 'Electronics' }, { value: 'Home Goods' }, { value: 'miscellaneous' }]
 function ProductForm() {
@@ -47,52 +48,58 @@ function ProductForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <div>
-                <label>Product Name</label>
-                <input required type='text' placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
-            </div>
-            <div>
-                <label>Description</label>
-                <input required type='text' placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
-            </div>
-            <div>
-                <label>Price</label>
-                <input required type='number' min={1} step='0.01' placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
-            </div>
-            <div>
-                <label>Image Url</label>
-                <input type='text' placeholder="Image Required" required value={image1} onChange={(e) => setImage1(e.target.value)} />
-            </div>
-            <div>
-                <label>Image Url</label>
-                <input type='text' placeholder="Optional Image" value={image2} onChange={(e) => setImage2(e.target.value)} />
-            </div>
-            <div>
-                <label>Image Url</label>
-                <input type='text' placeholder="Optional Image" value={image3} onChange={(e) => setImage3(e.target.value)} />
-            </div>
-            <div>
-                <label>Image Url</label>
-                <input type='text' placeholder="Optional Image" value={image4} onChange={(e) => setImage4(e.target.value)} />
-            </div>
+        <div classname='createitemformwrapper'>
 
-            <div>
-                <label>Category</label>
-                <select value={category} onChange={(e) => setCategory(e.target.value)} >
-                    {categories.map((category, index) => {
-                        return (<option key={index} value={category.value}>
-                            {category.value}
-                        </option>
-                        )
-                    })}
+            <form onSubmit={handleSubmit}>
+                <div className='productform'>
 
-                </select>
-            </div>
-            <button type='submit'>
-                Submit
-            </button>
-        </form>
+                    <div className='hello'>
+                        <label>Product Name</label>
+                        <input className='dog' required type='text' placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
+                    </div>
+                    <div>
+                        <label>Description</label>
+                        <input required type='text' placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
+                    </div>
+                    <div>
+                        <label>Price</label>
+                        <input required type='number' min={1} step='0.01' placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    </div>
+                    <div className='imageurl'>
+                        <label className='imageurlwrap'>Image Url</label>
+                        <input type='text' placeholder="Image Required" required value={image1} onChange={(e) => setImage1(e.target.value)} />
+                    </div>
+                    <div>
+                        <label>Image Url</label>
+                        <input type='text' placeholder="Optional Image" value={image2} onChange={(e) => setImage2(e.target.value)} />
+                    </div>
+                    <div>
+                        <label>Image Url</label>
+                        <input type='text' placeholder="Optional Image" value={image3} onChange={(e) => setImage3(e.target.value)} />
+                    </div>
+                    <div>
+                        <label>Image Url</label>
+                        <input type='text' placeholder="Optional Image" value={image4} onChange={(e) => setImage4(e.target.value)} />
+                    </div>
+
+                    <div>
+                        <label>Category</label>
+                        <select value={category} onChange={(e) => setCategory(e.target.value)} >
+                            {categories.map((category, index) => {
+                                return (<option key={index} value={category.value}>
+                                    {category.value}
+                                </option>
+                                )
+                            })}
+
+                        </select>
+                    </div>
+                    <button type='submit'>
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
     )
 }
 

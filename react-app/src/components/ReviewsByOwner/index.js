@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import { getUserProducts } from '../../store/products'
 import OwnerReviewCard from '../OwnerReviewCard'
 import { getUserReviews } from '../../store/reviews'
+import './ReviewsByOwner.css'
 
 function OwnerReviews() {
     const reviews = useSelector(state => state.reviews)
@@ -27,6 +28,7 @@ function OwnerReviews() {
     if (!myReviews) return null
     return (
         <>
+            <h1 className='yourreviews'>Your Reviews</h1>
             <div>
                 {myReviews.map(review => (
                     <OwnerReviewCard key={review.id} review={review} />
