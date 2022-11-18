@@ -8,6 +8,7 @@ import EditProductForm from '../EditProductForm'
 
 function OwnerItemCard({ product }) {
     const [showEditForm, setShowEditForm] = useState(false)
+    console.log('proooop', product)
     const dispatch = useDispatch()
     const history = useHistory()
 
