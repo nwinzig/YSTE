@@ -25,13 +25,13 @@ function ProductForm() {
     const handleSubmit = async (e) => {
         e.preventDefault()
         setErrors([])
-        if (description.length < 10 || description > 240) {
-            setErrors(['Description must be between 10 and 240 characters'])
+        if (description.length < 1 || description > 240) {
+            setErrors(['Description must be between 1 and 240 characters'])
             return
         }
 
-        if (Number(price) > 25000) {
-            setErrors(['Price must be between $1 and $25,000'])
+        if (Number(price) > 1000000) {
+            setErrors(['Price must be between $1 and $1,000,000'])
             return
         }
 
@@ -49,12 +49,7 @@ function ProductForm() {
             image2,
         }
 
-
-        // dispatch(CreateSingleProduct(newProduct)).then((data) => (
-        //     dispatch(postImages(newImages, prodlist[prodlist.length - 1].id)),
-        //     console.log('datatatttta', data),
-        //     console.log('hit a second time', prodlist)
-        //))
+        setErrors([])
         dispatch(CreateSingleProduct(newProduct)).then(() => dispatch(getUserProducts()))
 
         return history.push('/your-products')
