@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { createSearch, getSearch } from '../../store/search';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-
+import './search.css'
 
 const SearchBar = () => {
     const history = useHistory()
@@ -53,11 +53,13 @@ const SearchBar = () => {
                     </ul>
                 )}
                 <div className='formWrapper'>
-                    <div>
+                    <div className='searchfieldWrapper'>
                         <input placeholder='Search for anything' type='text' value={search}
                         onChange = {(e) => setSearch(e.target.value)} required/>
                     </div>
-                    <button className='searchButton' type='submit'>Search Logo</button>
+                    <div className='buttonWrapper'>
+                        <button className='searchButton' type='submit'>Search Logo</button>
+                    </div>
                 </div>
             </form>
         </div>

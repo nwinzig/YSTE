@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
+import './ProductCard.css'
 
 function ProductCard({ product }) {
     // console.log('prop', product)

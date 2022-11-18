@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getAllProducts } from '../../store/products'
 import ProductCard from '../ProductCard/index'
+import './SplashPage.css'
 
 function AllProducts() {
     const dispatch = useDispatch()
