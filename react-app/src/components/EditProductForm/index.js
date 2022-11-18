@@ -55,7 +55,7 @@ function EditProductForm() {
     }
     return (
         <form className='editpform' onSubmit={handleSubmit}>
-            <ul>
+            <ul className='editperrors'>
                 {!!errors.length && errors.map((error, index) => (
                     <li key={index}>{error}</li>
                 ))}

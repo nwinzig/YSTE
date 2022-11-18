@@ -43,7 +43,7 @@ function ReviewForm() {
         <div>
             <h1 className='reviewformheader'>Leave a Review</h1>
             <form className='reviewform' onSubmit={submitter}>
-                <ul>
+                <ul className='editrerrors'>
                     {!!errors.length && errors.map((error, index) => (
                         <li key={index}>{error}</li>
                     ))}
