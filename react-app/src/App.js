@@ -21,6 +21,7 @@ import SearchResult from './components/nav/SearchResult';
 import OwnerReviews from './components/ReviewsByOwner';
 import EditReviewForm from './components/EditReviewForm';
 import ReviewForm from './components/CreateReview/reviewForm';
+import CategoryPage from './components/CategoryPage';
 
 
 
@@ -85,6 +86,9 @@ function App() {
         <ProtectedRoute exact path='/editReview/:reviewId'>
           <EditReviewForm />
         </ProtectedRoute>
+        <Route exact path='/category/:categoryName'>
+          <CategoryPage />
+        </Route>
       </Switch>
     </BrowserRouter>
   );

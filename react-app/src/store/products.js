@@ -6,6 +6,7 @@ const LOAD_USER_PRODUCTS = 'products/LOAD_USER_PRODUCTS'
 const DELETE_PRODUCT = 'products/DELETE_PRODUCT'
 const LOAD_IMAGES = 'products/LOAD_IMAGES'
 // const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
+const LOAD_CATEGORY_PRODUCTS = 'products/LOAD_CATEGORY_PRODUCTS'
 
 
 // Action Creators
@@ -41,6 +42,13 @@ const deleteProduct = (deleted) => {
     return {
         'type': DELETE_PRODUCT,
         deleted
+    }
+}
+
+const loadCategoryProducts = (category) => {
+    return {
+        'type': LOAD_CATEGORY_PRODUCTS,
+        category
     }
 }
 
@@ -128,6 +136,17 @@ export const editItem = (editProduct, productId) => async dispatch => {
     return
 }
 
+export const getProductByCategory = (category) => async dispatch => {
+    const response = await fetch(`/api/products/categories/${category}`)
+
+    if (response.ok){
+        const categoryProducts = await response.json()
+        console.log('FILTERED PRODUCTS BY CATEGORY RECEIVED FROM THE BACKEND', categoryProducts)
+        dispatch(loadCategoryProducts(categoryProducts))
+        return categoryProducts
+    }
+}
+
 
 // export const loadImages = () => async dispatch => {
 //     const response = await fetch('/api/products/product-images')
@@ -175,6 +194,13 @@ const productsReducer = (state = initialState, action) => {
         case LOAD_USER_PRODUCTS: {
             newState = { ...state }
             newState = { ...action.products }
+            return newState
+        }
+        case LOAD_CATEGORY_PRODUCTS: {
+            newState = { ...state }
+            console.log('THIS IS THE ORIGINAL STATE IN THE LOAD_CATEGORY_PRODUCTS REDUCER. ', newState)
+            newState = {...action.category}
+            console.log('THIS IS THE CHANGED STATE IN THE LOAD_CATEGORY_PRODUCTS REDUCER. ', newState)
             return newState
         }
         // case DELETE_PRODUCT: {

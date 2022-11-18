@@ -174,8 +174,9 @@ def add_cart(id):
 
 #filter products by category
 
-@products_routes.route('/categories', methods=["GET"])
+@products_routes.route('/categories/<category>', methods=["GET"])
 def load_products_by_category(category):
+    print('########## Category Name passed to the backend', category)
     if category:
         products = Product.query.filter(Product.category == category).all()
         cat_products = []
