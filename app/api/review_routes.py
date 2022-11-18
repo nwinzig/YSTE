@@ -19,7 +19,7 @@ def edit_review(id):
         review.review_image = form.data['review_image']
 
         db.session.commit()
-        return redirect(f'/api/products/{review.product_id}')
+        return {review.to_dict()}
     return {'Error': 'bad request'}
 
 
@@ -30,8 +30,8 @@ def delete_review(id):
     if review is not None:
         db.session.delete(review)
         db.session.commit()
-        return "Successfully Deleted"
-    return "Not working bruv"
+        return {"message": "Successfully Deleted"}
+    return {"message": "Not working bruv"}
 
 @review_routes.route('/user-reviews', methods=['GET'])
 @login_required

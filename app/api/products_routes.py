@@ -190,10 +190,13 @@ def load_products_by_category(category):
 @products_routes.route('/user-products')
 @login_required
 def user_products():
-    shop = Shop.query.filter(Shop.user_id == current_user.id).one()
+    shop = Shop.query.filter(Shop.user_id == current_user.id).first()
+    print('this is shop-=============', shop)
+    print('this is shopID-=============', shop.id)
     products = Product.query.filter(Product.shop_id == shop.id).all()
     owner_products = []
     owner_products.extend([i.to_dict() for i in products])
+    print('owner_prod=================', owner_products)
     return {'products': owner_products}
 
 

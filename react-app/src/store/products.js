@@ -99,10 +99,10 @@ export const CreateSingleProduct = (newProduct) => async dispatch => {
 
 export const getUserProducts = (userId) => async dispatch => {
     const response = await fetch('/api/products/user-products')
-
+    console.log('this is getUserProducts response', response)
     if (response.ok) {
         const products = await response.json()
-        // console.log('thunk owner products', products)
+        console.log('thunk owner products', products)
         dispatch(loadByUser(products))
         return products
     }
