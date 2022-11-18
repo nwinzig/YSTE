@@ -23,24 +23,29 @@ function ProductForm() {
     const dispatch = useDispatch()
 
     const handleSubmit = async (e) => {
+        let priceInt = parseFloat(price)
+        let newprice = (Math.round(priceInt * 100) / 100).toFixed(2)
         e.preventDefault()
-        setErrors([])
-        if (description.length < 1 || description > 240) {
-            setErrors(['Description must be between 1 and 240 characters'])
-            return
+        let errors = []
+        if (productName.length < 5 || productName.length > 240) {
+            errors.push(['Product Name must be between 5 and 240'])
+
+        }
+        if (description.length < 5 || description.length > 240) {
+            errors.push(['Description must be between 5 and 240 characters'])
+
         }
 
         if (Number(price) > 1000000) {
-            setErrors(['Price must be between $1 and $1,000,000'])
-            return
-        }
+            errors.push(['Price must be between $1 and $1,000,000'])
 
-        let priceInt = parseFloat(price)
-        let newprice = (Math.round(priceInt * 100) / 100).toFixed(2)
-        let newProduct = {
-            'product_name': productName,
-            description,
-            'price': newprice,
+        }
+        setErrors(errors)
+
+            let newProduct = {
+                'product_name': productName,
+                description,
+                'price': newprice,
             category,
             stock: 1,
             image1,
@@ -49,17 +54,25 @@ function ProductForm() {
             image2,
         }
 
-        setErrors([])
-        dispatch(CreateSingleProduct(newProduct)).then(() => dispatch(getUserProducts()))
+        if (productName.length > 5 && description.length > 5 && price < 1000000 && price > 1){
 
-        return history.push('/your-products')
+            dispatch(CreateSingleProduct(newProduct)).then(() => dispatch(getUserProducts()))
+
+            return history.push('/your-products')
+        }
+
     }
 
+
     return (
-
         <form onSubmit={handleSubmit}>
+            {errors && (
+            <ul className="error-map">{errors.map((error, i) => (
+                <li key={i}>{error}</li>
+                ))}
+                </ul>
+            )}
             <div className='productform'>
-
                 <div className='hello'>
                     <label className='productlable' >Product Name</label>
                     <input className='a' required type='text' placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
