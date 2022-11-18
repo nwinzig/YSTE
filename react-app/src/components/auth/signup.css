@@ -17,4 +17,10 @@
 
 .signupbtn:hover {
     box-shadow: 0 0 12px rgb(183, 183, 183);
+    cursor: pointer;
+}
+
+.signuperrors {
+    color: red;
+    margin-bottom: 40px;
 }

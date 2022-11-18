@@ -1,0 +1,22 @@
+.category-card-wrapper{
+    width:100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
+
+.category-card-container{
+    width: 250px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+.category-card-container img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+.category-card-text-container p{
+    margin: 0px;
+}

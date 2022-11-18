@@ -16,8 +16,40 @@ function ProductDetail() {
 
     const { productId } = useParams()
     const reviewsArr = Object.values(reviews)
-    console.log('reviews Array is here', reviewsArr)
-    // console.log('params', params)
+    const stars = []
+    const avgStar = (stars) => {
+        let sum = 0
+        stars.forEach(str => {
+            sum += str
+        })
+        sum = sum / stars.length
+        return sum
+    }
+    reviewsArr.forEach(rev => {
+        stars.push(rev.stars)
+    })
+
+    let avgg
+    let numStars
+    if (stars.length > 0) {
+        avgg = (<div>{avgStar(stars)}</div>)
+        if (avgStar(stars) >= 1 && avgStar(stars) <= 2) {
+            numStars = (<div>&#9733;</div>)
+        }
+        if (avgStar(stars) >= 2 && avgStar(stars) <= 3) {
+            numStars = (<div>&#9733; &#9733;</div>)
+        }
+        if (avgStar(stars) >= 3 && avgStar(stars) <= 4) {
+            numStars = (<div>&#9733; &#9733; &#9733;</div>)
+        }
+        if (avgStar(stars) >= 4 && avgStar(stars) < 5) {
+            numStars = (<div>&#9733; &#9733; &#9733; &#9733;</div>)
+        }
+        if (avgStar(stars) == 5) {
+            numStars = (<div>&#9733; &#9733; &#9733; &#9733; &#9733;</div>)
+        }
+    }
+
 
     let filteredArr = reviewsArr.filter(reviewObj => reviewObj.product_id == product.id)
     // console.log('???????? FILTERED ARRAY', filteredArr)
@@ -48,6 +80,8 @@ function ProductDetail() {
 
     return (
         <div className='product-detail-wrapper'>
+            <div>{avgg}</div>
+            <div>{numStars}</div>
             <div>
                 {product.image1 && <img src={product?.image1} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
                 {product.image2 && <img src={product?.image2} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
@@ -63,18 +97,18 @@ function ProductDetail() {
                     {product?.description}
                 </div>
                 <div>
-                    <AddToCart/>
+                    <AddToCart />
                 </div>
                 <div className='product-reviews'>
 
-                {filteredArr?.map(review => (
-                    <div key={review?.id}>
-                        {review?.review_image && <img src={review?.review_image} alt={review?.review} style={{ width: '100px', height: '100px' }} />}
-                        <div>{review?.review}</div>
-                        <div>{review?.stars}</div>
-                        <div>--------------------------------</div>
-                </div>
-                ))}
+                    {filteredArr?.map(review => (
+                        <div key={review?.id}>
+                            {review?.review_image && <img src={review?.review_image} alt={review?.review} style={{ width: '100px', height: '100px' }} />}
+                            <div>{review?.review}</div>
+                            <div>{review?.stars}</div>
+                            <div>--------------------------------</div>
+                        </div>
+                    ))}
                 </div>
                 <div>
                     {!isOwner && session && !userReview && <button onClick={review}>Leave a review?</button>}
