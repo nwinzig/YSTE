@@ -49,3 +49,7 @@ label {
 .productsubmit:hover {
     box-shadow: 0 0 12px rgb(183, 183, 183);
 }
+
+/* input:focus {
+    border: #F1641D
+} */
