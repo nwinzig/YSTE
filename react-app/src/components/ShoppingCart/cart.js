@@ -20,7 +20,7 @@ function CartComponent() {
     // console.log('cartArr', cartArr)
     // console.log('productsArr',productsArr)
     useEffect(() => {
-        dispatch(getCurrentCart()).then(() => dispatch(getCurrentCart())).then(() => dispatch(getAllProducts()));
+        dispatch(getCurrentCart()).then(() => dispatch(getAllProducts()));
     }, [dispatch]);
 
     let productIds = [];

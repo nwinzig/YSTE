@@ -13,10 +13,11 @@ def index():
 
     user_id = current_user.id
 
-    cart = Cart.query.filter(Cart.user_id == current_user.id).one()
+    cart = Cart.query.filter(Cart.user_id == user_id).first()
     products = CartProduct.query.filter(cart.id == CartProduct.cart_id).all()
     newProducts = []
     newProducts.extend([i.to_dict() for i in products])
+    print('this is current users cart', newProducts)
     return {'cart': newProducts}
 
 #delete from cart

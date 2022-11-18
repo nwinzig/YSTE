@@ -4,6 +4,7 @@ import { getAllProducts } from '../../store/products'
 import ProductCard from '../ProductCard/index'
 import './SplashPage.css'
 import { Redirect, useHistory } from 'react-router-dom'
+import { getCurrentCart } from '../../store/cart'
 
 function AllProducts() {
     const dispatch = useDispatch()
@@ -15,7 +16,7 @@ function AllProducts() {
     let productList = Object.values(products)
     console.log('!!!!!!!!', productList)
     useEffect(() => {
-        dispatch(getAllProducts()).then(setLoaded(true))
+        dispatch(getAllProducts()).then(() => dispatch(getCurrentCart())).then(setLoaded(true))
     }, [dispatch])
 
     // console.log('firstname', user)
