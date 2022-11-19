@@ -1,9 +1,14 @@
 
+
+
+
 .headerWrapper{
     display: flex;
     justify-content: space-between;
     margin-right: 15%;
     margin-left: 15%;
+    
+   
 
 }
 
@@ -43,7 +48,9 @@ gap: 100px; */
 margin-left: 15%;
 margin-right: 15%;
 margin-top: 40px;
+margin-bottom: 40px;
 /* background-color: grey; */
+height: 100%;
 }
 
 .item-details {
@@ -153,14 +160,27 @@ align-self: flex-end;
     flex-direction: row;
     flex-wrap: wrap;
     gap: 10px;
-    margin-left: 5%;
-    margin-right: 5%;
-    height:100%;
+    padding: 40px 0px 40px 0px;
+    
+    width: 100%;
+    justify-content: space-between;
 }
+
+.spotlightImageWrapper{
+    height: 100%;
+}
+
 .spotlightProduct{
     height:100px;
-    width:16%
+    width:16%;
+    cursor: pointer;
 }
+
+.spotlightProduct a {
+text-decoration: none;
+color: black;
+}
+
 .spotlightimage{
     display: flex;
     justify-content: center;
