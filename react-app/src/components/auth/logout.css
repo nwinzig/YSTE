@@ -5,6 +5,7 @@
     height: 50px;
     align-content: center;
     justify-content: center;
+    flex-direction: column;
 }
 .logoutWrapper:hover{
     background-color: lightgray;
