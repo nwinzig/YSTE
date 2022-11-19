@@ -77,7 +77,7 @@ function ProductDetail() {
         dispatch(getSingleProduct(productId)).then(() => dispatch(getAllReviews(productId)))
     }, [dispatch])
     
-    
+    console.log(filteredArr)
 
     return (
         <div className='product-detail-wrapper'>
@@ -92,14 +92,18 @@ function ProductDetail() {
                         {product.image3 && <img src={product?.image3} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
                         {product.image4 && <img src={product?.image4} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
                     </div>
+
+                    
+                    
         </div>
                 <div className='product-detail-right'>
                     <div className='product-detail-description-container'>
-                    <div className='product-detail-description-header'>
+                        <div className='product-detail-description-header'>
                             <div style={{padding:'10px'}}>{avgg}</div>
+                            <div style={{color: 'grey'}}>|</div>
                             <div style={{padding:'10px'}}>{numStars}</div>
-                            <h1>{product?.product_name}</h1>
-                    </div>
+                        </div>
+                        <h1>{product?.product_name}</h1>
                     <div className='product-detail-description-price'>
                             <p>${product?.price}</p>
                     </div>
@@ -110,26 +114,70 @@ function ProductDetail() {
                         <div className='product-detail-description-body-add-cart-button'>
                             <AddToCart />
                         </div>
+                        <div className='product-detail-description-lorem'>
+                            <div className='product-detail-description-font-awesome-container'>
+                                <i class="fa-solid fa-cart-shopping fa-2x"></i>
+                            </div>
+                            <p>
+                                Other people want this. Over 20 people have this in their carts right now.
+                            </p>
+                        </div>
+                        <div className='product-detail-description-lorem'>
+                            <div className='product-detail-description-font-awesome-container'>
+                                    <i class="fa-solid fa-star fa-2x"></i>
+                            </div>
+                            <p>
+                                    Star Seller. This seller consistently earned 5-star reviews, shipped on time, and replied quickly to any messages they received.
+                            </p>
+                        </div>
+                        <div className='product-detail-description-lorem'>
+                            <div className='product-detail-description-font-awesome-container'>
+                                    <i class="fa-solid fa-truck fa-2x"></i>
+                            </div>
+                            <p>
+                                    Hooray! This item ships free to the US.
+                            </p>
+                        </div>
                     </div>
                 </div>
                 
                 </div>
             
             </div>
-                <div className='product-reviews'>
-
+            <div className='product-reviews'>
+                {!!filteredArr.length && (<div className='product-reviews-header'>
+                    <h1> {filteredArr?.length} reviews</h1>
+                    <h1 >{numStars}</h1>
+                </div>)}
+                <div className="product-reviews-card-wrapper">
                     {filteredArr?.map(review => (
-                        <div key={review?.id}>
+                        <div key={review?.id} className="product-reviews-card-container">
+                            <div className="product-reviews-card-header">
+                                <p>{review?.stars}</p>
+                                <div>&#9733;</div>
+                            </div>
+
+                            <div className="product-reviews-card-review">
+                                {review?.review}
+                            </div>
+
+                            <div className="product-reviews-card-product-name">
+                                <div>Purchased Item:</div> <p>{product.product_name}</p>
+                            </div>
+
+
+
                             {review?.review_image && <img src={review?.review_image} alt={review?.review} style={{ width: '100px', height: '100px' }} />}
-                            <div>{review?.review}</div>
-                            <div>{review?.stars}</div>
-                            <div>--------------------------------</div>
+
+
+
                         </div>
                     ))}
                 </div>
-                <div>
-                    {!isOwner && session && !userReview && <button onClick={review}>Leave a review?</button>}
-                </div>
+            </div>
+            <div className='product-leave-review-button'>
+                {!isOwner && session && !userReview && <button onClick={review}>Leave a review?</button>}
+            </div>
         </div>
 
     )

@@ -14,9 +14,18 @@ const LogoutButton = () => {
 
   // return <button onClick={onLogout}>Logout</button>;
   return (
-    <div className='logoutWrapper' onClick={onLogout}>
+    <div className='logoutWrapper' onClick={onLogout} id='logoutHover'>
+      <div>
       <i class="fa-solid fa-arrow-right-from-bracket fa-xl">
       </i>
+      </div>
+      <div className='dropDown'>
+            <div className='dropDownContainer'>
+              <div className='dropContent'>
+                Logout
+              </div>
+            </div>
+          </div>
     </div>
 
   )

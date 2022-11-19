@@ -57,3 +57,13 @@
     cursor: pointer;
     border-radius: 50%;
 }
+
+
+
+.noSearchResultsWrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    margin-top: 25px;
+}
