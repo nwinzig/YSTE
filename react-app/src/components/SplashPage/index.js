@@ -109,6 +109,26 @@ function AllProducts() {
     console.log(`item 6: image: ${image6} price: ${price6}`)
     console.log(`item 7: image: ${image7} price: ${price7}`)
     console.log(`item 8: image: ${image8} price: ${price8}`)
+
+
+    // click to go to category page
+    function changeToCars(){
+        history.push('/category/Cars')
+    }
+    function changeToClothing(){
+        history.push('/category/Clothing')
+    }
+    function changeToElectronics(){
+        history.push('/category/Electronics')
+    }
+    function changeToHomeGoods(){
+        history.push('/category/Home Goods')
+    }
+    function changeToMisc(){
+        history.push('/category/miscellaneous')
+    }
+
+
     return (
         <div className='contentWrapper'>
             <div className='welcomeWrapper'>
@@ -117,27 +137,27 @@ function AllProducts() {
             <div className='circularCatWrapper'>
                 <div className='beige'>
                     <div className='circularWrapperleft'>
-                        <div className='circular'>
-                            <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668821242/spot1/60608005_yi4uue.jpg'></img>
+                        <div className='circular' onClick={changeToCars}>
+                            <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668821242/spot1/60608005_yi4uue.jpg' ></img>
                         </div>
                     </div>
                     <div className='circularWrapper'>
-                        <div className='circular'>
+                        <div className='circular' onClick={changeToClothing}>
                         <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822059/spot1/fashion_f8auge.png'></img>
                         </div>
                     </div>
-                    <div className='circularWrapper'>
-                        <div className='circular'>
+                    <div className='circularWrapper' >
+                        <div className='circular' onClick={changeToElectronics}>
                         <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822102/spot1/Old_Electronics_hero_1_rxwcbt.jpg'></img>
                         </div>
                     </div>
                     <div className='circularWrapper'>
-                        <div className='circular'>
+                        <div className='circular' onClick={changeToHomeGoods}>
                         <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822202/spot1/download_iai4bc.jpg'></img>
                         </div>
                     </div>
                     <div className='circularWrapperright'>
-                        <div className='circular'>
+                        <div className='circular' onClick={changeToMisc}>
                         <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822235/spot1/download-1_exexct.jpg'></img>
                         </div>
                     </div>

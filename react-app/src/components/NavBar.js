@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './nav/SearchComponent';
 import { login } from '../store/session';
@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './navbar.css'
 
 const NavBar = () => {
+  const history = useHistory()
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
   const demoUser = () => {
@@ -18,6 +19,22 @@ const NavBar = () => {
     dispatch(login(obj.email, obj.password))
   }
 
+    // click to go to category page
+    function changeToCars(){
+        history.push('/category/Cars')
+    }
+    function changeToClothing(){
+        history.push('/category/Clothing')
+    }
+    function changeToElectronics(){
+        history.push('/category/Electronics')
+    }
+    function changeToHomeGoods(){
+        history.push('/category/Home Goods')
+    }
+    function changeToMisc(){
+        history.push('/category/miscellaneous')
+    }
 
   return (
     <nav>
@@ -70,19 +87,19 @@ const NavBar = () => {
         </div>
       </div>
       <div className='categoryWrapper'>
-        <div className='cars'>
+        <div className='cars' onClick={changeToCars}>
           Cars
         </div>
-        <div className='clothing'>
+        <div className='clothing' onClick={changeToClothing}>
           Clothing
         </div>
-        <div className='electronics'>
+        <div className='electronics' onClick={changeToElectronics}>
           Electronics
         </div>
-        <div className='homeGoods'>
+        <div className='homeGoods' onClick={changeToHomeGoods}>
           Home Goods
         </div>
-        <div className='miscellaneous'>
+        <div className='miscellaneous' onClick={changeToMisc}>
           Miscellaneous
         </div>
       </div>

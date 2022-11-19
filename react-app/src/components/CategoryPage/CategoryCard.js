@@ -9,14 +9,14 @@ function CategoryCard ({product}) {
     const history = useHistory()
     return (
         <div className="category-card-container" onClick={() => history.push(`/product/${product?.id}`)}>
-            <img src={product.image1} alt='No image displayed' />
+            <img src={product?.image1} alt='No image displayed' />
             <div className="category-card-text-container">
-                <h1>{product.product_name}</h1>
-                <p>{product.description}</p>
+                <h1>{product?.product_name}</h1>
+                <p>{product?.description}</p>
             </div>
         </div>
     )
 }
 
 export default CategoryCard
-// onClick = {() => history.push(`/product/${product?.id}`)} 
+// onClick = {() => history.push(`/product/${product?.id}`)}
