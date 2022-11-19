@@ -44,7 +44,7 @@ const NavBar = () => {
             YSTE
           </NavLink>
         </div>
-        <div className='searchWrapper'>
+        <div className='searchContainer'>
         <SearchBar />
         </div>
         {!user && <div className='loginWrapper'>
@@ -52,36 +52,52 @@ const NavBar = () => {
             Login
           </NavLink>
         </div>}
-        {!user && <div className='signupWrapper'>
+        {!user && <div className='loginWrapper'>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>
         </div>}
-        {/* <div>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </div> */}
-        <NavLink to='/your-products' exact={true} activeClassName='active' className='productmanagerWrapper'>
+        {!user && <div className='loginWrapper' onClick={demoUser}>
+            <div onClick={demoUser} className='demoUserDiv'>
+            Demo User
+            </div>
+        </div>}
+        {user && <LogoutButton className='logoutWrapper' />}
+        <NavLink to='/your-products' exact={true} activeClassName='active' className='productmanagerWrapper' id='shopHover'>
           <div className='black'>
             <i class="fa-solid fa-shop fa-xl" ></i>
           </div>
+          <div className='dropDown'>
+            <div className='dropDownContainer'>
+              <div className='dropContent'>
+                My Shop
+              </div>
+            </div>
+          </div>
         </NavLink>
-        <NavLink to='/your-reviews' exact={true} activeClassName='active' className='reviewsWrapper'>
+        <NavLink to='/your-reviews' exact={true} activeClassName='active' className='reviewsWrapper' id='reviewHover'>
           <div className='black'>
             <i class="fa-regular fa-clipboard fa-xl"></i>
           </div>
+          <div className='dropDown'>
+            <div className='dropDownContainer'>
+              <div className='dropContent'>
+                My Reviews
+              </div>
+            </div>
+          </div>
         </NavLink>
-          <LogoutButton className='logoutWrapper' />
-        {!user && <div className='demoWrapper'>
-            <button onClick={demoUser}>
-            Demo User
-            </button>
-        </div>}
-        <NavLink to='/cart' exact={true} activeClassName='active' className='cartWrapper'>
+        <NavLink to='/cart' exact={true} activeClassName='active' className='cartWrapper' id='cartHover'>
             <div className='black'>
               <i class="fa-solid fa-cart-shopping fa-xl"></i>
             </div>
+            <div className='dropDown'>
+              <div className='dropDownContainer'>
+                <div className='dropContent'>
+                My Cart
+              </div>
+            </div>
+          </div>
         </NavLink>
       </div>
       <div className='categoryWrapper'>
