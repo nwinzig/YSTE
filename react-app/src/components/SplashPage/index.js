@@ -118,27 +118,27 @@ function AllProducts() {
                 <div className='beige'>
                     <div className='circularWrapperleft'>
                         <div className='circular'>
-                            Cars pic
+                            <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668821242/spot1/60608005_yi4uue.jpg'></img>
                         </div>
                     </div>
                     <div className='circularWrapper'>
                         <div className='circular'>
-                            Clothing
+                        <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822059/spot1/fashion_f8auge.png'></img>
                         </div>
                     </div>
                     <div className='circularWrapper'>
                         <div className='circular'>
-                            Electronics
+                        <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822102/spot1/Old_Electronics_hero_1_rxwcbt.jpg'></img>
                         </div>
                     </div>
                     <div className='circularWrapper'>
                         <div className='circular'>
-                            Home Goods
+                        <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822202/spot1/download_iai4bc.jpg'></img>
                         </div>
                     </div>
                     <div className='circularWrapperright'>
                         <div className='circular'>
-                            Misc
+                        <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822235/spot1/download-1_exexct.jpg'></img>
                         </div>
                     </div>
                 </div>
@@ -150,48 +150,48 @@ function AllProducts() {
             </div>
             <div className='spotlightGridWrapper'>
                 <div className='spotCol1'>
-                    <div className='top1' style={{backgroundImage: `url(${image1})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='top1' style={{backgroundImage: `url(${image1})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[0]?.id}`)}>
                         <div className='spotlightpriceHolder'>
                             ${price1}
                         </div>
                     </div>
-                    <div className='bottom1' style={{backgroundImage: `url(${image2})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='bottom1' style={{backgroundImage: `url(${image2})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[1]?.id}`)}>
                     <div className='spotlightpriceHolder'>
                             ${price2}
                         </div>
                     </div>
                 </div>
                 <div className='spotCol2'>
-                    <div className='top2' style={{backgroundImage: `url(${image3})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='top2' style={{backgroundImage: `url(${image3})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[2]?.id}`)}>
                     <div className='spotlightpriceHolder'>
                             ${price3}
                         </div>
                     </div>
-                    <div className='bottom2' style={{backgroundImage: `url(${image4})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='bottom2' style={{backgroundImage: `url(${image4})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[3]?.id}`)}>
                     <div className='spotlightpriceHolder'>
                             ${price4}
                         </div>
                     </div>
                 </div>
                 <div className='spotCol3'>
-                    <div className='top3' style={{backgroundImage: `url(${image5})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='top3' style={{backgroundImage: `url(${image5})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[4]?.id}`)}>
                     <div className='spotlightpriceHolder'>
                             ${price5}
                         </div>
                     </div>
-                    <div className='bottom3' style={{backgroundImage: `url(${image6})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat'}} id='spotlightHover'>
+                    <div className='bottom3' style={{backgroundImage: `url(${image6})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat'}} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[5]?.id}`)}>
                     <div className='spotlightpriceHolder'>
                             ${price6}
                         </div>
                     </div>
                 </div>
                 <div className='spotCol4'>
-                    <div className='top4' style={{backgroundImage: `url(${image7})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='top4' style={{backgroundImage: `url(${image7})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[6]?.id}`)}>
                     <div className='spotlightpriceHolder'>
                             ${price7}
                         </div>
                     </div>
-                    <div className='bottom4' style={{backgroundImage: `url(${image8})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='bottom4' style={{backgroundImage: `url(${image8})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[7]?.id}`)}>
                     <div className='spotlightpriceHolder'>
                             ${price8}
                         </div>

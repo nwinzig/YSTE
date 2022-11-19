@@ -38,12 +38,18 @@
     align-items: center;
     height: 100px;
     width: 100px;
-    background-color: blue;
+    /* background-color: blue; */
     border-radius: 50%;
+
 }
 .circular:hover{
     box-shadow: 0 0 2px 2px gray;
     cursor: pointer;
+}
+.circular img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
 }
 .white{
     background-color: white;
