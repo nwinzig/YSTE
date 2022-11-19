@@ -54,7 +54,7 @@ function ProductForm() {
             image2,
         }
 
-        if (productName.length > 5 && description.length > 5 && price < 1000000 && price > 1){
+        if (productName.length > 5 && productName.length < 240 && description.length > 5 && price < 1000000 && price > 1){
 
             dispatch(CreateSingleProduct(newProduct)).then(() => dispatch(getUserProducts()))
 
