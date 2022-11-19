@@ -9,26 +9,163 @@
 }
 .circularCatWrapper{
     height: 100px;
+    /* margin-bottom: 20px; */
 }
 .beige{
     background-color: #FDEBD2;
     display: flex;
     justify-content: space-evenly;
+
 }
 .circularWrapperleft{
     margin-left: 15%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
 }
+.carsDropDown{
+    position: relative;
+    display: inline-block;
+}
+#dropdownContainer{
+    display: none;
+    position:absolute;
+    padding-left: 25px;
+    /* background-color: aqua; */
+    width:50px;
+    height: auto;
+    z-index: 1;
+}
+#hoverDrop:hover ~ .carsDropDown #dropdownContainer{
+    display:block;
+    /* background-color: grey; */
+}
+.carDrop{
+    font-weight: bold;
+    color: black;
+    text-shadow: 1px 1px 2px lightgray;
+    /* text-shadow: 0 0 2px 2px lightgray; */
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.clothingDropDown{
+    position: relative;
+    display: inline-block;
+}
+#hoverdropCloth:hover ~ .clothingDropDown #clothingdropdownContainer{
+    display: block;
+}
+#clothingdropdownContainer{
+    display: none;
+    position:absolute;
+    padding-left: 25px;
+    /* background-color: aqua; */
+    width:50px;
+    height: auto;
+    z-index: 1;
+}
+.clothingDrop{
+    font-weight: bold;
+    color: black;
+    text-shadow: 1px 1px 2px lightgray;
+    /* text-shadow: 0 0 2px 2px lightgray; */
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.elDropDown{
+    position: relative;
+    display: inline-block;
+}
+#eldropdownContainer{
+    display: none;
+    position:absolute;
+    padding-left: 25px;
+    /* background-color: aqua; */
+    width:50px;
+    height: auto;
+    z-index: 1;
+}
+.elDrop{
+    font-weight: bold;
+    color: black;
+    text-shadow: 1px 1px 2px lightgray;
+    /* text-shadow: 0 0 2px 2px lightgray; */
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#hoverdropEl:hover ~ .elDropDown #eldropdownContainer{
+    display: block;
+}
+.hgDropDown{
+    position: relative;
+    display: inline-block;
+}
+#hgdropdownContainer{
+    display: none;
+    position:absolute;
+    padding-left: 25px;
+    /* background-color: aqua; */
+    width:50px;
+    height: auto;
+    z-index: 1;
+}
+.hgDrop{
+    font-weight: bold;
+    color: black;
+    text-shadow: 1px 1px 2px lightgray;
+    /* text-shadow: 0 0 2px 2px lightgray; */
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#hoverdropHg:hover ~ .hgDropDown #hgdropdownContainer{
+    display: block;
+}
+.miscDropDown{
+    position: relative;
+    display: inline-block;
+}
+#miscdropdownContainer{
+    display: none;
+    position:absolute;
+    padding-left: 25px;
+    /* background-color: aqua; */
+    width:50px;
+    height: auto;
+    z-index: 1;
+}
+.miscDrop{
+    font-weight: bold;
+    color: black;
+    text-shadow: 1px 1px 2px lightgray;
+    /* text-shadow: 0 0 2px 2px lightgray; */
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#hoverdropMisc:hover ~ .miscDropDown #miscdropdownContainer{
+    display: block;
+}
+
 .circularWrapper{
     display: flex;
     justify-content: center;
     align-content: center;
+    flex-direction: column;
 }
 .circularWrapperright{
     margin-right: 15%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-content: center;
 }

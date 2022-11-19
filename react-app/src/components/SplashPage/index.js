@@ -137,34 +137,59 @@ function AllProducts() {
             <div className='circularCatWrapper'>
                 <div className='beige'>
                     <div className='circularWrapperleft'>
-                        <div className='circular' onClick={changeToCars}>
+                        <div className='circular' onClick={changeToCars} id='hoverDrop'>
                             <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668821242/spot1/60608005_yi4uue.jpg' ></img>
+                        </div>
+                        <div className='carsDropDown'>
+                                <div id='dropdownContainer'>
+                                    <div className='carDrop'>Cars</div>
+                                </div>
                         </div>
                     </div>
                     <div className='circularWrapper'>
-                        <div className='circular' onClick={changeToClothing}>
-                        <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822059/spot1/fashion_f8auge.png'></img>
+                        <div className='circular' onClick={changeToClothing} id='hoverdropCloth'>
+                            <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822059/spot1/fashion_f8auge.png'></img>
+                        </div>
+                        <div className='clothingDropDown'>
+                                <div id='clothingdropdownContainer'>
+                                    <div className='clothingDrop'>Clothing</div>
+                                </div>
                         </div>
                     </div>
                     <div className='circularWrapper' >
-                        <div className='circular' onClick={changeToElectronics}>
-                        <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822102/spot1/Old_Electronics_hero_1_rxwcbt.jpg'></img>
+                        <div className='circular' onClick={changeToElectronics} id='hoverdropEl'>
+                            <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822102/spot1/Old_Electronics_hero_1_rxwcbt.jpg'></img>
+                        </div>
+                        <div className='elDropDown'>
+                                <div id='eldropdownContainer'>
+                                    <div className='elDrop'>Electronics</div>
+                                </div>
                         </div>
                     </div>
                     <div className='circularWrapper'>
-                        <div className='circular' onClick={changeToHomeGoods}>
-                        <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822202/spot1/download_iai4bc.jpg'></img>
+                        <div className='circular' onClick={changeToHomeGoods} id='hoverdropHg'>
+                            <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822202/spot1/download_iai4bc.jpg'></img>
+                        </div>
+                        <div className='hgDropDown'>
+                                <div id='hgdropdownContainer'>
+                                    <div className='hgDrop'>Home Goods</div>
+                                </div>
                         </div>
                     </div>
                     <div className='circularWrapperright'>
-                        <div className='circular' onClick={changeToMisc}>
-                        <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822235/spot1/download-1_exexct.jpg'></img>
+                        <div className='circular' onClick={changeToMisc} id='hoverdropMisc'>
+                            <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822235/spot1/download-1_exexct.jpg'></img>
+                        </div>
+                        <div className='miscDropDown'>
+                                <div id='miscdropdownContainer'>
+                                    <div className='miscDrop'>Miscellaneous</div>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div>
-                <h2 className='marginLeft'>
+                <h2 className='marginLeft' id='moveDown'>
                     Find something special
                 </h2>
             </div>
