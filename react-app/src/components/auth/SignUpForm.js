@@ -4,6 +4,7 @@ import { Redirect } from 'react-router-dom';
 import { signUp } from '../../store/session';
 import './signup.css'
 
+
 const SignUpForm = () => {
   const [errors, setErrors] = useState([]);
   const [firstName, setFirstName] = useState('');
@@ -56,80 +57,88 @@ const SignUpForm = () => {
   }
 
   return (
+    <div className='signup-form-wrapper'>
     <form className='signupform' onSubmit={onSignUp}>
+      <div className='signup-welcome'>Welcome to YSTE!</div>
+      <div className='signup'>Sign up</div>
       <div className='signuperrors'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
-        ))}
+          ))}
       </div>
       <div>
-        <label>First Name</label>
-        <input
-          minlength="2" maxlength="2"
+
+        <input className='signup-input-field'
+          minlength="2" maxlength="50"
           type='text'
           name='firstname'
           required
+          placeholder='First Name'
           onChange={(e) => setFirstName(e.target.value)}
           value={firstName}
-        ></input>
+          />
       </div>
       <div>
-        <label>Last Name</label>
-        <input
-          minlength="2" maxlength="2"
+
+        <input className='signup-input-field'
+          minlength="2" maxlength="50"
           type='text'
           name='lastname'
           required
+          placeholder='Last Name'
           onChange={(e) => setLastName(e.target.value)}
           value={lastName}
-        ></input>
+          ></input>
       </div>
 
       <div>
-        <label>User Name</label>
-        <input
-          minlength="4" maxlength="15"
+
+      <input className='signup-input-field'
+          minlength="4" maxlength="100"
           type='text'
           name='username'
           required
+          placeholder='Username'
           onChange={updateUsername}
           value={username}
-        ></input>
+          ></input>
       </div>
       <div>
-        <label>Email</label>
-        <input
+      <input className='signup-input-field'
+          minlength="5" maxlength="100"
           type='email'
           name='email'
+          placeholder='Email'
           required
           onChange={updateEmail}
           value={email}
         ></input>
       </div>
       <div>
-        <label>Password</label>
-        <input
+      <input className='signup-input-field'
           minlength="6" maxlength="20"
           type='password'
           name='password'
           required
+          placeholder='Password'
           onChange={updatePassword}
           value={password}
-        ></input>
+          ></input>
       </div>
       <div>
-        <label>Repeat Password</label>
-        <input
+      <input className='signup-input-field'
           minlength="6" maxlength="20"
           type='password'
           name='repeat_password'
+          placeholder='Confirm Password'
           onChange={updateRepeatPassword}
           value={repeatPassword}
           required={true}
-        ></input>
+          ></input>
       </div>
       <button className='signupbtn' type='submit'>Sign Up</button>
     </form>
+          </div>
   );
 };
 
