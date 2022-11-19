@@ -14,7 +14,7 @@ function CategoryPage () {
 
     useEffect(() => {
         dispatch(getProductByCategory(categoryName))
-    },[dispatch])
+    },[dispatch, categoryName])
     if (!products) return <p>...loading</p>
     return (
         <div >
