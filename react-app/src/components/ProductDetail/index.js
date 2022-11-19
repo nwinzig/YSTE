@@ -6,6 +6,7 @@ import { editReview, getAllReviews } from '../../store/reviews'
 import ReviewFormModal from '../CreateReview'
 import ReviewForm from '../CreateReview/reviewForm'
 import AddToCart from '../ShoppingCart/AddToCart'
+import './ProductDetail.css'
 
 function ProductDetail() {
     const history = useHistory()
@@ -75,30 +76,46 @@ function ProductDetail() {
     useEffect(() => {
         dispatch(getSingleProduct(productId)).then(() => dispatch(getAllReviews(productId)))
     }, [dispatch])
-
-
+    
+    
 
     return (
         <div className='product-detail-wrapper'>
-            <div>{avgg}</div>
-            <div>{numStars}</div>
-            <div>
-                {product.image1 && <img src={product?.image1} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
-                {product.image2 && <img src={product?.image2} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
-                {product.image3 && <img src={product?.image3} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
-                {product.image4 && <img src={product?.image4} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
+        <div className='product-detail-separator'>
+        <div className='product-detail-left'>
+        
+                    <div className='product-detail-image-container'>
+                        <div className='product-detail-image1-container' >
+                            {product.image1 && <img src={product?.image1} alt={product?.product_name}  />}
+                        </div>
+                        {product.image2 && <img src={product?.image2} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
+                        {product.image3 && <img src={product?.image3} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
+                        {product.image4 && <img src={product?.image4} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
+                    </div>
+        </div>
+                <div className='product-detail-right'>
+                    <div className='product-detail-description-container'>
+                    <div className='product-detail-description-header'>
+                            <div style={{padding:'10px'}}>{avgg}</div>
+                            <div style={{padding:'10px'}}>{numStars}</div>
+                            <h1>{product?.product_name}</h1>
+                    </div>
+                    <div className='product-detail-description-price'>
+                            <p>${product?.price}</p>
+                    </div>
+                    <div className='product-detail-description-body'>
+                        <div className='product-detail-description-body-description-section'>
+                                <p>{product?.description}</p>
+                        </div>
+                        <div className='product-detail-description-body-add-cart-button'>
+                            <AddToCart />
+                        </div>
+                    </div>
+                </div>
+                
+                </div>
+            
             </div>
-            <div>
-                <h1>{product?.product_name}</h1>
-                <div>
-                    ${product?.price}
-                </div>
-                <div>
-                    {product?.description}
-                </div>
-                <div>
-                    <AddToCart />
-                </div>
                 <div className='product-reviews'>
 
                     {filteredArr?.map(review => (
@@ -113,7 +130,6 @@ function ProductDetail() {
                 <div>
                     {!isOwner && session && !userReview && <button onClick={review}>Leave a review?</button>}
                 </div>
-            </div>
         </div>
 
     )
