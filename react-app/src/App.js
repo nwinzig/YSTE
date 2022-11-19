@@ -22,6 +22,7 @@ import OwnerReviews from './components/ReviewsByOwner';
 import EditReviewForm from './components/EditReviewForm';
 import ReviewForm from './components/CreateReview/reviewForm';
 import CategoryPage from './components/CategoryPage';
+import Footer from './components/footer/footer';
 
 
 
@@ -65,7 +66,7 @@ function App() {
         <ProtectedRoute path='/newProduct' exact={true}>
           <ProductForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/your-products' exact={true} style={{width:'100%'}}>
+        <ProtectedRoute path='/your-products' exact={true} style={{ width: '100%' }}>
           <OwnerProducts />
         </ProtectedRoute>
         <ProtectedRoute exact path='/create-review/:productId'>
@@ -90,6 +91,7 @@ function App() {
           <CategoryPage />
         </Route>
       </Switch>
+      < Footer />
     </BrowserRouter>
   );
 }
