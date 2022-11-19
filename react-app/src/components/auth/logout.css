@@ -1,0 +1,13 @@
+.logoutWrapper{
+    display: flex;
+    width: 50px;
+    align-items: center;
+    height: 50px;
+    align-content: center;
+    justify-content: center;
+}
+.logoutWrapper:hover{
+    background-color: lightgray;
+    border-radius: 50%;
+    cursor: pointer;
+}

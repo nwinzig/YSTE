@@ -62,29 +62,27 @@ const NavBar = () => {
             Users
           </NavLink>
         </div> */}
-        <div className='productmanagerWrapper'>
-          <NavLink to='/your-products' exact={true} activeClassName='active' className='black'>
+        <NavLink to='/your-products' exact={true} activeClassName='active' className='productmanagerWrapper'>
+          <div className='black'>
             <i class="fa-solid fa-shop fa-xl" ></i>
-          </NavLink>
-        </div>
-        <div className='reviewsWrapper'>
-          <NavLink to='/your-reviews' exact={true} activeClassName='active' className='black'>
+          </div>
+        </NavLink>
+        <NavLink to='/your-reviews' exact={true} activeClassName='active' className='reviewsWrapper'>
+          <div className='black'>
             <i class="fa-regular fa-clipboard fa-xl"></i>
-          </NavLink>
-        </div>
-        <div className='logoutWrapper'>
-          <LogoutButton />
-        </div>
+          </div>
+        </NavLink>
+          <LogoutButton className='logoutWrapper' />
         {!user && <div className='demoWrapper'>
             <button onClick={demoUser}>
             Demo User
             </button>
         </div>}
-        <div className='cartWrapper'>
-            <NavLink to='/cart' exact={true} activeClassName='active' className='black'>
+        <NavLink to='/cart' exact={true} activeClassName='active' className='cartWrapper'>
+            <div className='black'>
               <i class="fa-solid fa-cart-shopping fa-xl"></i>
-            </NavLink>
-        </div>
+            </div>
+        </NavLink>
       </div>
       <div className='categoryWrapper'>
         <div className='cars' onClick={changeToCars}>
