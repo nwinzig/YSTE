@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import SearchBar from './nav/SearchComponent';
 import { login } from '../store/session';
@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import './navbar.css'
 
 const NavBar = () => {
+  const history = useHistory()
   const dispatch = useDispatch()
   const user = useSelector(state => state.session.user)
   const demoUser = () => {
@@ -18,6 +19,22 @@ const NavBar = () => {
     dispatch(login(obj.email, obj.password))
   }
 
+    // click to go to category page
+    function changeToCars(){
+        history.push('/category/Cars')
+    }
+    function changeToClothing(){
+        history.push('/category/Clothing')
+    }
+    function changeToElectronics(){
+        history.push('/category/Electronics')
+    }
+    function changeToHomeGoods(){
+        history.push('/category/Home Goods')
+    }
+    function changeToMisc(){
+        history.push('/category/miscellaneous')
+    }
 
   return (
     <nav>
@@ -45,44 +62,42 @@ const NavBar = () => {
             Users
           </NavLink>
         </div> */}
-        <div className='productmanagerWrapper'>
-          <NavLink to='/your-products' exact={true} activeClassName='active' className='black'>
+        <NavLink to='/your-products' exact={true} activeClassName='active' className='productmanagerWrapper'>
+          <div className='black'>
             <i class="fa-solid fa-shop fa-xl" ></i>
-          </NavLink>
-        </div>
-        <div className='reviewsWrapper'>
-          <NavLink to='/your-reviews' exact={true} activeClassName='active' className='black'>
+          </div>
+        </NavLink>
+        <NavLink to='/your-reviews' exact={true} activeClassName='active' className='reviewsWrapper'>
+          <div className='black'>
             <i class="fa-regular fa-clipboard fa-xl"></i>
-          </NavLink>
-        </div>
-        <div className='logoutWrapper'>
-          <LogoutButton />
-        </div>
+          </div>
+        </NavLink>
+          <LogoutButton className='logoutWrapper' />
         {!user && <div className='demoWrapper'>
             <button onClick={demoUser}>
             Demo User
             </button>
         </div>}
-        <div className='cartWrapper'>
-            <NavLink to='/cart' exact={true} activeClassName='active' className='black'>
+        <NavLink to='/cart' exact={true} activeClassName='active' className='cartWrapper'>
+            <div className='black'>
               <i class="fa-solid fa-cart-shopping fa-xl"></i>
-            </NavLink>
-        </div>
+            </div>
+        </NavLink>
       </div>
       <div className='categoryWrapper'>
-        <div className='cars'>
+        <div className='cars' onClick={changeToCars}>
           Cars
         </div>
-        <div className='clothing'>
+        <div className='clothing' onClick={changeToClothing}>
           Clothing
         </div>
-        <div className='electronics'>
+        <div className='electronics' onClick={changeToElectronics}>
           Electronics
         </div>
-        <div className='homeGoods'>
+        <div className='homeGoods' onClick={changeToHomeGoods}>
           Home Goods
         </div>
-        <div className='miscellaneous'>
+        <div className='miscellaneous' onClick={changeToMisc}>
           Miscellaneous
         </div>
       </div>

@@ -9,10 +9,18 @@ const SearchResult = () => {
     const [loaded, setLoaded] = useState(false)
 
     const searchedProducts = useSelector(state => state.search)
-
+    console.log('testing what happens with no results', searchedProducts)
     let searchedProductsList = Object.values(searchedProducts)
     let flatArray = searchedProductsList.flat()
-
+    let noResults;
+    if(!flatArray.length){
+        console.log('hello there')
+        noResults = (
+            <h2>
+                There are no matching results, please try again.
+            </h2>
+        )
+    }
     return (
         <>
             <div>
@@ -22,6 +30,10 @@ const SearchResult = () => {
                     )
                 })}
             </div>
+            <div>
+                {noResults}
+            </div>
+
         </>
     )
 }

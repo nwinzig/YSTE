@@ -11,9 +11,14 @@
 .productName{
     margin-top: 5px;
 }
+.productName:hover{
+    cursor: pointer;
+}
 .productPrice{
     font-weight: bold;
-
+}
+.productPrice:hover{
+    cursor: pointer;
 }
 .cardImage{
     object-fit: cover;

@@ -43,7 +43,7 @@ const SearchBar = () => {
     return (
         <div className='searchWrapper'>
             <form className='searchForm' onSubmit={handleSubmit}>
-                {error && (
+                {/* {error && (
                     <ul className='errorMap'>
                         {error.map((error, i) => {
                             <li key={i}>
@@ -51,15 +51,17 @@ const SearchBar = () => {
                             </li>
                         })}
                     </ul>
-                )}
+                )} */}
                 <div className='formWrapper'>
                     <div className='searchfieldWrapper'>
-                        <input placeholder='Search for anything' type='text' value={search}
+                        <input className='theSearchBar' minLength={3} maxLength={10} placeholder='Search for anything' type='text' value={search}
                         onChange = {(e) => setSearch(e.target.value)} required/>
                     </div>
-                    <div className='buttonWrapper'>
-                        <button className='searchButton' type='submit'>Search Logo</button>
-                    </div>
+
+                        <button className='searchButton' type='submit'>
+                            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+                        </button>
+
                 </div>
             </form>
         </div>

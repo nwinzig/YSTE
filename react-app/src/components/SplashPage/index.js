@@ -109,6 +109,26 @@ function AllProducts() {
     console.log(`item 6: image: ${image6} price: ${price6}`)
     console.log(`item 7: image: ${image7} price: ${price7}`)
     console.log(`item 8: image: ${image8} price: ${price8}`)
+
+
+    // click to go to category page
+    function changeToCars(){
+        history.push('/category/Cars')
+    }
+    function changeToClothing(){
+        history.push('/category/Clothing')
+    }
+    function changeToElectronics(){
+        history.push('/category/Electronics')
+    }
+    function changeToHomeGoods(){
+        history.push('/category/Home Goods')
+    }
+    function changeToMisc(){
+        history.push('/category/miscellaneous')
+    }
+
+
     return (
         <div className='contentWrapper'>
             <div className='welcomeWrapper'>
@@ -117,81 +137,106 @@ function AllProducts() {
             <div className='circularCatWrapper'>
                 <div className='beige'>
                     <div className='circularWrapperleft'>
-                        <div className='circular'>
-                            Cars pic
+                        <div className='circular' onClick={changeToCars} id='hoverDrop'>
+                            <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668821242/spot1/60608005_yi4uue.jpg' ></img>
+                        </div>
+                        <div className='carsDropDown'>
+                                <div id='dropdownContainer'>
+                                    <div className='carDrop'>Cars</div>
+                                </div>
                         </div>
                     </div>
                     <div className='circularWrapper'>
-                        <div className='circular'>
-                            Clothing
+                        <div className='circular' onClick={changeToClothing} id='hoverdropCloth'>
+                            <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822059/spot1/fashion_f8auge.png'></img>
+                        </div>
+                        <div className='clothingDropDown'>
+                                <div id='clothingdropdownContainer'>
+                                    <div className='clothingDrop'>Clothing</div>
+                                </div>
+                        </div>
+                    </div>
+                    <div className='circularWrapper' >
+                        <div className='circular' onClick={changeToElectronics} id='hoverdropEl'>
+                            <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822102/spot1/Old_Electronics_hero_1_rxwcbt.jpg'></img>
+                        </div>
+                        <div className='elDropDown'>
+                                <div id='eldropdownContainer'>
+                                    <div className='elDrop'>Electronics</div>
+                                </div>
                         </div>
                     </div>
                     <div className='circularWrapper'>
-                        <div className='circular'>
-                            Electronics
+                        <div className='circular' onClick={changeToHomeGoods} id='hoverdropHg'>
+                            <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822202/spot1/download_iai4bc.jpg'></img>
                         </div>
-                    </div>
-                    <div className='circularWrapper'>
-                        <div className='circular'>
-                            Home Goods
+                        <div className='hgDropDown'>
+                                <div id='hgdropdownContainer'>
+                                    <div className='hgDrop'>Home Goods</div>
+                                </div>
                         </div>
                     </div>
                     <div className='circularWrapperright'>
-                        <div className='circular'>
-                            Misc
+                        <div className='circular' onClick={changeToMisc} id='hoverdropMisc'>
+                            <img src='https://res.cloudinary.com/dydhvazpw/image/upload/v1668822235/spot1/download-1_exexct.jpg'></img>
+                        </div>
+                        <div className='miscDropDown'>
+                                <div id='miscdropdownContainer'>
+                                    <div className='miscDrop'>Miscellaneous</div>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div>
-                <h2 className='marginLeft'>
+                <h2 className='marginLeft' id='moveDown'>
                     Find something special
                 </h2>
             </div>
             <div className='spotlightGridWrapper'>
                 <div className='spotCol1'>
-                    <div className='top1' style={{backgroundImage: `url(${image1})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='top1' style={{backgroundImage: `url(${image1})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[0]?.id}`)}>
                         <div className='spotlightpriceHolder'>
                             ${price1}
                         </div>
                     </div>
-                    <div className='bottom1' style={{backgroundImage: `url(${image2})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='bottom1' style={{backgroundImage: `url(${image2})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[1]?.id}`)}>
                     <div className='spotlightpriceHolder'>
                             ${price2}
                         </div>
                     </div>
                 </div>
                 <div className='spotCol2'>
-                    <div className='top2' style={{backgroundImage: `url(${image3})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='top2' style={{backgroundImage: `url(${image3})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[2]?.id}`)}>
                     <div className='spotlightpriceHolder'>
                             ${price3}
                         </div>
                     </div>
-                    <div className='bottom2' style={{backgroundImage: `url(${image4})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='bottom2' style={{backgroundImage: `url(${image4})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[3]?.id}`)}>
                     <div className='spotlightpriceHolder'>
                             ${price4}
                         </div>
                     </div>
                 </div>
                 <div className='spotCol3'>
-                    <div className='top3' style={{backgroundImage: `url(${image5})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='top3' style={{backgroundImage: `url(${image5})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[4]?.id}`)}>
                     <div className='spotlightpriceHolder'>
                             ${price5}
                         </div>
                     </div>
-                    <div className='bottom3' style={{backgroundImage: `url(${image6})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat'}} id='spotlightHover'>
+                    <div className='bottom3' style={{backgroundImage: `url(${image6})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat'}} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[5]?.id}`)}>
                     <div className='spotlightpriceHolder'>
                             ${price6}
                         </div>
                     </div>
                 </div>
                 <div className='spotCol4'>
-                    <div className='top4' style={{backgroundImage: `url(${image7})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='top4' style={{backgroundImage: `url(${image7})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[6]?.id}`)}>
                     <div className='spotlightpriceHolder'>
                             ${price7}
                         </div>
                     </div>
-                    <div className='bottom4' style={{backgroundImage: `url(${image8})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='bottom4' style={{backgroundImage: `url(${image8})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover' onClick={() => history.push(`/product/${spotlightProducts[7]?.id}`)}>
                     <div className='spotlightpriceHolder'>
                             ${price8}
                         </div>

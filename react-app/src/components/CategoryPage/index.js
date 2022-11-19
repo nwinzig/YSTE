@@ -20,7 +20,7 @@ function CategoryPage () {
         <div >
             <h1 style={{textAlign: 'center'}}>{categoryName}</h1>
             <div className="category-card-wrapper">
-                {products.map((product, index) => (
+                {products?.map((product, index) => (
                     <CategoryCard key={index} product={product} />
                 ))}
             </div>
