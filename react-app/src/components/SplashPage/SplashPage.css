@@ -69,51 +69,62 @@
 .top1{
     margin-bottom: 10px;
     height: 36%;
+    position: relative;
     /* overflow: hidden; */
     border-radius: 10px;
 }
 .bottom1{
     height: 63%;
     border-radius: 10px;
+    position: relative;
 }
 .spotCol2{
     width: 23%;
     border-radius: 10px;
+
 }
 .top2{
     height: 63%;
     margin-bottom: 10px;
     border-radius: 10px;
+    position: relative;
 }
 .bottom2{
     height: 36%;
     border-radius: 10px;
+    position: relative;
 }
 .spotCol3{
     width: 23%;
     border-radius: 10px;
+
 }
 .top3{
     margin-bottom: 10px;
     height: 36%;
     border-radius: 10px;
+    position: relative;
 }
 .bottom3{
     height: 63%;
     border-radius: 10px;
+    position: relative;
 }
 .spotCol4{
     width: 23%;
     border-radius: 10px;
+
 }
 .top4{
     height: 63%;
     margin-bottom: 10px;
     border-radius: 10px;
+    position: relative;
 }
 .bottom4{
     height: 36%;
     border-radius: 10px;
+    position: relative;
 }
 
 #spotlightHover:hover{
@@ -121,8 +132,17 @@
     cursor: pointer;
 }
 .spotlightpriceHolder{
+    display: inline-block;
     background-color: rgba(0, 0, 0, 0.2);;
-    width: auto;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: white;
+    border-radius: 25px;
 }
 
 .spotimage{
@@ -133,11 +153,19 @@
 
 
 .productCardWrapper{
-    border: 1px solid black;
+    /* border: 1px solid black; */
+    margin-top: 50px;
     margin-left: 10%;
     margin-right: 10%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     row-gap: 30px;
     column-gap: 10px;
+}
+
+.marginLeft{
+    margin-left: 10%;
+}
+#moveDown{
+    margin-top: 50px;
 }
