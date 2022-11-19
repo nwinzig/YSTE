@@ -1,4 +1,33 @@
+#YSTE
+
+YSTE is a website clone, insprired by [Etsy](https://www.etsy.com/?ref=lgo). YSTE is an online marketplace that hosts a wide range of products that are 'for sale'. YSTE also allows you to put some of your favorite products up 'for sale'. This site is best suited for people browsing the web that want to explore some products and have fun at the same time.
+
+#Wiki
+More Info about how the project came together:
+- [Feature List](https://github.com/nwinzig/YSTE/wiki/Feature-List)
+
+- [Database Schema](https://github.com/nwinzig/YSTE/wiki/Db-Schema)
+
+- [User Stories](https://github.com/nwinzig/YSTE/wiki/User-Stories)
+
+# Tech Stack
+ - [<img src='https://img.shields.io/badge/-Javascript-yellow' alt='Javascript Logo'/>](https://www.javascript.com/)
+ - [<img src='https://img.shields.io/badge/-React-blue' alt='React Logo'/>](https://reactjs.org/)
+ - [<img src='https://img.shields.io/badge/-HTML5-orange' alt='HTML Logo'/>](https://html.com/)
+ - [<img src='https://img.shields.io/badge/-CSS-blue'/>](https://www.w3.org/Style/CSS/Overview.en.html)
+ 
+
+#Landing Page
+
+You can access the wide variety of products right from the home page.
+
+
+
+
+
 # Flask React Project
+
+
 
 This is the starter for the Flask React project.
 
