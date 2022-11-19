@@ -136,7 +136,7 @@ def seed_products():
         shop_id = 4, product_name="Whiskey Decanter", description="Personalized Whiskey Decanter Set with Gift Box.", price=35, category="miscellaneous", stock=2000, image1='https://i.etsystatic.com/13777471/r/il/d7938c/3901950262/il_794xN.3901950262_e5r7.jpg'
     )
     remington5_product = Product(
-        shop_id = 5, product_name="Pink Floyd", description="Officially Licensed Merchandise. Music, Sports & Entertainment Merchandise.", price=25, category="Clothing", stock=3000, image1='https://i.etsystatic.com/13351673/r/il/a7afd8/1008135834/il_794xN.1008135834_k0rw.jpg'
+        shop_id = 5, product_name="Pink Floyd T-Shirt", description="Officially Licensed Merchandise. Music, Sports & Entertainment Merchandise.", price=25, category="Clothing", stock=3000, image1='https://i.etsystatic.com/13351673/r/il/a7afd8/1008135834/il_794xN.1008135834_k0rw.jpg'
     )
     kratos5_product = Product(
         shop_id = 6, product_name="God of War Scented Candle", description="great keyboard not cheaply made I swear.", price=35, category="Home Goods", stock=2, image1='https://i.etsystatic.com/26979231/r/il/60ef7d/3537241593/il_794xN.3537241593_kui7.jpg'
