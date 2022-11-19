@@ -141,29 +141,29 @@ function CartComponent() {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="discoverText">
-                <h3>
-                    Discover other items
-                </h3>
-            </div>
-            <div className="moreProducts">
-                {spotlightProducts?.map((product) => (
-                    <div to={`/product/${product?.id}`}className="spotlightProduct">
-                        <Link to={`/product/${product?.id}`} className="spotlightImageWrapper">
-                            <img className="spotlightimage" src={product?.image1} alt="Product image"></img>
-                        </Link>
-                        <Link to={`/product/${product?.id}`} className="spotlightName">
-                            {product?.product_name}
-                        </Link>
-                        <div className="spotlightPrice">
-                            {product?.price}
+                <div className="discoverText">
+                    <h2>
+                        Discover other items
+                    </h2>
+                </div>
+                <div className="moreProducts">
+                    {spotlightProducts?.map((product) => (
+                        <div to={`/product/${product?.id}`}className="spotlightProduct">
+                            <Link to={`/product/${product?.id}`} className="spotlightImageWrapper">
+                                <img className="spotlightimage" src={product?.image1} alt="Product image"></img>
+                            </Link>
+                            <Link to={`/product/${product?.id}`} className="spotlightName">
+                                {product?.product_name}
+                            </Link>
+                            <div className="spotlightPrice">
+                                ${product?.price}
+                            </div>
+                            {/* <div>
+                                <AddToCart />
+                            </div> */}
                         </div>
-                        {/* <div>
-                            <AddToCart />
-                        </div> */}
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
         </div>
         );
