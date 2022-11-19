@@ -55,11 +55,12 @@ label {
 } */
 
 .error-map {
-    display: inline;
-    margin-left: 20px;
+    margin-left: 87px;
+    margin-top: 40px;
     font-size: 18px;
-    color:red
+    color: red
 }
+
 /* error-map {
     display: flex;
     position: relative;

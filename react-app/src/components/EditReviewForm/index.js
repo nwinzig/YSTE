@@ -17,6 +17,7 @@ function EditReviewForm() {
     const [img, setImg] = useState(prevReview?.img)
     const [errors, setErrors] = useState([])
 
+    const imageCheck = /\.(jpg|jpeg|png|webp|avif|gif|svg)$/
     const submitter = async (e) => {
         e.preventDefault()
         setErrors([])
@@ -30,6 +31,11 @@ function EditReviewForm() {
             setErrors(['Stars must be between 1 and 5'])
             return
         }
+
+        // if (!img.split('?')[0].match(imageCheck)) {
+        //     setErrors(['Image must be valid: jpg, jpeg, png, webp, avif, gif, svg'])
+        //     return
+        // }
 
         let obj = {
             review,
@@ -51,7 +57,7 @@ function EditReviewForm() {
             </ul>
             <div>
                 <label> Review: </label>
-                <input required value={review} onChange={e => setReview(e.target.value)} />
+                <input minlength="4" maxlength="50" required value={review} onChange={e => setReview(e.target.value)} />
             </div>
             <div>
                 <label> Stars: </label>

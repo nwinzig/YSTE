@@ -65,6 +65,7 @@ const SignUpForm = () => {
       <div>
         <label>First Name</label>
         <input
+          minlength="2" maxlength="2"
           type='text'
           name='firstname'
           required
@@ -75,6 +76,7 @@ const SignUpForm = () => {
       <div>
         <label>Last Name</label>
         <input
+          minlength="2" maxlength="2"
           type='text'
           name='lastname'
           required
@@ -86,6 +88,7 @@ const SignUpForm = () => {
       <div>
         <label>User Name</label>
         <input
+          minlength="4" maxlength="15"
           type='text'
           name='username'
           required
@@ -106,6 +109,7 @@ const SignUpForm = () => {
       <div>
         <label>Password</label>
         <input
+          minlength="6" maxlength="20"
           type='password'
           name='password'
           required
@@ -116,6 +120,7 @@ const SignUpForm = () => {
       <div>
         <label>Repeat Password</label>
         <input
+          minlength="6" maxlength="20"
           type='password'
           name='repeat_password'
           onChange={updateRepeatPassword}
