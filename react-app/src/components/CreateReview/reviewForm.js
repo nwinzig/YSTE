@@ -14,6 +14,7 @@ function ReviewForm() {
     const [img, setImg] = useState('')
     const [errors, setErrors] = useState([])
 
+    const imageCheck = /\.(jpg|jpeg|png|webp|avif|gif|svg)$/
     const submitter = async (e) => {
         e.preventDefault()
         setErrors([])
@@ -27,6 +28,11 @@ function ReviewForm() {
             setErrors(['Stars must be between 1 and 5'])
             return
         }
+
+        // if (!img.split('?')[0].match(imageCheck)) {
+        //     setErrors(['Image must be valid: jpg, jpeg, png, webp, avif, gif, svg'])
+        //     return
+        // }
 
         let obj = {
             review,

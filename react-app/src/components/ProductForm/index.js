@@ -22,6 +22,7 @@ function ProductForm() {
 
     const dispatch = useDispatch()
 
+    const imageCheck = /\.(jpg|jpeg|png|webp|avif|gif|svg)$/
     const handleSubmit = async (e) => {
         let priceInt = parseFloat(price)
         let newprice = (Math.round(priceInt * 100) / 100).toFixed(2)
@@ -40,12 +41,18 @@ function ProductForm() {
             errors.push(['Price must be between $1 and $1,000,000'])
 
         }
+
+        if (!image1.split('?')[0].match(imageCheck)) {
+            errors.push('Image must be valid: jpg, jpeg, png, webp, avif, gif, svg')
+        }
+
+
         setErrors(errors)
 
-            let newProduct = {
-                'product_name': productName,
-                description,
-                'price': newprice,
+        let newProduct = {
+            'product_name': productName,
+            description,
+            'price': newprice,
             category,
             stock: 1,
             image1,
@@ -54,7 +61,8 @@ function ProductForm() {
             image2,
         }
 
-        if (productName.length > 5 && productName.length < 240 && description.length > 5 && price < 1000000 && price > 1){
+
+        if (productName.length > 5 && description.length > 5 && price < 1000000 && price > 1) {
 
             dispatch(CreateSingleProduct(newProduct)).then(() => dispatch(getUserProducts()))
 
@@ -67,8 +75,8 @@ function ProductForm() {
     return (
         <form onSubmit={handleSubmit}>
             {errors && (
-            <ul className="error-map">{errors.map((error, i) => (
-                <li key={i}>{error}</li>
+                <ul className="error-map">{errors.map((error, i) => (
+                    <li key={i}>{error}</li>
                 ))}
                 </ul>
             )}

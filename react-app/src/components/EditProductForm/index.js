@@ -23,6 +23,7 @@ function EditProductForm() {
     const [image3, setImage3] = useState(product?.image3)
     const [image4, setImage4] = useState(product?.image4)
 
+    const imageCheck = /\.(jpg|jpeg|png|webp|avif|gif|svg)$/
     const handleSubmit = (e) => {
         e.preventDefault()
         setErrors([])
@@ -34,6 +35,11 @@ function EditProductForm() {
 
         if (Number(price) > 1000000) {
             setErrors(['Price must be between $1 and $1,000,000'])
+            return
+        }
+
+        if (!image1.split('?')[0].match(imageCheck)) {
+            setErrors(['Image must be valid: jpg, jpeg, png, webp, avif, gif, svg'])
             return
         }
         let obj = {
@@ -62,11 +68,11 @@ function EditProductForm() {
             </ul>
             <div>
                 <label>Product Name:</label>
-                <input required value={productName} placeholder={productName} onChange={e => setProductName(e.target.value)} />
+                <input minlength="3" maxlength="50" required value={productName} placeholder={productName} onChange={e => setProductName(e.target.value)} />
             </div>
             <div>
                 <label>Description:</label>
-                <input required value={description} onChange={e => setDescription(e.target.value)} />
+                <input required minlength="5" maxlength="240" value={description} onChange={e => setDescription(e.target.value)} />
             </div>
             <div>
                 <label>Price:</label>
