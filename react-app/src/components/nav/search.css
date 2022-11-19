@@ -9,6 +9,7 @@
     width: 100%;
     /* position: absolute;
     left: 0; */
+    margin-right: 30px;
 }
 
 .formWrapper{
@@ -18,9 +19,7 @@
     position: relative;
 }
 
-.searchfieldWrapper{
-    /* width: 450px; */
-}
+
 .theSearchBar{
     width: 450px;
     height: 60px;
@@ -30,6 +29,11 @@
     background-color: #F4F4F4;
     font-size: 20px;
 }
+.theSearchBar:focus{
+    outline-width: 0;
+    background-color: white;
+}
+
 .buttonWrapper{
     width: 10px;
     padding: 0;
