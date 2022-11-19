@@ -33,6 +33,9 @@ nav{
 }
 .loginWrapper{
     /* width: 10%; */
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -46,20 +49,20 @@ nav{
     box-shadow: 0 0 3px 3px #F1641D;
     cursor: pointer;
 }
-.loginWrapper a{
+/* .loginWrapper a{
     font-size: 16px;
     color: white;
     text-decoration: none;
-}
-.loginWrapper:hover a{
+} */
+.loginWrapper:hover{
     text-shadow: 0 0 3px 3px white;
     font-size: 20px;
 }
-.demoUserDiv{
+/* .demoUserDiv{
     font-size: 16px;
     color: white;
     text-decoration: none;
-}
+} */
 .loginWrapper:hover .demoUserDiv{
     text-shadow: 0 0 3px 3px white;
     font-size: 20px;

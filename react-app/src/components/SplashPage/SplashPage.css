@@ -295,6 +295,7 @@
 
 .productCardWrapper{
     /* border: 1px solid black; */
+    grid-column-start: auto;
     margin-top: 50px;
     margin-left: 10%;
     margin-right: 10%;
