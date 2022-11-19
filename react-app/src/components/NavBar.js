@@ -47,21 +47,21 @@ const NavBar = () => {
         <div className='searchContainer'>
         <SearchBar />
         </div>
-        {!user && <div className='loginWrapper'>
-          <NavLink to='/login' exact={true} activeClassName='active'>
+        {!user &&
+          <NavLink to='/login' exact={true} activeClassName='active' className='loginWrapper'>
             Login
           </NavLink>
-        </div>}
-        {!user && <div className='loginWrapper'>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
+        }
+        {!user &&
+          <NavLink to='/sign-up' exact={true} activeClassName='active' className='loginWrapper'>
             Sign Up
           </NavLink>
-        </div>}
-        {!user && <div className='loginWrapper' onClick={demoUser}>
-            <div onClick={demoUser} className='demoUserDiv'>
+        }
+        {!user &&
+            <div onClick={demoUser} className='loginWrapper'>
             Demo User
             </div>
-        </div>}
+        }
         {user && <LogoutButton className='logoutWrapper' />}
         <NavLink to='/your-products' exact={true} activeClassName='active' className='productmanagerWrapper' id='shopHover'>
           <div className='black'>
