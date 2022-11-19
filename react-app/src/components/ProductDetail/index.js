@@ -93,39 +93,8 @@ function ProductDetail() {
                         {product.image4 && <img src={product?.image4} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
                     </div>
 
-                    <div className='product-reviews'>
-                        {!!filteredArr.length && (<div className='product-reviews-header'>
-                            <h1> {filteredArr?.length} reviews</h1>
-                            <h1 >{numStars}</h1>
-                            </div>)}
-
-                        {filteredArr?.map(review => (
-                            <div key={review?.id} className="product-reviews-card-container">
-                                <div className="product-reviews-card-header">
-                                    <p>{review?.stars}</p>
-                                    <div>&#9733;</div>
-                                </div>
-
-                                <div className="product-reviews-card-review">
-                                {review?.review}
-                                </div>
-
-                                <div className="product-reviews-card-product-name">
-                                    <div>Purchased Item:</div> <p>{product.product_name}</p>
-                                </div>
-
-                                
-                                
-                                {review?.review_image && <img src={review?.review_image} alt={review?.review} style={{ width: '100px', height: '100px' }} />}
-                                
-                                
-                                
-                            </div>
-                        ))}
-                    </div>
-                    <div className='product-leave-review-button'>
-                        {!isOwner && session && !userReview && <button onClick={review}>Leave a review?</button>}
-                    </div>
+                    
+                    
         </div>
                 <div className='product-detail-right'>
                     <div className='product-detail-description-container'>
@@ -175,7 +144,40 @@ function ProductDetail() {
                 </div>
             
             </div>
-                
+            <div className='product-reviews'>
+                {!!filteredArr.length && (<div className='product-reviews-header'>
+                    <h1> {filteredArr?.length} reviews</h1>
+                    <h1 >{numStars}</h1>
+                </div>)}
+                <div className="product-reviews-card-wrapper">
+                    {filteredArr?.map(review => (
+                        <div key={review?.id} className="product-reviews-card-container">
+                            <div className="product-reviews-card-header">
+                                <p>{review?.stars}</p>
+                                <div>&#9733;</div>
+                            </div>
+
+                            <div className="product-reviews-card-review">
+                                {review?.review}
+                            </div>
+
+                            <div className="product-reviews-card-product-name">
+                                <div>Purchased Item:</div> <p>{product.product_name}</p>
+                            </div>
+
+
+
+                            {review?.review_image && <img src={review?.review_image} alt={review?.review} style={{ width: '100px', height: '100px' }} />}
+
+
+
+                        </div>
+                    ))}
+                </div>
+            </div>
+            <div className='product-leave-review-button'>
+                {!isOwner && session && !userReview && <button onClick={review}>Leave a review?</button>}
+            </div>
         </div>
 
     )
