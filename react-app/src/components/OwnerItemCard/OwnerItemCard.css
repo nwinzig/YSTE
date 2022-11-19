@@ -41,3 +41,16 @@
     justify-content: space-between;
     object-fit: fill;
 }
+.product-card-details-container button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 24px;
+    background-color: rgb(255, 165, 0);
+    cursor: pointer;
+    margin-top: 20px;
+
+}
+
+.product-card-details-container button:hover {
+    background-color: rgb(255, 165, 0, 0.8);
+}

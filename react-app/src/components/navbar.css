@@ -111,7 +111,9 @@ nav{
 #cartHover:hover .dropDown .dropDownContainer{
     display: block;
 }
-
+#logoutHover:hover .dropDown .dropDownContainer{
+    display: block;
+}
 /* end */
 
 
