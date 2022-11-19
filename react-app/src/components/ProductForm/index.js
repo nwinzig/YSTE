@@ -73,7 +73,10 @@ function ProductForm() {
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='formContainer'>
+            <h2 className='alignCenter'>
+                Start selling on YSTE!
+            </h2>
             {errors && (
                 <ul className="error-map">{errors.map((error, i) => (
                     <li key={i}>{error}</li>
@@ -82,36 +85,18 @@ function ProductForm() {
             )}
             <div className='productform'>
                 <div className='hello'>
-                    <label className='productlable' >Product Name</label>
-                    <input className='a' required type='text' placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
+                    <input className='inputField' required type='text' placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
                 </div>
                 <div>
-                    <label className='productlable' >Description</label>
-                    <input required className='b' type='text' placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
+                    <input required className='inputField' type='text' placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
                 </div>
                 <div>
-                    <label className='productlable' >Price</label>
-                    <input required className='c' type='number' min={1} step='0.01' placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                    <input required className='inputField' type='number' min={1} step='0.01' placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
                 </div>
-                <div className='imageurl'>
-                    <label className='productlable'>Image Url</label>
-                    <input type='text' className='d' placeholder="Image Required" required value={image1} onChange={(e) => setImage1(e.target.value)} />
-                </div>
-                <div>
-                    {/* <label className='productlable' >Image Url</label> */}
-                    <input type='text' className='e' placeholder="Optional Image" value={image2} onChange={(e) => setImage2(e.target.value)} />
-                </div>
-                <div>
-                    {/* <label className='productlable' Image Url> </label> */}
-                    <input type='text' className='f' placeholder="Optional Image" value={image3} onChange={(e) => setImage3(e.target.value)} />
-                </div>
-                <div>
-                    {/* <label className='productlable' >Image Url</label> */}
-                    <input type='text' className='g' placeholder="Optional Image" value={image4} onChange={(e) => setImage4(e.target.value)} />
-                </div>
-
                 <div className='category'>
-                    <label className='catlable' >Category</label>
+                    <label >
+                        Tell us what your selling:
+                    </label>
                     <select className='categoryselect' value={category} onChange={(e) => setCategory(e.target.value)} >
                         {categories.map((category, index) => {
                             return (<option key={index} value={category.value}>
@@ -122,9 +107,23 @@ function ProductForm() {
 
                     </select>
                 </div>
-                <button className='productsubmit' type='submit'>
+                <div className='imageurl'>
+                    <input type='text' className='inputField' placeholder="Image Required" required value={image1} onChange={(e) => setImage1(e.target.value)} />
+                </div>
+                <div>
+                    <input type='text' className='inputField' placeholder="Optional Image" value={image2} onChange={(e) => setImage2(e.target.value)} />
+                </div>
+                <div>
+                    <input type='text' className='inputField' placeholder="Optional Image" value={image3} onChange={(e) => setImage3(e.target.value)} />
+                </div>
+                <div>
+                    <input type='text' className='inputField' placeholder="Optional Image" value={image4} onChange={(e) => setImage4(e.target.value)} />
+                </div>
+                <div className='createSubmitWrapper'>
+                    <button className='productsubmit' type='submit'>
                     Submit
-                </button>
+                    </button>
+                </div>
             </div>
         </form >
 
