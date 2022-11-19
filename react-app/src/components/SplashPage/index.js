@@ -27,17 +27,64 @@ function AllProducts() {
         intro = <h1>Welcome to YSTE!</h1>
     }
 
+    // fetch spotlight products
+    // let findingProducts = async function(){
+    //     const response = await fetch('/api/products')
+    //     if(response.ok){
+    //         const wantedProducts = await response.json()
+    //         console.log('what are you', wantedProducts)
+    //         return wantedProducts
+    //     }
+    //     return
+    // }
+    // let myProducts = findingProducts()
+            // const findMe = fetch('/api/products')
+            //     .then((response) => {
+            //         const newResponse = response.json()
+            //         console.log('the response', newResponse)
+            //         return newResponse
+            //     })
 
+            // const beMyProducts = async () => {
+            //     const theProducts = await findMe;
+            //     console.log('the products are good?',theProducts)
+            //     // console.log(theProducts.Products)
+            //     return theProducts
+            // }
+            // let goodProducts = beMyProducts()
+            // console.log('does this fetch work', goodProducts)
+
+            // function fetchingProducts(){
+            //     return fetch('/api/products')
+            //         .then((response) => {
+            //             return response.json()
+            //             .then((data) => {
+            //                 console.log('hello there', data)
+            //                 return data
+            //             })
+            //         })
+            // }
+            // function getData(){
+            //     fetchingProducts().then((data) => {
+            //         console.log('was is you', data)
+            //         return data
+            //     })
+            // }
+            // const usableData = getData()
+            // console.log('plez', usableData)
+            // console.log('whatatata',getData())
+
+    // let testing = Object.values(goodProducts)
     //get random spotlight images
+
     let spotlightProducts = []
     let numProducts = 0
     while(numProducts < 8){
-        let index = Math.floor(Math.random() * productList.length-1)
+        let index = Math.floor(Math.random() * productList.length-2)
         spotlightProducts.push(productList[index])
         numProducts+=1
     }
-    console.log('spotlight products', spotlightProducts)
-    console.log('first image', spotlightProducts[0]?.image1)
+    // console.log('spotlight products', spotlightProducts)
     let image1 = spotlightProducts[0]?.image1
     let price1 = spotlightProducts[0]?.price
     let image2 = spotlightProducts[1]?.image1
@@ -54,6 +101,14 @@ function AllProducts() {
     let price7 = spotlightProducts[6]?.price
     let image8 = spotlightProducts[7]?.image1
     let price8 = spotlightProducts[7]?.price
+    console.log(`item 1: image: ${image1} price: ${price1}`)
+    console.log(`item 2: image: ${image2} price: ${price2}`)
+    console.log(`item 3: image: ${image3} price: ${price3}`)
+    console.log(`item 4: image: ${image4} price: ${price4}`)
+    console.log(`item 5: image: ${image5} price: ${price5}`)
+    console.log(`item 6: image: ${image6} price: ${price6}`)
+    console.log(`item 7: image: ${image7} price: ${price7}`)
+    console.log(`item 8: image: ${image8} price: ${price8}`)
     return (
         <div className='contentWrapper'>
             <div className='welcomeWrapper'>
@@ -88,39 +143,65 @@ function AllProducts() {
                     </div>
                 </div>
             </div>
+            <div>
+                <h2 className='marginLeft'>
+                    Find something special
+                </h2>
+            </div>
             <div className='spotlightGridWrapper'>
                 <div className='spotCol1'>
-                    <div className='top1' style={{backgroundImage: `url(${image1})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }}>
-                        <div></div>
+                    <div className='top1' style={{backgroundImage: `url(${image1})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                        <div className='spotlightpriceHolder'>
+                            ${price1}
+                        </div>
                     </div>
-                    <div className='bottom1' style={{backgroundImage: `url(${image2})`, backgroundSize:'cover' }}>
-
+                    <div className='bottom1' style={{backgroundImage: `url(${image2})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='spotlightpriceHolder'>
+                            ${price2}
+                        </div>
                     </div>
                 </div>
                 <div className='spotCol2'>
-                    <div className='top2' style={{backgroundImage: `url(${image3})`, backgroundSize:'cover' }}>
-
+                    <div className='top2' style={{backgroundImage: `url(${image3})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='spotlightpriceHolder'>
+                            ${price3}
+                        </div>
                     </div>
-                    <div className='bottom2' style={{backgroundImage: `url(${image4})`, backgroundSize:'cover' }}>
-
+                    <div className='bottom2' style={{backgroundImage: `url(${image4})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='spotlightpriceHolder'>
+                            ${price4}
+                        </div>
                     </div>
                 </div>
                 <div className='spotCol3'>
-                    <div className='top3' style={{backgroundImage: `url(${image5})`, backgroundSize:'cover' }}>
-
+                    <div className='top3' style={{backgroundImage: `url(${image5})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='spotlightpriceHolder'>
+                            ${price5}
+                        </div>
                     </div>
-                    <div className='bottom3' style={{backgroundImage: `url(${image6})`, backgroundSize:'cover',}}>
-
+                    <div className='bottom3' style={{backgroundImage: `url(${image6})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat'}} id='spotlightHover'>
+                    <div className='spotlightpriceHolder'>
+                            ${price6}
+                        </div>
                     </div>
                 </div>
                 <div className='spotCol4'>
-                    <div className='top4' style={{backgroundImage: `url(${image7})`, backgroundSize:'cover' }}>
-
+                    <div className='top4' style={{backgroundImage: `url(${image7})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='spotlightpriceHolder'>
+                            ${price7}
+                        </div>
                     </div>
-                    <div className='bottom4' style={{backgroundImage: `url(${image8})`, backgroundSize:'cover' }}>
-
+                    <div className='bottom4' style={{backgroundImage: `url(${image8})`, backgroundSize:'cover', backgroundRepeat: 'no-repeat' }} id='spotlightHover'>
+                    <div className='spotlightpriceHolder'>
+                            ${price8}
+                        </div>
                     </div>
                 </div>
+            </div>
+            <div>
+                <h2 className='marginLeft' id='moveDown'>
+                    Browse our collection
+                </h2>
             </div>
             <div className='productCardWrapper'>
                 {loaded && productList.map(product => {
