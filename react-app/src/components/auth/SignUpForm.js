@@ -65,7 +65,7 @@ const SignUpForm = () => {
       <div>
         <label>First Name</label>
         <input
-          minlength="2" maxlength="2"
+          minlength="2" maxlength="20"
           type='text'
           name='firstname'
           required
@@ -76,7 +76,7 @@ const SignUpForm = () => {
       <div>
         <label>Last Name</label>
         <input
-          minlength="2" maxlength="2"
+          minlength="2" maxlength="20"
           type='text'
           name='lastname'
           required
