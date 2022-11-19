@@ -43,18 +43,9 @@ const SearchBar = () => {
     return (
         <div className='searchWrapper'>
             <form className='searchForm' onSubmit={handleSubmit}>
-                {/* {error && (
-                    <ul className='errorMap'>
-                        {error.map((error, i) => {
-                            <li key={i}>
-                                {error}
-                            </li>
-                        })}
-                    </ul>
-                )} */}
                 <div className='formWrapper'>
                     <div className='searchfieldWrapper'>
-                        <input className='theSearchBar' minLength={3} maxLength={10} placeholder='Search for anything' type='text' value={search}
+                        <input className='theSearchBar' minLength={3} maxLength={100} placeholder='Search for anything' type='text' value={search}
                         onChange = {(e) => setSearch(e.target.value)} required/>
                     </div>
 
