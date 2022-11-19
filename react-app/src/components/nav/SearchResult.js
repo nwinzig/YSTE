@@ -2,7 +2,7 @@ import { getSearch } from "../../store/search"
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import ProductCard from '../ProductCard/index'
-import { useHistory } from 'react-router-dom';
+import { useHistory, NavLink } from 'react-router-dom';
 import './search.css'
 const SearchResult = () => {
     const history = useHistory()
@@ -14,30 +14,37 @@ const SearchResult = () => {
     let searchedProductsList = Object.values(searchedProducts)
     let flatArray = searchedProductsList.flat()
     let noResults;
-    let redirectTime = 10
-    if(!flatArray.length){
-        console.log('hello there')
+
+    if(!flatArray?.length){
+        // alert('no search results')
         noResults = (
             <div className="noSearchResultsWrapper">
                 <h2>
                     There are no matching results, please try again.
                 </h2>
-                <p>You will be redirected in 5 seconds...</p>
+                <NavLink to='/' className='rerouteBadSearch'>
+                    Home
+                </NavLink>
             </div>
         )
-        noResultRedirect()
+
+        // function noResultRedirect() {
+        //     console.log('this should be an empty array', flatArray)
+        //     setTimeout(() => {
+        //         history.push('/')
+        //     }, 5000)
+        // }
+        // noResultRedirect()
     }
 
 
-    function noResultRedirect(params) {
-        setTimeout(() => {
-            history.push('/')
-        }, 5000)
-    }
 
     return (
-        <>
-            <div>
+        <div>
+            <h2 className="moveRight">
+                Your search results
+            </h2>
+            <div className="resultsWrapper">
                 {flatArray?.map(product => {
                     return (
                         <ProductCard key={product?.id} product={product} />
@@ -45,7 +52,7 @@ const SearchResult = () => {
                 })}
             </div>
             {noResults}
-        </>
+        </div>
     )
 }
 

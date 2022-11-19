@@ -16,6 +16,15 @@ function CategoryCard ({product}) {
             </div>
         </div>
     )
+    // return (
+    //     <div className="thecategoryCard" onClick={() => history.push(`/product/${product?.id}`)}>
+    //         <img src={product?.image1} alt='No image displayed' />
+    //         <div className="category-card-text-container">
+    //             <h1>{product?.product_name}</h1>
+    //             <p>{product?.description}</p>
+    //         </div>
+    //     </div>
+    // )
 }
 
 export default CategoryCard
