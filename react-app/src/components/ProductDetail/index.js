@@ -19,8 +19,8 @@ function ProductDetail() {
     const reviewsArr = Object.values(reviews)
     console.log('reviews here', reviewsArr)
     const stars = []
-    
-    
+
+
     let filteredArr = reviewsArr.filter(reviewObj => reviewObj.product_id == product.id)
     // console.log('???????? FILTERED ARRAY', filteredArr)
     const avgStar = (stars) => {
@@ -38,17 +38,17 @@ function ProductDetail() {
 
     let avgg
     let numStars
-    if (stars.length == 0){ numStars = (<h1>No reviews yet</h1>)}
+    if (stars.length == 0) { numStars = (<h1>No reviews yet</h1>) }
     else if (stars.length > 0) {
-        
+
         avgg = (<div>{avgStar(stars)}</div>)
-        if (avgStar(stars) >= 1 && avgStar(stars) <= 2) {
+        if (avgStar(stars) >= 1 && avgStar(stars) < 2) {
             numStars = (<div>&#9733;</div>)
         }
-        else if (avgStar(stars) >= 2 && avgStar(stars) <= 3) {
+        else if (avgStar(stars) >= 2 && avgStar(stars) < 3) {
             numStars = (<div>&#9733; &#9733;</div>)
         }
-        else if (avgStar(stars) >= 3 && avgStar(stars) <= 4) {
+        else if (avgStar(stars) >= 3 && avgStar(stars) < 4) {
             numStars = (<div>&#9733; &#9733; &#9733;</div>)
         }
         else if (avgStar(stars) >= 4 && avgStar(stars) < 5) {
@@ -56,7 +56,7 @@ function ProductDetail() {
         }
         else if (avgStar(stars) == 5) {
             numStars = (<div>&#9733; &#9733; &#9733; &#9733; &#9733;</div>)
-        } else{
+        } else {
             numStars = (<h1>There are no reviews</h1>)
         }
     }
@@ -173,7 +173,7 @@ function ProductDetail() {
 
 
 
-                            {review?.review_image && <img src={review?.review_image} alt={review?.review} style={{ width: '100px', height: '100px', borderRadius:'14px' }} />}
+                            {review?.review_image && <img src={review?.review_image} alt={review?.review} style={{ width: '100px', height: '100px', borderRadius: '14px' }} />}
 
 
 
