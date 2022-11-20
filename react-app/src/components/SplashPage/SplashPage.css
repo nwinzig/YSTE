@@ -6,6 +6,7 @@
     display: flex;
     justify-content: center;
     background-color: #FDEBD2;
+    font-family: "GraphikLight";
 }
 .circularCatWrapper{
     height: 100px;
@@ -27,6 +28,7 @@
 .carsDropDown{
     position: relative;
     display: inline-block;
+    font-family: "GraphikLight";
 }
 #dropdownContainer{
     display: none;
