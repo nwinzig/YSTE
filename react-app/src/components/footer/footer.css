@@ -1,14 +1,17 @@
-footer {
+.footerWrapper {
     margin-top: 5%;
+    /* background-color: white; */
     background-color: #d98235;
-    /* background-color: #F1641D; */
     width: 100%;
-    height: 145px;
+    height: 75px;
+    border-top: 1px solid black;
 }
 
 .foot-outer-cont {
     display: flex;
     flex-direction: row;
+    margin-left: 10%;
+    margin-right: 20%;
 }
 
 .dev-names {
@@ -17,7 +20,7 @@ footer {
     justify-content: space-between;
     align-content: space-between;
     /* border: 1px solid red; */
-    width: 80%;
+    width: 100%;
 }
 
 .yste-div {
@@ -25,18 +28,17 @@ footer {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 10%;
+    width: 15%;
     margin-right: 5%;
 }
 
 .dev-ind {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-items: center;
     font-weight: 700;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    color: white;
+    margin-top: 5px;
+    color: black;
 }
 
 .ind-link {
@@ -45,13 +47,16 @@ footer {
     font-weight: 500;
     font-size: 16px;
     margin-top: 10px;
-    color: white;
-    background-color: #d98235;
+    color: black;
+    margin-right: 5px;
 }
 
 .yste-text {
+    /* color: #F1641D; */
     color: white;
     text-decoration: none;
+    font-family: 'Bodoni Moda', serif;
+    font-weight: bold;
 }
 
 .greeting {
@@ -60,8 +65,15 @@ footer {
     align-items: flex-start;
     flex-direction: row;
     justify-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
     font-weight: 700;
     margin-top: 10px;
-    background-color: #d98235;
+}
+.greeting div{
+    /* border-bottom: 1px solid black; */
+}
+
+.theDevName{
+    margin-right: 5px;
+    color: white;
 }
