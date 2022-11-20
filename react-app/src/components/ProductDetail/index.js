@@ -167,7 +167,7 @@ function ProductDetail() {
 
 
 
-                            {review?.review_image && <img src={review?.review_image} alt={review?.review} style={{ width: '100px', height: '100px' }} />}
+                            {review?.review_image && <img src={review?.review_image} alt={review?.review} style={{ width: '100px', height: '100px', borderRadius:'14px' }} />}
 
 
 
