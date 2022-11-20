@@ -17,6 +17,7 @@ function ProductDetail() {
 
     const { productId } = useParams()
     const reviewsArr = Object.values(reviews)
+    console.log('reviews here', reviewsArr)
     const stars = []
     const avgStar = (stars) => {
         let sum = 0
@@ -76,73 +77,73 @@ function ProductDetail() {
     useEffect(() => {
         dispatch(getSingleProduct(productId)).then(() => dispatch(getAllReviews(productId)))
     }, [dispatch])
-    
+
     console.log(filteredArr)
 
     return (
         <div className='product-detail-wrapper'>
-        <div className='product-detail-separator'>
-        <div className='product-detail-left'>
-        
+            <div className='product-detail-separator'>
+                <div className='product-detail-left'>
+
                     <div className='product-detail-image-container'>
                         <div className='product-detail-image1-container' >
-                            {product.image1 && <img src={product?.image1} alt={product?.product_name}  />}
+                            {product.image1 && <img src={product?.image1} alt={product?.product_name} />}
                         </div>
                         {product.image2 && <img src={product?.image2} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
                         {product.image3 && <img src={product?.image3} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
                         {product.image4 && <img src={product?.image4} alt={product?.product_name} style={{ width: '200px', height: '200px' }} />}
                     </div>
 
-                    
-                    
-        </div>
+
+
+                </div>
                 <div className='product-detail-right'>
                     <div className='product-detail-description-container'>
                         <div className='product-detail-description-header'>
-                            <div style={{padding:'10px'}}>{avgg}</div>
-                            <div style={{color: 'grey'}}>|</div>
-                            <div style={{padding:'10px'}}>{numStars}</div>
+                            <div style={{ padding: '10px' }}>{avgg}</div>
+                            <div style={{ color: 'grey' }}>|</div>
+                            <div style={{ padding: '10px' }}>{numStars}</div>
                         </div>
                         <h1>{product?.product_name}</h1>
-                    <div className='product-detail-description-price'>
+                        <div className='product-detail-description-price'>
                             <p>${product?.price}</p>
-                    </div>
-                    <div className='product-detail-description-body'>
-                        <div className='product-detail-description-body-description-section'>
+                        </div>
+                        <div className='product-detail-description-body'>
+                            <div className='product-detail-description-body-description-section'>
                                 <p>{product?.description}</p>
-                        </div>
-                        <div className='product-detail-description-body-add-cart-button'>
-                            <AddToCart />
-                        </div>
-                        <div className='product-detail-description-lorem'>
-                            <div className='product-detail-description-font-awesome-container'>
-                                <i class="fa-solid fa-cart-shopping fa-2x"></i>
                             </div>
-                            <p>
-                                Other people want this. Over 20 people have this in their carts right now.
-                            </p>
-                        </div>
-                        <div className='product-detail-description-lorem'>
-                            <div className='product-detail-description-font-awesome-container'>
+                            <div className='product-detail-description-body-add-cart-button'>
+                                <AddToCart />
+                            </div>
+                            <div className='product-detail-description-lorem'>
+                                <div className='product-detail-description-font-awesome-container'>
+                                    <i class="fa-solid fa-cart-shopping fa-2x"></i>
+                                </div>
+                                <p>
+                                    Other people want this. Over 20 people have this in their carts right now.
+                                </p>
+                            </div>
+                            <div className='product-detail-description-lorem'>
+                                <div className='product-detail-description-font-awesome-container'>
                                     <i class="fa-solid fa-star fa-2x"></i>
-                            </div>
-                            <p>
+                                </div>
+                                <p>
                                     Star Seller. This seller consistently earned 5-star reviews, shipped on time, and replied quickly to any messages they received.
-                            </p>
-                        </div>
-                        <div className='product-detail-description-lorem'>
-                            <div className='product-detail-description-font-awesome-container'>
-                                    <i class="fa-solid fa-truck fa-2x"></i>
+                                </p>
                             </div>
-                            <p>
+                            <div className='product-detail-description-lorem'>
+                                <div className='product-detail-description-font-awesome-container'>
+                                    <i class="fa-solid fa-truck fa-2x"></i>
+                                </div>
+                                <p>
                                     Hooray! This item ships free to the US.
-                            </p>
+                                </p>
+                            </div>
                         </div>
                     </div>
+
                 </div>
-                
-                </div>
-            
+
             </div>
             <div className='product-reviews'>
                 {!!filteredArr.length && (<div className='product-reviews-header'>
