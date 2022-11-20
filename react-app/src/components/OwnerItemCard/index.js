@@ -36,11 +36,14 @@ function OwnerItemCard({ product }) {
                 <div>${product?.price}</div>
                 <div>{product?.category}</div>
                 <div style={{display:'flex', flexDirection:'row'}}>
-                <button onClick={editBtn} >Edit</button>
-                <button onClick={(e) => deleteBtn(e, product.id)}>Delete</button>
+                <div className='product-card-detail-button-container'>
+                
+                    <button onClick={editBtn} >Edit</button>
+                    <button onClick={(e) => deleteBtn(e, product.id)}>Delete</button>
+                </div>
                 
                 </div>
-                <div style={{textAlign:'center'}}>-----------------------------</div>
+                
             
             </div>
         </div>
