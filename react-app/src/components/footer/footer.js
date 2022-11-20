@@ -2,7 +2,7 @@ import './footer.css'
 
 function Footer() {
     return (
-        <footer>
+        <footer className='footerWrapper'>
             <div className='greeting'>
                 <div>Meet the developers</div>
             </div>
@@ -12,32 +12,48 @@ function Footer() {
                 </div>
                 <div className='dev-names'>
                     <div className='dev-ind'>
-                        Caleb Flores
-                        <div>
-                            <a className='ind-link' href='https://github.com/Cal-Flores' >GitHub</a>
-                            <a className='ind-link' href='https://www.linkedin.com/in/caleb-flores-5a988a257/'>LinkedIn</a>
+                        <div className='theDevName'>
+                            Caleb Flores
                         </div>
+                        <a className='ind-link' href='https://github.com/Cal-Flores' >
+                            <i class="fa-brands fa-github fa-lg"></i>
+                        </a>
+                        <a className='ind-link' href='https://www.linkedin.com/in/caleb-flores-5a988a257/'>
+                                <i class="fa-brands fa-linkedin fa-lg"></i>
+                        </a>
                     </div>
                     <div className='dev-ind'>
-                        Donovan Galloway
-                        <div>
-                            <a className='ind-link' href='https://github.com/Dogallow'>GitHub</a>
-                            <a className='ind-link' href='https://www.linkedin.com/in/donovan-galloway-927190233/'>LinkedIn</a>
+                        <div className='theDevName'>
+                            Donovan Galloway
                         </div>
+                        <a className='ind-link' href='https://github.com/Dogallow'>
+                            <i class="fa-brands fa-github fa-lg"></i>
+                        </a>
+                        <a className='ind-link' href='https://www.linkedin.com/in/donovan-galloway-927190233/'>
+                            <i class="fa-brands fa-linkedin fa-lg"></i>
+                        </a>
                     </div>
                     <div className='dev-ind'>
-                        Noah Winzig
-                        <div>
-                            <a className='ind-link' href='https://github.com/nwinzig'>GitHub</a>
-                            <a className='ind-link' href='https://www.linkedin.com/in/noah-winzig-30588b231/' >LinkedIn</a>
+                        <div className='theDevName'>
+                            Noah Winzig
                         </div>
+                        <a className='ind-link' href='https://github.com/nwinzig'>
+                            <i class="fa-brands fa-github fa-lg"></i>
+                        </a>
+                        <a className='ind-link' href='https://www.linkedin.com/in/noah-winzig-30588b231/' >
+                            <i class="fa-brands fa-linkedin fa-lg"></i>
+                        </a>
                     </div>
                     <div className='dev-ind'>
-                        Trevor Jones
-                        <div>
-                            <a className='ind-link' href='https://github.com/Trevor1798'>GitHub</a>
-                            <a className='ind-link' href='https://www.linkedin.com/in/trevor-jones-458b75202/'>LinkedIn</a>
+                        <div className='theDevName'>
+                            Trevor Jones
                         </div>
+                        <a className='ind-link' href='https://github.com/Trevor1798'>
+                            <i class="fa-brands fa-github fa-lg"></i>
+                        </a>
+                        <a className='ind-link' href='https://www.linkedin.com/in/trevor-jones-458b75202/'>
+                            <i class="fa-brands fa-linkedin fa-lg"></i>
+                        </a>
                     </div>
                 </div>
             </div>
