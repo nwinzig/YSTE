@@ -3,6 +3,9 @@ from app.models import Product, ProductReview, db, Shop, Cart, CartProduct
 from app.forms import CreateProductForm, EditProductForm, AddProductImageForm, CreateReviewForm
 from flask_login import current_user, login_user, logout_user, login_required
 
+import random
+
+
 products_routes = Blueprint('product', __name__)
 
 #get all products
@@ -17,6 +20,26 @@ def index():
 
 
     return {'Products':newProducts}
+
+
+#get spotlight products
+@products_routes.route('/spotlight')
+def findSpotlight():
+    products = Product.query.all()
+    newProducts = []
+    newProducts.extend([i.to_dict() for i in products])
+    # print('this should be  all products', newProducts)
+    testNum = random.randrange(0, len(newProducts))
+    # print('random number!!!!!!!', testNum)
+    newSpotlight = []
+    i = 1
+    while i <= 8:
+        randomNum = random.randrange(0, len(newProducts))
+        newSpotlight.append(newProducts[randomNum])
+        i += 1
+    # print('looking for an array with 8 objects', newSpotlight, 'length', len(newSpotlight))
+    return {'Products': newSpotlight}
+
 
 
 #get one product
