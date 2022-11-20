@@ -62,6 +62,7 @@ function App() {
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <AllProducts />
+          < Footer />
         </Route>
         <ProtectedRoute path='/newProduct' exact={true}>
           <ProductForm />
@@ -91,7 +92,7 @@ function App() {
           <CategoryPage />
         </Route>
       </Switch>
-      < Footer />
+
     </BrowserRouter>
   );
 }

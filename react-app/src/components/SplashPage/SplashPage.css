@@ -1,6 +1,6 @@
-/* .contentWrapper{
-
-} */
+.contentWrapper{
+    padding-bottom: 100px;
+}
 
 .welcomeWrapper{
     display: flex;

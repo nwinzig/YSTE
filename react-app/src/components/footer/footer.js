@@ -3,9 +3,9 @@ import './footer.css'
 function Footer() {
     return (
         <footer className='footerWrapper'>
-            <div className='greeting'>
+            {/* <div className='greeting'>
                 <div>Meet the developers</div>
-            </div>
+            </div> */}
             <div className='foot-outer-cont'>
                 <div className="yste-div">
                     <a className='yste-text' href="https://github.com/nwinzig/YSTE">YSTE 2022</a>
