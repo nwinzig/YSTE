@@ -1,14 +1,19 @@
 #root{
     height:100vh;
-    width:100%;
+    width:100vw;
     margin:0px;
 
 }
+.your-products-outer-wrapper{
+    width: 100%;
+}
 
 .your-products-container{
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
-    
+    margin: auto;
+    padding: 0px 50px 0px 50px
 }
 
 .product-card-outer-wrapper{
@@ -27,10 +32,21 @@
     
 }
 
+
+
 .your-products-header button{
-    width: 50px;
-    border-radius: 10px;
-    border: 1px solid rgb(255, 165, 0);
-    background-color: rgb(255, 211, 130);
+    width: 100%;
+    padding: 12px;
+    border-radius: 24px;
+    background-color: rgb(255, 165, 0);
     cursor: pointer;
+    
+}
+.your-products-header button:hover{
+    background-color: rgb(255, 165, 0, 0.8);
+}
+
+.your-products-button-container{
+    width:33%;
+    margin: auto;
 }
