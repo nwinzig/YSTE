@@ -55,16 +55,22 @@ npm start
 # Usage
 ## Landing Page
 
+
 - You can access the wide variety of products right from the home page.
+![Screenshot 2022-11-20 122628](https://user-images.githubusercontent.com/95613961/202924348-e266b571-f48a-497d-a80f-2b894c683f2d.jpg)
 
 ## Product Detail
-- Here you can view Individual Products, see their description and reviews.
+- Here you can view Individual Products, see their description 
+![Screenshot 2022-11-20 122744](https://user-images.githubusercontent.com/95613961/202924415-1a898800-0eb9-4e84-9c71-696f4c25d78d.jpg)
+and reviews.
 
 ## Shopping Cart
 - Here Each authenticated and logged in users can amass and view their favorite items from the site. Here the user can also remove items from the cart and will see the dynamic changes in quantity and price
+![Screenshot 2022-11-20 122811](https://user-images.githubusercontent.com/95613961/202924421-fc794dec-443f-4694-8b36-99bfc7679796.jpg)
 
 ## SearchBar
 - Here users can filter out products from the entire site and render out a personalized list of items that matched the user's search request.
+![Screenshot 2022-11-20 122900](https://user-images.githubusercontent.com/95613961/202924424-67da7b6b-5a77-45ab-9b83-77f653034f00.jpg)
 
 
 
