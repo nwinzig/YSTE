@@ -4,6 +4,7 @@ import { editItem } from '../../store/products'
 import { useDispatch, useSelector } from 'react-redux'
 import './EditProductForm.css'
 
+
 let categories = [{ value: 'Cars' }, { value: 'Clothing' }, { value: 'Electronics' }, { value: 'Home Goods' }, { value: 'miscellaneous' }]
 
 function EditProductForm() {
@@ -60,51 +61,63 @@ function EditProductForm() {
 
     }
     return (
-        <form className='editpform' onSubmit={handleSubmit}>
-            <ul className='editperrors'>
-                {!!errors.length && errors.map((error, index) => (
-                    <li key={index}>{error}</li>
-                ))}
-            </ul>
-            <div>
-                <label>Product Name:</label>
-                <input minlength="3" maxlength="50" required value={productName} placeholder={productName} onChange={e => setProductName(e.target.value)} />
-            </div>
-            <div>
-                <label>Description:</label>
-                <input required minlength="5" maxlength="240" value={description} onChange={e => setDescription(e.target.value)} />
-            </div>
-            <div>
-                <label>Price:</label>
-                <input required type='number' min={1} step='0.01' value={price} onChange={e => setPrice(e.target.value)} />
-            </div>
-            <div>
-                <label>Image Url:</label>
-                <input required type='text' value={image1} onChange={(e) => setImage1(e.target.value)} />
-            </div>
-            <div>
-                <input type='text' value={image2} placeholder='Optional Image' onChange={(e) => setImage2(e.target.value)} />
-            </div>
-            <div>
-                <input type='text' value={image3} placeholder='Optional Image' onChange={(e) => setImage3(e.target.value)} />
-            </div>
-            <div>
-                <input type='text' value={image4} placeholder='Optional Image' onChange={(e) => setImage4(e.target.value)} />
-            </div>
-            <div>
-                <label className='editcategory'>Category:</label>
-                <select value={category} onChange={(e) => setCategory(e.target.value)} >
-                    {categories.map((category, index) => {
-                        return (<option key={index} value={category.value}>
-                            {category.value}
-                        </option>
-                        )
-                    })}
+        <div className='product-forms-wrapper'>
 
-                </select>
+        <form onSubmit={handleSubmit} className='formContainer'>
+            <h2 className='alignCenter'>
+                Update your product
+            </h2>
+            {errors && (
+                <ul className="error-map">{errors.map((error, i) => (
+                    <li key={i}>{error}</li>
+                    ))}
+                </ul>
+            )}
+            <div className='productform'>
+                <div className='hello'>
+                    <input minlength="5" maxlength="255" className='inputField' required type='text' placeholder="Product Name" value={productName} onChange={(e) => setProductName(e.target.value)} />
+                </div>
+                <div>
+                    <input minlength="5" maxlength="255" required className='inputField' type='text' placeholder="Description" value={description} onChange={(e) => setDescription(e.target.value)} />
+                </div>
+                <div>
+                    <input required className='inputField' type='number' min={1} step='0.01' placeholder="Price" value={price} onChange={(e) => setPrice(e.target.value)} />
+                </div>
+                <div className='category'>
+                    <label >
+                        Tell us what your selling:
+                    </label>
+                    <select  className='category-select' value={category} onChange={(e) => setCategory(e.target.value)} >
+                        {categories.map((category, index) => {
+                            return (<option key={index} value={category.value}>
+                                {category.value}
+                            </option>
+                            )
+                        })}
+
+                    </select>
+                </div>
+                <div className='imageurl'>
+                    <input minlength="3" type='text' className='inputField' placeholder="Image Required" required value={image1} onChange={(e) => setImage1(e.target.value)} />
+                </div>
+                <div>
+                    <input type='text' className='inputField' placeholder="Optional Image" value={image2} onChange={(e) => setImage2(e.target.value)} />
+                </div>
+                <div>
+                    <input type='text' className='inputField' placeholder="Optional Image" value={image3} onChange={(e) => setImage3(e.target.value)} />
+                </div>
+                <div>
+                    <input type='text' className='inputField' placeholder="Optional Image" value={image4} onChange={(e) => setImage4(e.target.value)} />
+                </div>
+                <div className='createSubmitWrapper'>
+                    <button className='productsubmit' type='submit'>
+                    Submit
+                    </button>
+                </div>
             </div>
-            <button className='submiteditproduct' type='submit'>Submit</button>
-        </form>
+        </form >
+
+        </div>
     )
 }
 

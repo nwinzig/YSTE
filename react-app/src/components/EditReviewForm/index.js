@@ -64,7 +64,7 @@ function EditReviewForm() {
             <input className='editreview-input-field' placeholder="Rating" required type='number' value={stars} onChange={e => setStars(e.target.value)} />
             </div>
             <div>
-            <input className='editreview-input-field' placeholder='Image URL' value={img} onChange={e => setImg(e.target.value)} />
+            <input minlength="3" className='editreview-input-field' placeholder='Image URL' value={img} onChange={e => setImg(e.target.value)} />
             </div>
             <button className='editreviewbtn' type='submit'>Submit</button>
 

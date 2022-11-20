@@ -73,6 +73,8 @@ function ProductForm() {
 
 
     return (
+        <div className='product-form-wrapper'>
+
         <form onSubmit={handleSubmit} className='formContainer'>
             <h2 className='alignCenter'>
                 Start selling on YSTE!
@@ -80,7 +82,7 @@ function ProductForm() {
             {errors && (
                 <ul className="error-map">{errors.map((error, i) => (
                     <li key={i}>{error}</li>
-                ))}
+                    ))}
                 </ul>
             )}
             <div className='productform'>
@@ -97,7 +99,7 @@ function ProductForm() {
                     <label >
                         Tell us what your selling:
                     </label>
-                    <select className='categoryselect' value={category} onChange={(e) => setCategory(e.target.value)} >
+                    <select className='category-select' value={category} onChange={(e) => setCategory(e.target.value)} >
                         {categories.map((category, index) => {
                             return (<option key={index} value={category.value}>
                                 {category.value}
@@ -126,6 +128,7 @@ function ProductForm() {
                 </div>
             </div>
         </form >
+    </div>
 
     )
 }

@@ -7,8 +7,9 @@
     justify-content: space-between;
     margin-right: 15%;
     margin-left: 15%;
-    
-   
+    margin-top: 20px;
+
+
 
 }
 
@@ -161,7 +162,7 @@ align-self: flex-end;
     flex-wrap: wrap;
     gap: 10px;
     padding: 40px 0px 40px 0px;
-    
+
     width: 100%;
     justify-content: space-between;
 }
