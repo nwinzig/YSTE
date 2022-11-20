@@ -1,29 +1,150 @@
-.editpform {
-    margin-left: 100px;
-    margin-top: 50px;
-    margin-bottom: 100px;
+
+.product-forms-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
 }
 
-.submiteditproduct {
-    width: 100px;
+.formContainer{
+    /* margin-top: 40px;
+    margin-left: 20%;
+    margin-right: 20%; */
+    border: 2px solid black;
+    padding: 5px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 100px;
+    box-shadow: 0 0 3px 3px lightgray;
+    width: 650px;
+    height: 800px;
+}
+.formContainer:hover{
+    box-shadow: 0 0 12px rgb(183, 183, 183);
+    cursor: pointer;
+}
+.productform {
+    display: flex;
+    flex-direction: column;
+    /* margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 50px;
+    margin-bottom: 100px; */
+}
+
+
+.productlabel {
+    margin-left: 17px;
+    /* margin-top: 60px; */
+}
+
+.inputField{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    height: 50px;
+    padding: 10px;
+    position: relative;
+    left: 30px;
+    /* margin:; 8px 0; */
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    /* margin-left: 20px; */
+    /* margin-bottom: 30px; */
+    border-color: black;
+    border-radius: 10px;
+}
+.inputField:focus{
+    border-color: black;
+    outline-width: 0;
+}
+
+
+.category {
+    display: inline-block;
+    margin-bottom: 20px;
+    font-size: 20px;
+    font-Weight:'bold';
+    position: relative;
+    left: 30px;
+    height: 30px;
+}
+.category-select{
+    height: 40px;
+    width: 56.5%;
+    border: 2px solid black;
+    /* border-color: black; */
+    border-radius: 10px;
+}
+.createSubmitWrapper{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 100%;
+
+}
+.productsubmit {
+    width: 200px;
     border-radius: 20px;
     border: none;
-    height: 30px;
-    margin-top: 50px;
+    height: 50px;
+    /* margin-top: 50px; */
     background-color: #F1641D;
     color: white;
+    font-size: 24px;
+    /* margin-bottom: 20px; */
 }
 
-.submiteditproduct:hover {
+.categoryselect {
+    display: inline;
+    margin-left: 15px;
+    height: 30px;
+    width: 150px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+.categoryselect:focus{
+    border-color: black;
+    outline-width: 0;
+}
+.catlabel {
+    margin-right: 50px;
+}
+
+.productsubmit:hover {
     box-shadow: 0 0 12px rgb(183, 183, 183);
     cursor: pointer;
 }
 
-.editcategory {
-    margin-right: 20px;
+/* input:focus {
+    border: #F1641D
+} */
+
+.error-map {
+    margin-left: 87px;
+    margin-top: 40px;
+    font-size: 18px;
+    color: red
 }
 
-.editperrors {
-    color: red;
-    margin-bottom: 40px;
+/* error-map {
+    display: flex;
+    position: relative;
+    margin-left: 20px;
+
+
+    font-size: 22px;
+    color:red
+} */
+
+.alignCenter{
+    align-self: center;
+    font-size: 40px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    /* margin-top: -20px; */
+    position: relative;
 }

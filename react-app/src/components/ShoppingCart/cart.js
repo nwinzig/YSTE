@@ -14,11 +14,10 @@ function CartComponent() {
     const productsObj = useSelector((state) => state.products);
     const userObj = useSelector((state) => state.session.user);
     const cartObj = useSelector((state) => state.cart);
-    // console.log('what are we getting from cart state', cartObj)
+
     let cartArr = cartObj.cart;
     let productsArr = Object.values(productsObj);
-    // console.log('cartArr', cartArr)
-    // console.log('productsArr',productsArr)
+
     useEffect(() => {
         dispatch(getCurrentCart()).then(() => dispatch(getAllProducts()));
     }, [dispatch]);
@@ -31,17 +30,11 @@ function CartComponent() {
         return item.product_id;
         });
     }
-    // console.log('productIds',productIds)
+
     cartItems = productsArr?.filter((product) => {
         return productIds?.includes(product?.id);
     });
 
-    //testing
-    // productsArr?.forEach(product => {
-    //     if(productIds?.includes(product?.id)){
-    //         cartItems.push(product)
-    //     }
-    // })
 
     cartItems?.forEach(product => {
         let total = 0
@@ -54,18 +47,27 @@ function CartComponent() {
         total = 0
     })
 
-    //
+
+    const [newSpotlightProducts, setNewSpotlightProducts] = useState([])
+    useEffect(() => {
+
+        async function fetchSpotlight(){
+            const request = await fetch('/api/products/spotlight')
+            console.log('the original request', request)
+            const newRequest = await request.json()
+            console.log('what happens with this new request', newRequest)
+            setNewSpotlightProducts(newRequest.Products)
+        }
+        fetchSpotlight()
+        },[])
+
     let spotlightProducts = []
-    let numProducts = 0
-    while(numProducts < 5){
-        let index = Math.floor(Math.random() * productsArr.length-1)
-        spotlightProducts.push(productsArr[index])
-        numProducts+=1
+    let i =0
+    while(i<5){
+        spotlightProducts.push(newSpotlightProducts[i])
+        i++
     }
-    console.log('spotlight products', spotlightProducts)
 
-
-    // console.log('cartItems', cartItems)
     const handleDelete = (e, productId) => {
         e.preventDefault()
         let productToDelete = cartArr?.find(({product_id}) => product_id === productId)
@@ -106,9 +108,6 @@ function CartComponent() {
                                 <div className="itemQuantity">
                                     Quantity: {item?.quantity}
                                 </div>
-                                {/* <div>
-                                    {item?.category}
-                                </div> */}
                                 <div className="item-description">
                                     {item?.description}
                                 </div>
@@ -131,6 +130,14 @@ function CartComponent() {
                         <h4 className="howToPay">
                             How you'll pay
                         </h4>
+                        <div className="checkout-inner-select">
+                        {/* <div className="visa-select">
+                            <input type="radio" className="visa" value='visa'>
+                                </input>
+                                <img src="https://usa.visa.com/dam/VCOM/regional/ve/romania/blogs/hero-image/visa-logo-800x450.jpg"/>
+
+                            </div> */}
+                        </div>
                         <div className="totalPriceWrapper">
                             <h4>
                                 Item(s) total:
@@ -158,9 +165,6 @@ function CartComponent() {
                             <div className="spotlightPrice">
                                 ${product?.price}
                             </div>
-                            {/* <div>
-                                <AddToCart />
-                            </div> */}
                         </div>
                     ))}
                 </div>

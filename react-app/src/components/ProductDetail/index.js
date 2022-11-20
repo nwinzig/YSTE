@@ -105,9 +105,10 @@ function ProductDetail() {
                 <div className='product-detail-right'>
                     <div className='product-detail-description-container'>
                         <div className='product-detail-description-header'>
-                            <div style={{ padding: '10px' }}>{avgg}</div>
-                            <div style={{ color: 'grey' }}>|</div>
-                            <div style={{ padding: '10px' }}>{numStars}</div>
+
+                            <div style={{padding:'10px'}}>{avgg}</div>
+                            {!!filteredArr.length && <div style={{color: 'grey'}}>|</div>}
+                            <div style={{padding:'10px'}}>{numStars}</div>
                         </div>
                         <h1>{product?.product_name}</h1>
                         <div className='product-detail-description-price'>

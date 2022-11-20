@@ -40,15 +40,23 @@
     /* align-items: center; */
     justify-content: space-between;
     object-fit: fill;
+    
 }
-.product-card-details-container button {
+
+.product-card-detail-button-container{
     width: 100%;
-    padding: 12px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.product-card-details-container button {
+    width: 30%;
+    padding: 5px;
     border-radius: 24px;
     background-color: rgb(255, 165, 0);
     cursor: pointer;
-    margin-top: 20px;
-
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .product-card-details-container button:hover {
