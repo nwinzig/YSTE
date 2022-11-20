@@ -42,6 +42,7 @@
 .product-detail-image1-container img {
     width: 100%;
     height: 90%;
+    border-radius: 14px;
 }
 
 /* ------------ Product Description Container --------- */
@@ -68,6 +69,7 @@
 /* ////////////// */
 .product-detail-description-body {
     height: 60%;
+    
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -80,7 +82,7 @@
 
 .product-detail-description-body-add-cart-button {
     width: 100%;
-
+    margin-bottom: 20px;
 }
 
 .product-detail-description-body-add-cart-button button {

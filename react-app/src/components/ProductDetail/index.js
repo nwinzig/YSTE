@@ -18,7 +18,12 @@ function ProductDetail() {
     const { productId } = useParams()
     const reviewsArr = Object.values(reviews)
     const stars = []
+    
+    
+    let filteredArr = reviewsArr.filter(reviewObj => reviewObj.product_id == product.id)
+    // console.log('???????? FILTERED ARRAY', filteredArr)
     const avgStar = (stars) => {
+        if (stars.length == 0) return []
         let sum = 0
         stars.forEach(str => {
             sum += str
@@ -26,34 +31,34 @@ function ProductDetail() {
         sum = sum / stars.length
         return sum
     }
-    reviewsArr.forEach(rev => {
+    filteredArr.forEach(rev => {
         stars.push(rev.stars)
     })
 
     let avgg
     let numStars
-    if (stars.length > 0) {
+    if (stars.length == 0){ numStars = (<h1>No reviews yet</h1>)}
+    else if (stars.length > 0) {
+        
         avgg = (<div>{avgStar(stars)}</div>)
         if (avgStar(stars) >= 1 && avgStar(stars) <= 2) {
             numStars = (<div>&#9733;</div>)
         }
-        if (avgStar(stars) >= 2 && avgStar(stars) <= 3) {
+        else if (avgStar(stars) >= 2 && avgStar(stars) <= 3) {
             numStars = (<div>&#9733; &#9733;</div>)
         }
-        if (avgStar(stars) >= 3 && avgStar(stars) <= 4) {
+        else if (avgStar(stars) >= 3 && avgStar(stars) <= 4) {
             numStars = (<div>&#9733; &#9733; &#9733;</div>)
         }
-        if (avgStar(stars) >= 4 && avgStar(stars) < 5) {
+        else if (avgStar(stars) >= 4 && avgStar(stars) < 5) {
             numStars = (<div>&#9733; &#9733; &#9733; &#9733;</div>)
         }
-        if (avgStar(stars) == 5) {
+        else if (avgStar(stars) == 5) {
             numStars = (<div>&#9733; &#9733; &#9733; &#9733; &#9733;</div>)
+        } else{
+            numStars = (<h1>There are no reviews</h1>)
         }
     }
-
-
-    let filteredArr = reviewsArr.filter(reviewObj => reviewObj.product_id == product.id)
-    // console.log('???????? FILTERED ARRAY', filteredArr)
 
     let userReview
     if (session) {
@@ -167,7 +172,7 @@ function ProductDetail() {
 
 
 
-                            {review?.review_image && <img src={review?.review_image} alt={review?.review} style={{ width: '100px', height: '100px' }} />}
+                            {review?.review_image && <img src={review?.review_image} alt={review?.review} style={{ width: '100px', height: '100px', borderRadius:'14px' }} />}
 
 
 
