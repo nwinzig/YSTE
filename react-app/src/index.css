@@ -1,5 +1,10 @@
 /* TODO Add site wide styles */
 body{
     margin: 0px;
+    font-family: "GraphikLight";
 }
-
+@font-face {
+    font-family: "GraphikLight";
+    src: local("GraphikLight"),
+    url("./fonts/GraphikLight.otf") format("truetype");
+}

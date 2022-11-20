@@ -3,19 +3,23 @@
 
 }
 .theCard{
+    font-family: "GraphikLight";
     display: flex;
     flex-direction: column;
     justify-content: center;
     border-radius: 10px;
+    font-weight: lighter;
 }
 .productName{
     margin-top: 5px;
+    font-family: "GraphikLight";
 }
 .productName:hover{
     cursor: pointer;
 }
 .productPrice{
     font-weight: bold;
+    font-family: "GraphikLight";
 }
 .productPrice:hover{
     cursor: pointer;
