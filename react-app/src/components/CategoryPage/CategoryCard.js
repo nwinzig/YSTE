@@ -12,6 +12,7 @@ function CategoryCard ({product}) {
             <img src={product?.image1} alt='No image displayed' />
             <div className="category-card-text-container">
                 <h1>{product?.product_name}</h1>
+                <p style={{marginBottom:'10px'}}>${product?.price}</p>
                 <p>{product?.description}</p>
             </div>
         </div>

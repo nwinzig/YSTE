@@ -54,7 +54,7 @@ function AllProducts() {
         history.push('/category/Home Goods')
     }
     function changeToMisc(){
-        history.push('/category/miscellaneous')
+        history.push('/category/Miscellaneous')
     }
 
 

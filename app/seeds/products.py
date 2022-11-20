@@ -13,7 +13,7 @@ def seed_products():
         shop_id = 3, product_name="K68 Corsair Keyboard", description="Another fantastic Corsair keyboard", price=135, category="Electronics", stock=2, image1='https://m.media-amazon.com/images/I/812tA63tajL.jpg'
     )
     mathew_product = Product(
-        shop_id = 4, product_name="Bunny Astronaut Tray", description="Decorative tray for keys, watch, wallet or Jewelry, Modern Design Art Figure", price=160, category="miscellaneous", stock=2000, image1='https://i.etsystatic.com/15923966/r/il/b4a6cb/3195064568/il_794xN.3195064568_46ng.jpg'
+        shop_id = 4, product_name="Bunny Astronaut Tray", description="Decorative tray for keys, watch, wallet or Jewelry, Modern Design Art Figure", price=160, category="Miscellaneous", stock=2000, image1='https://i.etsystatic.com/15923966/r/il/b4a6cb/3195064568/il_794xN.3195064568_46ng.jpg'
     )
     remington_product = Product(
         shop_id = 5, product_name="Black T-Shirt", description="What a perfect Gift!!", price=15, category="Clothing", stock=3000, image1='https://i.etsystatic.com/8512710/r/il/bab732/4337768410/il_794xN.4337768410_34dq.jpg'
@@ -28,7 +28,7 @@ def seed_products():
         shop_id = 8, product_name="International Snack Box", description="The Best International Snack box with a big varieties of snacks from Japan, Korea, Philippine, Thailand and other parts", price=10, category="Home Goods", stock=3000, image1='https://i.etsystatic.com/35575805/r/il/c691a7/3961122076/il_794xN.3961122076_if6f.jpg'
     )
     peter_product = Product(
-        shop_id = 9, product_name="Chicken Nugget Pet", description="In an effort to lower my environmental impact all packaging is either recycled and/or recyclable products.", price=13, category="miscellaneous", stock=2, image1='https://i.etsystatic.com/6685126/r/il/4a03ce/4181859796/il_794xN.4181859796_8z0j.jpg'
+        shop_id = 9, product_name="Chicken Nugget Pet", description="In an effort to lower my environmental impact all packaging is either recycled and/or recyclable products.", price=13, category="Miscellaneous", stock=2, image1='https://i.etsystatic.com/6685126/r/il/4a03ce/4181859796/il_794xN.4181859796_8z0j.jpg'
     )
     batman_product = Product(
         shop_id = 10, product_name="Batman Hydro Flask", description="Batman Gotham City Starbucks 20oz Hydro Flask", price=25, category="Home Goods", stock=2000, image1='https://i.etsystatic.com/34065787/r/il/75061d/4155646208/il_794xN.4155646208_is0g.jpg'
@@ -43,7 +43,7 @@ def seed_products():
         shop_id = 3, product_name="The Kajal", description="This is a hotswap keyboard with a detached arrow cluster, a prominent volume knob, and an RGB underglow ring", price=235, category="Electronics", stock=2, image1='https://media.cybernews.com/2021/03/The-Cajal-1024x576.jpeg'
     )
     mathew2_product = Product(
-        shop_id = 4, product_name="Astronaut LED Neon Sign", description="Handcrafted Neon Sign Astronaut ", price=213, category="miscellaneous", stock=2000, image1='https://i.etsystatic.com/31926729/r/il/bdc6b2/3477386409/il_794xN.3477386409_kdf6.jpg'
+        shop_id = 4, product_name="Astronaut LED Neon Sign", description="Handcrafted Neon Sign Astronaut ", price=213, category="Miscellaneous", stock=2000, image1='https://i.etsystatic.com/31926729/r/il/bdc6b2/3477386409/il_794xN.3477386409_kdf6.jpg'
     )
     remington2_product = Product(
         shop_id = 5, product_name="Ugly Christmas Sweater", description="Stay Lit this Holiday season with this ugly Christmas sweater with a retro 8-bit pixel christmas tree design.", price=35, category="Clothing", stock=3000, image1='https://i.etsystatic.com/5172478/r/il/8e3ff5/2078994738/il_794xN.2078994738_1rmf.jpg'
@@ -55,7 +55,7 @@ def seed_products():
         shop_id = 7, product_name="Naruto Hydro Flask", description="This anime inspired 20oz skinny tumbler makes the perfect any time gift for the anime lover in your life", price=24, category="Home Goods", stock=2000, image1='https://i.etsystatic.com/36399039/r/il/85b654/4345395903/il_794xN.4345395903_lrfw.jpg'
     )
     kakashi2_product = Product(
-        shop_id = 8, product_name="Handmade Metal Necklace", description="We have made this product with love just for you. Please contact us for any information regarding this product.", price=15, category="miscellaneous", stock=3000, image1='https://i.etsystatic.com/34668082/r/il/16e99f/4105425939/il_794xN.4105425939_dxa0.jpg'
+        shop_id = 8, product_name="Handmade Metal Necklace", description="We have made this product with love just for you. Please contact us for any information regarding this product.", price=15, category="Miscellaneous", stock=3000, image1='https://i.etsystatic.com/34668082/r/il/16e99f/4105425939/il_794xN.4105425939_dxa0.jpg'
     )
     peter2_product = Product(
         shop_id = 9, product_name="Stewie Mug", description="great keyboard not cheaply made I swear", price=135, category="Home Goods", stock=2, image1='https://i.etsystatic.com/16443914/r/il/bd85de/3748132809/il_794xN.3748132809_2lae.jpg'
@@ -73,7 +73,7 @@ def seed_products():
         shop_id = 3, product_name="Milk and Honey", description="Great 60 percent keyboard made with panda switches", price=335, category="Electronics", stock=2, image1='https://media.cybernews.com/2021/03/Milk-and-Honey-1024x576.jpg'
     )
     mathew3_product = Product(
-        shop_id = 4, product_name="Planet LED Neon Sign", description="UFO Neon Sign", price=125, category="miscellaneous", stock=2000, image1='https://i.etsystatic.com/23379744/r/il/1e8189/4196394592/il_794xN.4196394592_9fk5.jpg'
+        shop_id = 4, product_name="Planet LED Neon Sign", description="UFO Neon Sign", price=125, category="Miscellaneous", stock=2000, image1='https://i.etsystatic.com/23379744/r/il/1e8189/4196394592/il_794xN.4196394592_9fk5.jpg'
     )
     remington3_product = Product(
         shop_id = 5, product_name="Funcle", description="Are you a funny uncle and like to joke around with your nephews? This is the perfect shirt for you to get some laughs at a family dinner.", price=19, category="Clothing", stock=3000, image1='https://i.etsystatic.com/15849759/r/il/45ab7e/1346270632/il_794xN.1346270632_6p3o.jpg'
@@ -82,7 +82,7 @@ def seed_products():
         shop_id = 6, product_name="Kratos Cat Shirt ", description="Cat Of War Shirt, God Of Cat Shirt, Cat Lover Shirt, God Of War Ragnarok Shirt", price=12, category="Clothing", stock=2, image1="https://i.etsystatic.com/37567719/r/il/eb672d/4291160294/il_794xN.4291160294_frdf.jpg"
     )
     naruto3_product = Product(
-        shop_id = 7, product_name="Japanese Collectible Kunai", description="9 1/2 inch Metal Steel Japanese Kunai Throwing Knife Heavy Duty for Ninja Cosplay Costume", price=19, category="miscellaneous", stock=2000, image1='https://i.etsystatic.com/26344787/r/il/7b6051/3032304309/il_794xN.3032304309_dfbn.jpg'
+        shop_id = 7, product_name="Japanese Collectible Kunai", description="9 1/2 inch Metal Steel Japanese Kunai Throwing Knife Heavy Duty for Ninja Cosplay Costume", price=19, category="Miscellaneous", stock=2000, image1='https://i.etsystatic.com/26344787/r/il/7b6051/3032304309/il_794xN.3032304309_dfbn.jpg'
     )
     kakashi3_product = Product(
         shop_id = 8, product_name="Cloud Hoodie", description="Stylish Anime Cloud Hoodie", price=31, category="Clothing", stock=3000, image1='https://i.etsystatic.com/34209911/r/il/442ce4/3977000908/il_794xN.3977000908_s65a.jpg'
@@ -103,7 +103,7 @@ def seed_products():
         shop_id = 3, product_name="Nemui", description="This keyboard is CAD designed and made with tactile switches", price=135, category="Electronics", stock=2, image1='https://media.cybernews.com/2021/03/Nemui-1024x576.jpg'
     )
     mathew4_product = Product(
-        shop_id = 4, product_name="Glass Fireplace", description="UPDATE: Our Tabletop Fireplace design has been adapted to a much thicker wood.", price=17, category="miscellaneous", stock=2000, image1='https://i.etsystatic.com/9099792/r/il/257faa/612829473/il_794xN.612829473_9s7a.jpg'
+        shop_id = 4, product_name="Glass Fireplace", description="UPDATE: Our Tabletop Fireplace design has been adapted to a much thicker wood.", price=17, category="Miscellaneous", stock=2000, image1='https://i.etsystatic.com/9099792/r/il/257faa/612829473/il_794xN.612829473_9s7a.jpg'
     )
     remington4_product = Product(
         shop_id = 5, product_name="Disc Golf Tshirt", description="I love my wife, but you really do have to read between the lines, Great gift for the disc golf player in your life!", price=15, category="Clothing", stock=3000, image1='https://i.etsystatic.com/6378568/r/il/75b992/661272339/il_794xN.661272339_bq5y.jpg'
@@ -133,7 +133,7 @@ def seed_products():
         shop_id = 3, product_name="LZ Ergo", description="This is an ergonomic keyboard which is made in Korea with a GMK Cyrillic keycap set.", price=435, category="Electronics", stock=5, image1='https://media.cybernews.com/2020/12/lz-ergo1.jpg'
     )
     mathew5_product = Product(
-        shop_id = 4, product_name="Whiskey Decanter", description="Personalized Whiskey Decanter Set with Gift Box.", price=35, category="miscellaneous", stock=2000, image1='https://i.etsystatic.com/13777471/r/il/d7938c/3901950262/il_794xN.3901950262_e5r7.jpg'
+        shop_id = 4, product_name="Whiskey Decanter", description="Personalized Whiskey Decanter Set with Gift Box.", price=35, category="Miscellaneous", stock=2000, image1='https://i.etsystatic.com/13777471/r/il/d7938c/3901950262/il_794xN.3901950262_e5r7.jpg'
     )
     remington5_product = Product(
         shop_id = 5, product_name="Pink Floyd T-Shirt", description="Officially Licensed Merchandise. Music, Sports & Entertainment Merchandise.", price=25, category="Clothing", stock=3000, image1='https://i.etsystatic.com/13351673/r/il/a7afd8/1008135834/il_794xN.1008135834_k0rw.jpg'
@@ -142,16 +142,16 @@ def seed_products():
         shop_id = 6, product_name="God of War Scented Candle", description="great keyboard not cheaply made I swear.", price=35, category="Home Goods", stock=2, image1='https://i.etsystatic.com/26979231/r/il/60ef7d/3537241593/il_794xN.3537241593_kui7.jpg'
     )
     naruto5_product = Product(
-        shop_id = 7, product_name="Leaf Engraved Lighter", description="Lighter fluid is required but not included since it can not be shipped together.", price=25, category="miscellaneous", stock=2000, image1='https://i.etsystatic.com/32808223/r/il/2fed7e/4326859985/il_794xN.4326859985_84xo.jpg'
+        shop_id = 7, product_name="Leaf Engraved Lighter", description="Lighter fluid is required but not included since it can not be shipped together.", price=25, category="Miscellaneous", stock=2000, image1='https://i.etsystatic.com/32808223/r/il/2fed7e/4326859985/il_794xN.4326859985_84xo.jpg'
     )
     kakashi5_product = Product(
         shop_id = 8, product_name="Outlet Mustache", description="Add some personality to your outlets. These 3/4 inch black vinyl mustaches are just the thing!", price=25, category="Home Goods", stock=3000, image1='https://i.etsystatic.com/6728085/r/il/c40ab3/419561176/il_794xN.419561176_qkem.jpg'
     )
     peter5_product = Product(
-        shop_id = 9, product_name="Gray Statement Necklace", description="Gray Statement necklace, Black and White necklace, Handmade beaded necklace.", price=155, category="miscellaneous", stock=2, image1='https://i.etsystatic.com/13259937/r/il/f22702/1098941375/il_794xN.1098941375_abjw.jpg'
+        shop_id = 9, product_name="Gray Statement Necklace", description="Gray Statement necklace, Black and White necklace, Handmade beaded necklace.", price=155, category="Miscellaneous", stock=2, image1='https://i.etsystatic.com/13259937/r/il/f22702/1098941375/il_794xN.1098941375_abjw.jpg'
     )
     batman5_product = Product(
-        shop_id = 10, product_name="Prop Replice Mystery Box", description="Decisions, decisions... they can be difficult to make. Have a little fun, get one of our Limited Edition Prop Replica Mystery Boxes, and save money at the same time! ", price=65, category="miscellaneous", stock=2000, image1='https://i.etsystatic.com/9106427/r/il/dbb350/1954187016/il_794xN.1954187016_n8ax.jpg'
+        shop_id = 10, product_name="Prop Replice Mystery Box", description="Decisions, decisions... they can be difficult to make. Have a little fun, get one of our Limited Edition Prop Replica Mystery Boxes, and save money at the same time! ", price=65, category="Miscellaneous", stock=2000, image1='https://i.etsystatic.com/9106427/r/il/dbb350/1954187016/il_794xN.1954187016_n8ax.jpg'
     )
     db.session.add(demo_product)
     db.session.add(marnie_product)
