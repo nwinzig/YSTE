@@ -39,6 +39,7 @@ function AllProducts() {
         fetchSpotlight()
     },[])
 
+
     // click to go to category page
     function changeToCars(){
         history.push('/category/Cars')
@@ -177,7 +178,7 @@ function AllProducts() {
                 </h2>
             </div>
             <div className='productCardWrapper'>
-                {loaded && productList.map(product => {
+                {loaded && productList?.map(product => {
                     return (
                         <ProductCard key={product?.id} product={product} />
                     )

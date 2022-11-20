@@ -15,7 +15,7 @@ const LoginForm = () => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
     if (data) {
-      setErrors(data);
+      setErrors(["The provided credentials were invalid"]);
     }
   };
 
@@ -32,34 +32,41 @@ const LoginForm = () => {
   }
 
   return (
+    <div className='wrapping-login-container'>
     <form className='loginform' onSubmit={onLogin}>
+      <div className='page-header'> Welcome to YSTE!</div>
+      <div className='login'>Log in</div>
       <div className='loginerrors'>
         {errors.map((error, ind) => (
           <div key={ind}>{error}</div>
-        ))}
+          ))}
       </div>
-      <div>
-        <label htmlFor='email'>Email</label>
-        <input
+        <div className='input-wrapper'>
+
+        {/* <label htmlFor='email'>Email</label> */}
+        <input className='input-field'
+          minlength="2" maxlength="100"
           name='email'
           type='text'
           placeholder='Email'
           value={email}
           onChange={updateEmail}
-        />
-      </div>
+          />
       <div>
-        <label htmlFor='password'>Password</label>
-        <input
+        {/* <label htmlFor='password'>Password</label> */}
+        <input className='input-field'
+          minlength="6" maxlength="100"
           name='password'
           type='password'
           placeholder='Password'
           value={password}
           onChange={updatePassword}
-        />
+          />
+          </div>
+          </div>
         <button className='loginbtn' type='submit'>Login</button>
-      </div>
     </form>
+  </div>
   );
 };
 

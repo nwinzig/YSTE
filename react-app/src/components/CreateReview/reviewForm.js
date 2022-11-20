@@ -46,9 +46,9 @@ function ReviewForm() {
     }
 
     return (
-        <div>
-            <h1 className='reviewformheader'>Leave a Review</h1>
+        <div className='review-form-wrapper'>
             <form className='reviewform' onSubmit={submitter}>
+            <div className='reviewformheader'>Leave a Review</div>
                 <ul className='editrerrors'>
                     {!!errors.length && errors.map((error, index) => (
                         <li key={index}>{error}</li>
@@ -56,16 +56,15 @@ function ReviewForm() {
                 </ul>
 
                 <div>
-                    <label> Review: </label>
-                    <input required value={review} onChange={e => setReview(e.target.value)} />
+
+                    <input className="review-input-field" placeholder='Leave a review' required minlength="5" maxlength="255" value={review} onChange={e => setReview(e.target.value)} />
                 </div>
                 <div>
-                    <label> Stars: </label>
-                    <input required type='number' value={stars} onChange={e => setStars(e.target.value)} />
+
+                    <input className='review-input-field' placeholder="Rating" required type='number' value={stars} onChange={e => setStars(e.target.value)} />
                 </div>
                 <div>
-                    <label>Image Url: </label>
-                    <input value={img} onChange={e => setImg(e.target.value)} />
+                    <input className='review-input-field' placeholder='Image URL' value={img} onChange={e => setImg(e.target.value)} />
                 </div>
                 <button className='reviewsubmit' type='submit'>Submit</button>
 
