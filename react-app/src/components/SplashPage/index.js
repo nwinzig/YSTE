@@ -43,22 +43,68 @@ function AllProducts() {
     // console.log('testing whats in spotlight', newSpotlightProducts[0]?.id)
 
     // fetch spotlight products
+    // let spotlightProducts = []
     // let findingProducts = async function(){
     //     const response = await fetch('/api/products')
     //     if(response.ok){
     //         const wantedProducts = await response.json()
+    //         const p = Promise.resolve(wantedProducts)
+    //         p.then( value =>{
+    //             console.log('this is p value', value)
+    //             console.log('keying into p value', value.Products[0])
+    //             let spotlightProducts= []
+    //             let numProducts = 0
+    //             while(spotlightProducts.length < 8){
+    //             let index = Math.floor(Math.random() * productList.length)
+    //             spotlightProducts.push(productList[index])
+    //             numProducts+=1
+    //         }   console.log('spotlight products', spotlightProducts)
+    //         let image1 = spotlightProducts[0]?.image1
+    //         let price1 = spotlightProducts[0]?.price
+    //         let image2 = spotlightProducts[1]?.image1
+    //         let price2 = spotlightProducts[1]?.price
+    //         let image3 = spotlightProducts[2]?.image1
+    //         let price3 = spotlightProducts[2]?.price
+    //         let image4 = spotlightProducts[3]?.image1
+    //         let price4 = spotlightProducts[3]?.price
+    //         let image5 = spotlightProducts[4]?.image1
+    //         let price5 = spotlightProducts[4]?.price
+    //         let image6 = spotlightProducts[5]?.image1
+    //         let price6 = spotlightProducts[5]?.price
+    //         let image7 = spotlightProducts[6]?.image1
+    //         let price7 = spotlightProducts[6]?.price
+    //         let image8 = spotlightProducts[7]?.image1
+    //         let price8 = spotlightProducts[7]?.price
+    //         console.log(`item 1: image: ${image1} price: ${price1}`)
+    //         console.log(`item 2: image: ${image2} price: ${price2}`)
+    //         console.log(`item 3: image: ${image3} price: ${price3}`)
+    //         console.log(`item 4: image: ${image4} price: ${price4}`)
+    //         console.log(`item 5: image: ${image5} price: ${price5}`)
+    //         console.log(`item 6: image: ${image6} price: ${price6}`)
+    //         console.log(`item 7: image: ${image7} price: ${price7}`)
+    //         console.log(`item 8: image: ${image8} price: ${price8}`)
+    //         console.log('this is p value after randomizer', spotlightProducts)
+    //         // return spotlightProducts
+    // })
     //         console.log('what are you', wantedProducts)
-    //         return wantedProducts
+    //         console.log('ppppppppppp', p)
+    //         // console.log('wanted========', wantedProducts.Products[0])
+
     //     }
-    //     return
+
     // }
+    // console.log('this is hope',  findingProducts())
+            // return wantedProducts
+
+        // return
+
     // let myProducts = findingProducts()
-            // const findMe = fetch('/api/products')
-            //     .then((response) => {
-            //         const newResponse = response.json()
-            //         console.log('the response', newResponse)
-            //         return newResponse
-            //     })
+    //         const findMe = fetch('/api/products')
+    //             .then((response) => {
+    //                 const newResponse = response.json()
+    //                 console.log('the response', newResponse)
+    //                 return newResponse
+    //             })
 
             // const beMyProducts = async () => {
             //     const theProducts = await findMe;
@@ -91,7 +137,6 @@ function AllProducts() {
 
     // let testing = Object.values(goodProducts)
     //get random spotlight images
-
     // let spotlightProducts = []
     // let numProducts = 0
     // while(numProducts < 8){
@@ -264,7 +309,7 @@ function AllProducts() {
                 </h2>
             </div>
             <div className='productCardWrapper'>
-                {loaded && productList.map(product => {
+                {loaded && productList?.map(product => {
                     return (
                         <ProductCard key={product?.id} product={product} />
                     )

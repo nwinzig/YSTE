@@ -152,6 +152,14 @@ function CartComponent() {
                         <h4 className="howToPay">
                             How you'll pay
                         </h4>
+                        <div className="checkout-inner-select">
+                        {/* <div className="visa-select">
+                            <input type="radio" className="visa" value='visa'>
+                                </input>
+                                <img src="https://usa.visa.com/dam/VCOM/regional/ve/romania/blogs/hero-image/visa-logo-800x450.jpg"/>
+
+                            </div> */}
+                        </div>
                         <div className="totalPriceWrapper">
                             <h4>
                                 Item(s) total:
