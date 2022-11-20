@@ -54,15 +54,36 @@ function CartComponent() {
         total = 0
     })
 
-    //
+    // spotlight products
+    // let spotlightProducts = []
+    // let numProducts = 0
+    // while(numProducts < 5){
+    //     let index = Math.floor(Math.random() * productsArr.length-1)
+    //     spotlightProducts.push(productsArr[index])
+    //     numProducts+=1
+    // }
+    // console.log('spotlight products', spotlightProducts)
+
+    const [newSpotlightProducts, setNewSpotlightProducts] = useState([])
+    useEffect(() => {
+
+        async function fetchSpotlight(){
+            const request = await fetch('/api/products/spotlight')
+            console.log('the original request', request)
+            const newRequest = await request.json()
+            console.log('what happens with this new request', newRequest)
+            setNewSpotlightProducts(newRequest.Products)
+        }
+        fetchSpotlight()
+        },[])
+
     let spotlightProducts = []
-    let numProducts = 0
-    while(numProducts < 5){
-        let index = Math.floor(Math.random() * productsArr.length-1)
-        spotlightProducts.push(productsArr[index])
-        numProducts+=1
+    let i =0
+    while(i<5){
+        spotlightProducts.push(newSpotlightProducts[i])
+        i++
     }
-    console.log('spotlight products', spotlightProducts)
+    // console.log('this should work i will go ', spotlightProducts)
 
 
     // console.log('cartItems', cartItems)
