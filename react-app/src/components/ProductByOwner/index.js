@@ -25,15 +25,20 @@ function OwnerProducts() {
 
 
     return (
-        <div className='your-products-container'>
-            <div className='your-products-header' style={{textAlign:'center'}}>
-            <h1>My Products!</h1>
-            <button onClick={addBtn}>+</button>
-            </div>
-            <div className='product-card-outer-wrapper'>
-                {loaded && products?.map(product => (
-                    <OwnerItemCard key={product.id} product={product} />
-                ))}
+        <div className='your-products-outer-wrapper'>
+            <div className='your-products-container'>
+                <div className='your-products-header' style={{textAlign:'center'}}>
+                <h1>My Products!</h1>
+                <div className='your-products-button-container'>
+                    <button onClick={addBtn}>Create Product</button>
+                
+                </div>
+                </div>
+                <div className='product-card-outer-wrapper'>
+                    {loaded && products?.map(product => (
+                        <OwnerItemCard key={product.id} product={product} />
+                    ))}
+                </div>
             </div>
         </div>
     )
