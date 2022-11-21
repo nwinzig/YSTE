@@ -82,7 +82,7 @@ function ProductForm() {
                 Start selling on YSTE!
             </h2>
             {error && (
-                <div className="edit-error-map">{error.map((error, i) => (
+                <div className="create-errors-map">{error.map((error, i) => (
                     <div key={i}>{error}</div>
                     ))}
                 </div>

@@ -112,8 +112,8 @@
 
 .create-errors-map {
     position: relative;
-    /* bottom: 12px; */
-    right:20px;
+    bottom: 12px;
+    left: 35px;
     font-size: 18px;
     color: red
 }
