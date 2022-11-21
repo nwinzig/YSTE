@@ -55,6 +55,9 @@
 .editrerrors {
     color: red;
     margin-bottom: 40px;
+    position: relative;
+    left: 25px;
+    top: 35px
 }
 
 .review-input-field{

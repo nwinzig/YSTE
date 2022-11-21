@@ -32,10 +32,10 @@ function EditReviewForm() {
             return
         }
 
-        // if (!img.split('?')[0].match(imageCheck)) {
-        //     setErrors(['Image must be valid: jpg, jpeg, png, webp, avif, gif, svg'])
-        //     return
-        // }
+        if (!img.split('?')[0].match(imageCheck)) {
+            setErrors(['Image must be valid: jpg, jpeg, png, webp, avif, gif, svg'])
+            return
+        }
 
         let obj = {
             review,
@@ -52,11 +52,11 @@ function EditReviewForm() {
         <div className='edit-review-wrapper'>
         <form className='editreviewform' onSubmit={submitter}>
             <div className='edit-review'>Edit Your Review</div>
-            <ul className='rerrors'>
+            <div className='errors-map'>
                 {!!errors.length && errors.map((error, index) => (
-                    <li key={index}>{error}</li>
+                    <div key={index}>{error}</div>
                     ))}
-            </ul>
+            </div>
             <div>
                 <input className="editreview-input-field" placeholder='Leave a review' required minlength="5" maxlength="255" value={review} onChange={e => setReview(e.target.value)} />
             </div>

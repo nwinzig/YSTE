@@ -48,9 +48,12 @@
     /* margin-top: -20px; */
     position: relative;
 }
-.rerrors {
+.errors-map {
     color: red;
     margin-bottom: 40px;
+    position: relative;
+    left: 25px;
+    top: 35px
 }
 
 .editreview-input-field{
