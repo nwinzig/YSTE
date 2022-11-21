@@ -29,10 +29,10 @@ function ReviewForm() {
             return
         }
 
-        // if (!img.split('?')[0].match(imageCheck)) {
-        //     setErrors(['Image must be valid: jpg, jpeg, png, webp, avif, gif, svg'])
-        //     return
-        // }
+        if (!img.split('?')[0].match(imageCheck)) {
+            setErrors(['Image must be valid: jpg, jpeg, png, webp, avif, gif, svg'])
+            return
+        }
 
         let obj = {
             review,
@@ -49,11 +49,11 @@ function ReviewForm() {
         <div className='review-form-wrapper'>
             <form className='reviewform' onSubmit={submitter}>
             <div className='reviewformheader'>Leave a Review</div>
-                <ul className='editrerrors'>
+                <div className='editrerrors'>
                     {!!errors.length && errors.map((error, index) => (
-                        <li key={index}>{error}</li>
+                        <div key={index}>{error}</div>
                     ))}
-                </ul>
+                </div>
 
                 <div>
 

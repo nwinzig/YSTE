@@ -73,7 +73,7 @@
 }
 .category-select{
     height: 40px;
-    width: 56.5%;
+    width: 54.5%;
     border: 2px solid black;
     /* border-color: black; */
     border-radius: 10px;
@@ -122,9 +122,10 @@
     border: #F1641D
 } */
 
-.error-map {
-    margin-left: 87px;
-    margin-top: 40px;
+.edit-error-map {
+    position: relative;
+    bottom: 12px;
+    left: 35px;
     font-size: 18px;
     color: red
 }

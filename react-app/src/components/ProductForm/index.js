@@ -9,6 +9,7 @@ function ProductForm() {
     const prodlist = useSelector(state => state.products.products)
     // console.log('###########', prodlist)
 
+    const [error, setError] = useState([])
     const [productName, setProductName] = useState('')
     const [description, setDescription] = useState('')
     const [price, setPrice] = useState('')
@@ -17,37 +18,37 @@ function ProductForm() {
     const [image2, setImage2] = useState('')
     const [image3, setImage3] = useState('')
     const [image4, setImage4] = useState('')
-    const [errors, setErrors] = useState([])
     const history = useHistory()
 
     const dispatch = useDispatch()
 
     const imageCheck = /\.(jpg|jpeg|png|webp|avif|gif|svg)$/
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         let priceInt = parseFloat(price)
         let newprice = (Math.round(priceInt * 100) / 100).toFixed(2)
         e.preventDefault()
-        let errors = []
-        if (productName.length < 5 || productName.length > 240) {
-            errors.push(['Product Name must be between 5 and 240'])
+        setError([])
 
+        if (productName.length < 5 || productName.length > 240) {
+            setError(['Product Name must be between 5 and 240'])
+            return
         }
         if (description.length < 5 || description.length > 240) {
-            errors.push(['Description must be between 5 and 240 characters'])
-
+            setError(['Description must be between 5 and 240 characters'])
+            return
         }
 
         if (Number(price) > 1000000) {
-            errors.push(['Price must be between $1 and $1,000,000'])
-
+            setError(['Price must be between $1 and $1,000,000'])
+            return
         }
 
         if (!image1.split('?')[0].match(imageCheck)) {
-            errors.push('Image must be valid: jpg, jpeg, png, webp, avif, gif, svg')
+            setError(['Image must be valid: jpg, jpeg, png, webp, avif, gif, svg'])
+            return
         }
 
 
-        setErrors(errors)
 
         let newProduct = {
             'product_name': productName,
@@ -62,12 +63,13 @@ function ProductForm() {
         }
 
 
-        if (productName.length > 5 && description.length > 5 && price < 1000000 && price > 1) {
+        // if (productName.length > 5 && description.length > 5 && price < 1000000 && price > 1 && imageCheck) {
 
+            setError([])
             dispatch(CreateSingleProduct(newProduct)).then(() => dispatch(getUserProducts()))
 
             return history.push('/your-products')
-        }
+        // }
 
     }
 
@@ -79,11 +81,11 @@ function ProductForm() {
             <h2 className='alignCenter'>
                 Start selling on YSTE!
             </h2>
-            {errors && (
-                <ul className="error-map">{errors.map((error, i) => (
-                    <li key={i}>{error}</li>
+            {error && (
+                <div className="edit-error-map">{error.map((error, i) => (
+                    <div key={i}>{error}</div>
                     ))}
-                </ul>
+                </div>
             )}
             <div className='productform'>
                 <div className='hello'>

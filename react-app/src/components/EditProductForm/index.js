@@ -68,10 +68,10 @@ function EditProductForm() {
                 Update your product
             </h2>
             {errors && (
-                <ul className="error-map">{errors.map((error, i) => (
-                    <li key={i}>{error}</li>
+                <div className="edit-error-map">{errors.map((error, i) => (
+                    <div key={i}>{error}</div>
                     ))}
-                </ul>
+                </div>
             )}
             <div className='productform'>
                 <div className='hello'>
