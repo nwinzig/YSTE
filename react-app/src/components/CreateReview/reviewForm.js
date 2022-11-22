@@ -64,7 +64,7 @@ function ReviewForm() {
                     <input className='review-input-field' placeholder="Rating" required type='number' value={stars} onChange={e => setStars(e.target.value)} />
                 </div>
                 <div>
-                    <input className='review-input-field' placeholder='Image URL' value={img} onChange={e => setImg(e.target.value)} />
+                    <input required className='review-input-field' placeholder='Image URL' value={img} onChange={e => setImg(e.target.value)} />
                 </div>
                 <button className='reviewsubmit' type='submit'>Submit</button>
 

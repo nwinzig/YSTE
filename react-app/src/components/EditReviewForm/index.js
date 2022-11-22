@@ -32,7 +32,7 @@ function EditReviewForm() {
             return
         }
 
-        if (!img.split('?')[0].match(imageCheck)) {
+        if (!img?.split('?')[0].match(imageCheck)) {
             setErrors(['Image must be valid: jpg, jpeg, png, webp, avif, gif, svg'])
             return
         }
@@ -64,7 +64,7 @@ function EditReviewForm() {
             <input className='editreview-input-field' placeholder="Rating" required type='number' value={stars} onChange={e => setStars(e.target.value)} />
             </div>
             <div>
-            <input minlength="3" className='editreview-input-field' placeholder='Image URL' value={img} onChange={e => setImg(e.target.value)} />
+            <input required minlength="3"  className='editreview-input-field' placeholder='Image URL' value={img} onChange={e => setImg(e.target.value)} />
             </div>
             <button className='editreviewbtn' type='submit'>Submit</button>
 
