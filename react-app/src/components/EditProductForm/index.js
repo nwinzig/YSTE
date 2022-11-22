@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import './EditProductForm.css'
 
 
-let categories = [{ value: 'Cars' }, { value: 'Clothing' }, { value: 'Electronics' }, { value: 'Home Goods' }, { value: 'miscellaneous' }]
+let categories = [{ value: 'Cars' }, { value: 'Clothing' }, { value: 'Electronics' }, { value: 'Home Goods' }, { value: 'Miscellaneous' }]
 
 function EditProductForm() {
     const products = useSelector(state => state.products.products)
