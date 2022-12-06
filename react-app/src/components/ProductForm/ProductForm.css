@@ -89,7 +89,7 @@
     display: inline;
     margin-left: 15px;
     height: 30px;
-    width: 150px;
+    width: 140px;
     border-radius: 10px;
     border: 2px solid black;
 }
@@ -110,9 +110,10 @@
     border: #F1641D
 } */
 
-.error-map {
-    margin-left: 87px;
-    margin-top: 40px;
+.create-errors-map {
+    position: relative;
+    bottom: 12px;
+    left: 35px;
     font-size: 18px;
     color: red
 }

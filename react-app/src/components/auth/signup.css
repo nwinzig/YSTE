@@ -47,6 +47,10 @@
 .signuperrors {
     color: red;
     margin-bottom: 40px;
+    position: relative;
+    left: 26px;
+    top: 39px;
+
 }
 
 .signup-input-field{
