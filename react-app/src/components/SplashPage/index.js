@@ -16,7 +16,7 @@ function AllProducts() {
     let productList = Object.values(products)
 
     useEffect(() => {
-        dispatch(getAllProducts()).then(() => dispatch(getCurrentCart())).then(setLoaded(true))
+        dispatch(getAllProducts()).then(() => setLoaded(true))
     }, [dispatch])
 
     let intro

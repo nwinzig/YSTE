@@ -50,7 +50,7 @@ const SearchBar = () => {
                     </div>
 
                         <button className='searchButton' type='submit'>
-                            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+                            <i className="fa-solid fa-magnifying-glass fa-xl"></i>
                         </button>
 
                 </div>
